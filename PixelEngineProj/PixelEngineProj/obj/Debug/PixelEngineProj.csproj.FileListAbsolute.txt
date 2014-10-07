@@ -1,0 +1,30 @@
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe.config
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.pdb
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\sfmlnet-audio-2.dll
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\sfmlnet-graphics-2.dll
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\sfmlnet-window-2.dll
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.Properties.Resources.resources
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csproj.GenerateResource.Cache
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe
+E:\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.pdb
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe.config
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.pdb
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csprojResolveAssemblyReference.cache
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.Properties.Resources.resources
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csproj.GenerateResource.Cache
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe
+C:\Users\malco_000\Google Drive\PixelEngineBackup\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.pdb
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe.config
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.pdb
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.pdb
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.Properties.Resources.resources
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csproj.GenerateResource.Cache
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe.manifest
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.application
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe.manifest
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.application
+C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csprojResolveAssemblyReference.cache
