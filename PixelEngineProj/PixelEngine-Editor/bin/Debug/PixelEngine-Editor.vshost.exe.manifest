@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine-Editor.exe" size="136704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine-Editor.exe" size="160768">
       <assemblyIdentity name="PixelEngine-Editor" version="0.0.1.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5g/ols8YlaHr12NXbcG4Z3laiYDh8RSG4m8SxkUohRM=</dsig:DigestValue>
+        <dsig:DigestValue>BEkP56MeGBJC11HFsKm8Hu+E+enPw5q3rhCipvs77pc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngineProj.exe" size="10752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngineProj.exe" size="11264">
       <assemblyIdentity name="PixelEngineProj" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ne3myGpl0Fppne1zK2tgqwukUo3UdjbUhsm7SbH40Hw=</dsig:DigestValue>
+        <dsig:DigestValue>lADH0W9g2DrWMVJhDxVjQZarJD+4WBo/Z0tKcFjja2Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

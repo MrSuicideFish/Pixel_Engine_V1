@@ -9,7 +9,6 @@ using SFML.Window;
 namespace PixelEngineProj.System {
     public class PixelObject{
         public string id;
-
         public PixelObject(string _id = null) {
             //Assign an id to this object
             if (_id == null) {
@@ -19,11 +18,7 @@ namespace PixelEngineProj.System {
                 id = _id;
             }
         }
-
-        protected void Update(){
-        }
-
-        protected void Draw() {
-        }
+        protected void Update(){}
+        protected void Draw() {}
     }
 }
