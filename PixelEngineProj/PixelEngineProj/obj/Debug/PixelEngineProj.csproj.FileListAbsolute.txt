@@ -28,3 +28,15 @@ C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngine
 C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe.manifest
 C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.application
 C:\PixalEngine\PixelEngine\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csprojResolveAssemblyReference.cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe.config
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe.manifest
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.application
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.exe
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\Debug\PixelEngineProj.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csprojResolveAssemblyReference.cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.Properties.Resources.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.csproj.GenerateResource.Cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.exe.manifest
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\Debug\PixelEngineProj.application

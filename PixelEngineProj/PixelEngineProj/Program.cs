@@ -24,7 +24,7 @@ namespace PixelEngineProj {
 
         static void Main(string[] args) {
             // Create the main _window
-            _window = new RenderWindow(new VideoMode(1920, 1080), "Pixel Engine", Styles.Fullscreen);
+            _window = new RenderWindow(new VideoMode(1280, 720), "Pixel Engine", Styles.Titlebar);
             _window.SetVerticalSyncEnabled(true);
             _window.Resized += new EventHandler<SizeEventArgs>(onResize);
             _window.Closed += new EventHandler(OnClose);
