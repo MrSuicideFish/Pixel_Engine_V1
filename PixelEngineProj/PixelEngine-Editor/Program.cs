@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using PixelEngineProj;
 
 namespace PixelEngine_Editor {
     static class Program {
         //Engine
-        private static string EngineVersion = "Pixel Engine 0.01a";
+        private static string EngineVersion = PixelEngineProj.Program.engineName;
 
         //Project
         public static bool bProjectLoaded = false;
@@ -34,32 +35,29 @@ namespace PixelEngine_Editor {
             form.WindowStatus = "Initializing Engine";
 
             DrawingSurface rendersurface = new DrawingSurface();
-
             rendersurface.Size = new System.Drawing.Size(form.Width, form.Height);
-
-            form.Controls.Add(rendersurface);
             rendersurface.Location = new System.Drawing.Point(0, 0);
 
+            form.Controls.Add(rendersurface);
             form.WindowStatus = "Engine Started!";
-
-            //Initialize the resources form
-            ResourcesForm resourcesForm = new ResourcesForm();
-            resourcesForm.Size = new System.Drawing.Size(800, 600);
-            resourcesForm.Location = new System.Drawing.Point(form.Location.X + form.Width, form.Location.Y);
-            resourcesForm.Show();
 
             // initialize sfml
             SFML.Graphics.RenderWindow renderwindow = new SFML.Graphics.RenderWindow(rendersurface.Handle);
 
             // drawing loop
-            while (form.Visible)
-            {
+            while (form.Visible) {
                 System.Windows.Forms.Application.DoEvents();
                 renderwindow.DispatchEvents();
-                renderwindow.Clear(SFML.Graphics.Color.Black);
+                renderwindow.Clear(SFML.Graphics.Color.Magenta);
                 renderwindow.Display();
-                rendersurface.Size = new System.Drawing.Size(form.Width, form.Height);
+                rendersurface.Size = new System.Drawing.Size(form.Width - 300, form.Height);
             }
+
+            //Initialize the resources form
+            //ResourcesForm resourcesForm = new ResourcesForm();
+            //resourcesForm.Size = new System.Drawing.Size(800, 600);
+            //resourcesForm.Location = new System.Drawing.Point(form.Location.X + form.Width, form.Location.Y);
+            //resourcesForm.Show();
         }
 
         public static void LoadProject(string newProjName, string newProjDir) {
@@ -84,18 +82,31 @@ namespace PixelEngine_Editor {
             Main();
         }
 
+        public static void EngineMessage(string message, string messageType = "") {
+            ConsoleColor newColor = ConsoleColor.White;
+            switch (messageType) {
+                case "Warning":
+                    newColor = ConsoleColor.Yellow;
+                    break;
+                case "Exception":
+                    newColor = ConsoleColor.Red;
+                    break;
+                case "Confirm":
+                    newColor = ConsoleColor.Green;
+                    break;
+                default:
+                    newColor = ConsoleColor.White;
+                    break;
+            }
+            Console.ForegroundColor = newColor;
+            Console.WriteLine("["+DateTime.Now.ToLocalTime() +"] " + message);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
     public class DrawingSurface : System.Windows.Forms.Control
     {
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
-        {
-        }
-        protected override void OnPaintBackground(System.Windows.Forms.PaintEventArgs pevent)
-        {
-        }
-
-        void ShowGrid(System.Windows.Forms.PaintEventArgs e) {
-            
-        }
+        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e){}
+        protected override void OnPaintBackground(System.Windows.Forms.PaintEventArgs pevent){}
+        void ShowGrid(System.Windows.Forms.PaintEventArgs e) {}
     }
 }

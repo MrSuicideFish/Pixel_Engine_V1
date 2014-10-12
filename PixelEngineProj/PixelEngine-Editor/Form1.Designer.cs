@@ -44,6 +44,7 @@
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.entityList = new System.Windows.Forms.TreeView();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -229,6 +230,22 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
             this.aboutToolStripMenuItem1.Text = "About..";
             // 
+            // entityList
+            // 
+            this.entityList.AccessibleName = "entityList";
+            this.entityList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.entityList.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.entityList.Dock = System.Windows.Forms.DockStyle.Right;
+            this.entityList.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.entityList.Location = new System.Drawing.Point(387, 24);
+            this.entityList.Name = "entityList";
+            this.entityList.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.entityList.Size = new System.Drawing.Size(300, 427);
+            this.entityList.TabIndex = 4;
+            this.entityList.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.entityList_Dragged);
+            this.entityList.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.entityList_DblClick);
+            this.entityList.Enter += new System.EventHandler(this.entityList_Load);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,11 +254,12 @@
             this.BackgroundImage = global::PixelEngine_Editor.Properties.Resources.WindowGradient;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(687, 473);
+            this.Controls.Add(this.entityList);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
             this.DoubleBuffered = true;
             this.Name = "Form1";
-            this.Text = "Pixel Engine 0.01a";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -274,6 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
+        private System.Windows.Forms.TreeView entityList;
     }
 }
-

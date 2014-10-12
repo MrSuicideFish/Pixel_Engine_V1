@@ -11,21 +11,20 @@ using System.IO;
 
 namespace PixelEngine_Editor {
     public partial class ResourcesForm : Form {
-        private string CurrentDir;
+        private string ResourceDir;
+        private bool bDirectoryLoaded;
 
         public ResourcesForm() {
             InitializeComponent();
-            if (Program.bProjectLoaded) {
-                //Populate the directories list
-                PopulateBrowser(Program._projdir+"/Resources");
-                CurrentDir = Program._projdir+"/Resources";
-            }
+            //if (Program.bProjectLoaded) {
+            //    //Populate the directories list
+            //    PopulateBrowser(Program._projdir+"/Resources");
+            //    ResourceDir = Program._projdir+"/Resources";
+            //}
             IconSizeTrackBar.Value = 5;
         }
 
-        private void importToolStripMenuItem_Click(object sender, EventArgs e) {
-
-        }
+        private void importToolStripMenuItem_Click(object sender, EventArgs e) {}
 
         private void PopulateBrowser(string Dir) {
             //Get the browser icons
@@ -33,8 +32,10 @@ namespace PixelEngine_Editor {
             Image FolderUpIcon = Image.FromFile("Resources/FolderUpIcon.png");
 
             if (Directory.Exists(Dir)) {
-                CurrentDir = Dir;
-                //Do up directory
+                if (ResourcePanel.Controls.Count > 0) {
+                    ResourcePanel.Controls.Clear();
+                }
+
                 if (Dir == Program._projdir + "/Resources") {
                     Button UpFolder = new Button();
                     UpFolder.ForeColor = Color.White;
@@ -46,7 +47,7 @@ namespace PixelEngine_Editor {
                     UpFolder.Image = FolderUpIcon;
                     ResourcePanel.Controls.Add(UpFolder);
                 }
-                //populate sub directories
+
                 string[] Items = new string[Directory.GetFileSystemEntries(Dir).Length];
                 Items = Directory.GetFileSystemEntries(Dir);
 
@@ -63,7 +64,6 @@ namespace PixelEngine_Editor {
                     if (Directory.Exists(item)) {
                         newFolder.Image = FolderIcon;
                         newFolder.ImageAlign = ContentAlignment.MiddleCenter;
-                        //newFolder.Click += new EventHandler(Folder_DoubleClick(newFolder, d.FullName));
                     }
                     ResourcePanel.Controls.Add(newFolder);
                     ResourcePanel.AutoSize = true;
@@ -72,7 +72,6 @@ namespace PixelEngine_Editor {
         }
 
         private void Folder_DoubleClick(object sender, EventArgs e) {
-            Console.WriteLine(sender);
             //Clear all of the buttons in the panel
             while (ResourcePanel.Controls.Count > 0) {
                 for (int i = 0; i < ResourcePanel.Controls.Count; i++) {
@@ -81,7 +80,7 @@ namespace PixelEngine_Editor {
             }
 
             //Populate the panel again
-            //PopulateBrowser(CurrentDir + sender.
+            //PopulateBrowser(ResourceDir + sender.
         }
         private void IconSizeTrackBar_Scroll(object sender, EventArgs e) {
             if (IconSizeTrackBar.Value != 0) {
@@ -99,11 +98,23 @@ namespace PixelEngine_Editor {
                     ResourcePanel.Controls[i].Dispose();
                 }
             }
-            PopulateBrowser(CurrentDir);
+            PopulateBrowser(ResourceDir);
         }
 
         private void openInExplorerToolStripMenuItem_Click(object sender, EventArgs e) {
-            //System.Diagnostics.Process.Start(CurrentDir);
+            //System.Diagnostics.Process.Start(ResourceDir);
+        }
+
+        private void directoryToolStripMenuItem_Click(object sender, EventArgs e) {
+            FolderBrowserDialog browser = new FolderBrowserDialog();
+            browser.ShowDialog();
+
+            ResourceDir = browser.SelectedPath;
+            bDirectoryLoaded = true;
+
+            if (bDirectoryLoaded) {
+                PopulateBrowser(ResourceDir);
+            }
         }
     }
 }
