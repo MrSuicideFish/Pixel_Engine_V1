@@ -12,6 +12,7 @@ namespace PixelEngineProj.System {
     static class PixelScene{
 
         private static string currentLevel;
+        private static Gameplay.PixelSprite[] spriteBatch;
 
         public static int Init(string _scene) {
             if (_scene != "" && _scene != null) {

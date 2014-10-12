@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editor\EditorSprite.cs" />
+    <Compile Include="Editor\EditorTesting.cs" />
+    <Compile Include="Editor\EditorPlaceable.cs" />
     <Compile Include="Gameplay\PixelSprite.cs" />
     <Compile Include="Interfaces\IScene.cs" />
     <Compile Include="Program.cs" />

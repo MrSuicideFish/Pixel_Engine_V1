@@ -9,40 +9,26 @@ using SFML.Window;
 using PixelEngineProj.System;
 
 namespace PixelEngineProj.Gameplay {
-    class PixelSprite : PixelObject{
+    public class PixelSprite : Sprite{
+        public PixelSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
+            if (texPath != null) {
+                //Init a new texture
+                Texture newTex = new Texture(texPath, texRect);
+                newTex.Update(new Image(texPath));
 
-        public static Texture _tex {get;set;}
-        public Vector2f position;
-        public float rotation;
+                //Init texture params
+                Texture = newTex;
+                Texture.Smooth = false;
+                Texture.Repeated = texRepeat;
 
-        public PixelSprite(string spriteTexture = null) {
-            if (spriteTexture != null) {
-                SetSpriteTexture(null,spriteTexture);
+                //Assign sprite's loc and rot
+                Rotation = spriteRotation;
+                Position = position;
             }
         }
 
-        public Texture GetSpriteTexture() {return _tex;}
-
-        public void SetSpriteTexture(Texture newTexture = null, string newTexturePath = "") {
-            if (newTexture != null) {
-                _tex.Dispose();
-                _tex = new Texture(newTexture);
-            } else {
-                if (newTexturePath != null && newTexturePath != "") {
-                    _tex.Dispose();
-                    _tex = new Texture(newTexturePath);
-                } else {
-                    Console.WriteLine("Neither texture nor path were disclosed. SetSpriteTexture() failed with -1.");
-                }
-            }
-        }
-
-        protected void Update() {
-            base.Update();
-        }
-
-        protected void Draw() {
-            base.Draw();
+        public void Draw(RenderTarget target, RenderStates states) {
+            base.Draw(target, new RenderStates(Texture));
         }
     }
 }

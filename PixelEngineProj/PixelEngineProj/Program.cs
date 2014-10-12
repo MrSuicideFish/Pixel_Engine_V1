@@ -8,7 +8,9 @@ using PixelEngineProj.System;
 
 
 namespace PixelEngineProj {
-    class Program {
+    public class Program {
+        public static string engineName = "Pixel Engine 0.02a";
+
         private static RenderWindow _window;
 
         //Timers and clocks
@@ -22,16 +24,21 @@ namespace PixelEngineProj {
         private static bool bDevMode = true;
         private static SFML.Graphics.Font systemFont;
 
+        /// <summary>
+        /// Global
+        /// </summary>
+        public static TimeSpan _deltaTime = new TimeSpan();
+
         static void Main(string[] args) {
             // Create the main _window
-            _window = new RenderWindow(new VideoMode(1920, 1080), "Pixel Engine", Styles.Fullscreen);
+            _window = new RenderWindow(new VideoMode(1280, 720), "Pixel Engine", Styles.Titlebar);
             _window.SetVerticalSyncEnabled(true);
             _window.Resized += new EventHandler<SizeEventArgs>(onResize);
             _window.Closed += new EventHandler(OnClose);
 
             //Create the main camera and hud camera
-            View MainCamera = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
-            View HUDCamera = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
+            View renderView = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
+            View renderViewUI = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
 
             //Initiate modules
             PixelScene.Init("");
@@ -40,13 +47,7 @@ namespace PixelEngineProj {
             LoadSystemResources();
 
             //Testing DEBUG
-            Texture texture = new Texture("Resources/deleteMe.png", new IntRect(0,0,300, 300));
-            texture.Update(_window);
-            Sprite newSprite = new Sprite(texture);
-            newSprite.Texture = texture;
-            newSprite.Rotation = 180;
-            texture.Smooth = false;
-            texture.Repeated = false;
+            Gameplay.PixelSprite newSprite = new Gameplay.PixelSprite("Resources/deleteMe.png", new IntRect(0,0,300,300), new Vector2f(200, 200));
 
             //Fps stuff
             clock.Start();
@@ -67,7 +68,7 @@ namespace PixelEngineProj {
 
                 // Clear screen
                 _window.Clear();
-                _window.SetView(MainCamera);
+                _window.SetView(renderView);
 
                 /// <summary>
                 /// UPDATES AND DRAW CALLS HERE
@@ -79,9 +80,7 @@ namespace PixelEngineProj {
                 else
                     new ApplicationException("Exception: Could not complete Update process on PixelScene.Update()");
 
-                newSprite.Position = new Vector2f(300, 300);
-                newSprite.Scale = new Vector2f(3, 3);
-                newSprite.Draw(_window, new RenderStates(texture));
+                newSprite.Draw(_window, new RenderStates());
 
                 /// <summary>
                 /// DEBUG DEV MODE DRAWING
@@ -89,16 +88,16 @@ namespace PixelEngineProj {
                 if (bDevMode) {
                     //Camera controls
                     if (Keyboard.IsKeyPressed(Keyboard.Key.Left)){
-                        MainCamera.Move(new Vector2f((float)(-300 * deltaTime), 0));
+                        renderView.Move(new Vector2f((float)(-300 * deltaTime), 0));
                     }
                     if (Keyboard.IsKeyPressed(Keyboard.Key.Right)) {
-                        MainCamera.Move(new Vector2f((float)(300 * deltaTime), 0));
+                        renderView.Move(new Vector2f((float)(300 * deltaTime), 0));
                     }
                     if (Keyboard.IsKeyPressed(Keyboard.Key.Up)) {
-                        MainCamera.Move(new Vector2f(0, (float)(-300 * deltaTime)));
+                        renderView.Move(new Vector2f(0, (float)(-300 * deltaTime)));
                     }
                     if (Keyboard.IsKeyPressed(Keyboard.Key.Down)) {
-                        MainCamera.Move(new Vector2f(0, (float)(300 * deltaTime)));
+                        renderView.Move(new Vector2f(0, (float)(300 * deltaTime)));
                     }
 
                     Text debugHelp = new Text("Dev mode Enabled! Arrow Keys - Move", systemFont, 16);
@@ -110,7 +109,7 @@ namespace PixelEngineProj {
                     mouseWorldPos.Position = new Vector2f(0, 32);
 
                     //Do hud drawing
-                    _window.SetView(HUDCamera);
+                    _window.SetView(renderViewUI);
                     _window.Draw(fpsText);
                     _window.Draw(mouseScreenPos);
                     _window.Draw(mouseWorldPos);
@@ -119,8 +118,8 @@ namespace PixelEngineProj {
 
                 _window.Display();
                 frames++;
+
                 //Calculate deltaTime
-                TimeSpan _deltaTime = new TimeSpan();
                 _deltaTime = deltaClock.Elapsed;
                 deltaClock.Restart();
                 deltaTime = _deltaTime.TotalSeconds;
