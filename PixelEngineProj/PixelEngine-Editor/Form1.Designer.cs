@@ -45,6 +45,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entityList = new System.Windows.Forms.TreeView();
+            this.resourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -168,14 +169,14 @@
             // 
             this.gUIToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.gUIToolStripMenuItem.Name = "gUIToolStripMenuItem";
-            this.gUIToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.gUIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gUIToolStripMenuItem.Text = "GUI";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "Options..";
             // 
             // runToolStripMenuItem
@@ -211,6 +212,8 @@
             // 
             // windowToolStripMenuItem
             // 
+            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resourcesToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.windowToolStripMenuItem.Text = "Window";
@@ -245,6 +248,13 @@
             this.entityList.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.entityList_Dragged);
             this.entityList.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.entityList_DblClick);
             this.entityList.Enter += new System.EventHandler(this.entityList_Load);
+            // 
+            // resourcesToolStripMenuItem
+            // 
+            this.resourcesToolStripMenuItem.Name = "resourcesToolStripMenuItem";
+            this.resourcesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resourcesToolStripMenuItem.Text = "Resources";
+            this.resourcesToolStripMenuItem.Click += new System.EventHandler(this.resourcesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -293,5 +303,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.TreeView entityList;
+        private System.Windows.Forms.ToolStripMenuItem resourcesToolStripMenuItem;
     }
 }

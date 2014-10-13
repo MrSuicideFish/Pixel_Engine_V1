@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.IO;
 using PixelEngineProj;
 
 namespace PixelEngine_Editor {
@@ -16,6 +18,11 @@ namespace PixelEngine_Editor {
         public static string _projdir;
         public static string _projectname;
 
+        /// <summary>
+        /// Editor
+        /// </summary>
+        public static ResourcesForm resourcesForm;
+
         [STAThread]
         static void Main()
         {
@@ -25,14 +32,11 @@ namespace PixelEngine_Editor {
 
             // initialize the main engine form
             Form1 form = new Form1();
-            form.Size = new System.Drawing.Size(1280, 720);
-            if (bProjectLoaded)
-                form.Text = _projectname + " - " + EngineVersion;
-            else
-                form.Text = "No Project" + " - " + EngineVersion;
-
             form.Show(); // show our form
             form.WindowStatus = "Initializing Engine";
+
+            //Create a CFG (if needed)
+            LoadCfg();
 
             DrawingSurface rendersurface = new DrawingSurface();
             rendersurface.Size = new System.Drawing.Size(form.Width, form.Height);
@@ -44,20 +48,21 @@ namespace PixelEngine_Editor {
             // initialize sfml
             SFML.Graphics.RenderWindow renderwindow = new SFML.Graphics.RenderWindow(rendersurface.Handle);
 
+            //Initialize the resources form
+            resourcesForm = new ResourcesForm();
+            resourcesForm.Size = new System.Drawing.Size(800, 600);
+            resourcesForm.Location = new System.Drawing.Point(form.Location.X + form.Width, form.Location.Y);
+            resourcesForm.Show();
+            resourcesForm.Disposed += new EventHandler(DisposedResourceForm);
+
             // drawing loop
             while (form.Visible) {
                 System.Windows.Forms.Application.DoEvents();
                 renderwindow.DispatchEvents();
-                renderwindow.Clear(SFML.Graphics.Color.Magenta);
+                renderwindow.Clear(SFML.Graphics.Color.Black);
                 renderwindow.Display();
                 rendersurface.Size = new System.Drawing.Size(form.Width - 300, form.Height);
             }
-
-            //Initialize the resources form
-            //ResourcesForm resourcesForm = new ResourcesForm();
-            //resourcesForm.Size = new System.Drawing.Size(800, 600);
-            //resourcesForm.Location = new System.Drawing.Point(form.Location.X + form.Width, form.Location.Y);
-            //resourcesForm.Show();
         }
 
         public static void LoadProject(string newProjName, string newProjDir) {
@@ -82,16 +87,17 @@ namespace PixelEngine_Editor {
             Main();
         }
 
-        public static void EngineMessage(string message, string messageType = "") {
+        public enum eEngineMessageType { WARNING, EXCEPTION, CONFIRM, NONE};
+        public static void EngineMessage(string message, eEngineMessageType messageType = eEngineMessageType.NONE) {
             ConsoleColor newColor = ConsoleColor.White;
             switch (messageType) {
-                case "Warning":
+                case eEngineMessageType.WARNING:
                     newColor = ConsoleColor.Yellow;
                     break;
-                case "Exception":
+                case eEngineMessageType.EXCEPTION:
                     newColor = ConsoleColor.Red;
                     break;
-                case "Confirm":
+                case eEngineMessageType.CONFIRM:
                     newColor = ConsoleColor.Green;
                     break;
                 default:
@@ -101,6 +107,77 @@ namespace PixelEngine_Editor {
             Console.ForegroundColor = newColor;
             Console.WriteLine("["+DateTime.Now.ToLocalTime() +"] " + message);
             Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void CfgWriteNode(string cfgNode, object val) {
+            if (cfgNode != null && cfgNode != "" && val != null) {
+                List<string> lines = new List<string>();
+                if (File.Exists(Directory.GetCurrentDirectory() + "/PixelEngine.cfg")) {
+                    //Add cfg file to temp lines
+                    foreach (string line in File.ReadAllLines(Directory.GetCurrentDirectory() + "/PixelEngine.cfg")) {
+                        lines.Add(line);
+                    }
+                    //index of the desired node
+                    int nodeIndex;
+
+                    //Check if node exists
+                    if (CfgNodeExists(lines, cfgNode, out nodeIndex)) {
+                        lines[nodeIndex] = cfgNode + "=" + val;
+                    } else {
+                        lines.Add(cfgNode + "=" + val);
+                    }
+
+                    File.WriteAllLines(Directory.GetCurrentDirectory() + "/PixelEngine.cfg", lines.ToArray());
+                } else {
+                    LoadCfg();
+                }
+            }
+        }
+
+        private static bool CfgNodeExists(List<string> lines, string nodeId, out int lineIndex) {
+            bool exists = false;
+            lineIndex = 0;
+            for (int i = 0; i < lines.Count; i++) {
+                if (lines[i].IndexOf('=') > 0) {
+                    string _nId = lines[i].Substring(0, lines[i].IndexOf('='));
+                    if (_nId == nodeId) {
+                        lineIndex = i;
+                        exists = true;
+                    }
+                }
+            }
+                return exists;
+        }
+
+        public static object CfgGetNodeValue(string nodeId) {
+            var val = "";
+            if (File.Exists(Directory.GetCurrentDirectory() + "/PixelEngine.cfg")) {
+                string[] lines = File.ReadAllLines(Directory.GetCurrentDirectory() + "/PixelEngine.cfg");
+                for (int i = 0; i < lines.Length; i++) {
+                    if (lines[i].IndexOf('=') > 0) {
+                        string _nId = lines[i].Substring(0, lines[i].IndexOf('='));
+                        if (_nId == nodeId) {
+                            val = lines[i].Substring(lines[i].IndexOf('=') + 1,
+                                lines[i].Length - lines[i].IndexOf('=') - 1);
+                        }
+                    }
+                }
+            } else {
+                LoadCfg();
+            }
+            return val;
+        }
+
+        public static void LoadCfg() {
+            if (!File.Exists(Directory.GetCurrentDirectory() + "/PixelEngine.cfg")) {
+                EngineMessage("No config found. Creating new  PixelEngine.cfg", eEngineMessageType.WARNING);
+                string[] cfgVal = {};
+                File.WriteAllLines(Directory.GetCurrentDirectory() + "/PixelEngine.cfg", cfgVal);
+            }
+        }
+
+        private static void DisposedResourceForm(object sender, EventArgs args) {
+            resourcesForm = null;
         }
     }
     public class DrawingSurface : System.Windows.Forms.Control

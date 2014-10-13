@@ -26,6 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResourcesForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.IconSizeTrackBar = new System.Windows.Forms.TrackBar();
             this.ResourcePanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -35,8 +36,7 @@
             this.openInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconSizeTrackBar)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -44,15 +44,33 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Margin = new System.Windows.Forms.Padding(1);
+            this.menuStrip1.MaximumSize = new System.Drawing.Size(0, 300);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(687, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(687, 50);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.AutoSize = false;
+            this.openToolStripMenuItem.BackgroundImage = global::PixelEngine_Editor.Properties.Resources.FolderIcon;
+            this.openToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.openToolStripMenuItem.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.openToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Overflow = System.Windows.Forms.ToolStripItemOverflow.AsNeeded;
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(60, 60);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -82,12 +100,15 @@
             // ResourcePanel
             // 
             this.ResourcePanel.AutoScroll = true;
+            this.ResourcePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ResourcePanel.BackColor = System.Drawing.Color.Transparent;
+            this.ResourcePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ResourcePanel.ContextMenuStrip = this.contextMenuStrip1;
             this.ResourcePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ResourcePanel.Location = new System.Drawing.Point(0, 24);
+            this.ResourcePanel.Location = new System.Drawing.Point(0, 50);
             this.ResourcePanel.Name = "ResourcePanel";
-            this.ResourcePanel.Size = new System.Drawing.Size(687, 511);
+            this.ResourcePanel.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.ResourcePanel.Size = new System.Drawing.Size(687, 485);
             this.ResourcePanel.TabIndex = 4;
             // 
             // contextMenuStrip1
@@ -134,20 +155,19 @@
             this.folderToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.folderToolStripMenuItem.Text = "Folder";
             // 
-            // openToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.directoryToolStripMenuItem});
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.openToolStripMenuItem.Text = "File";
-            // 
-            // directoryToolStripMenuItem
-            // 
-            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
-            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.directoryToolStripMenuItem.Text = "Directory..";
-            this.directoryToolStripMenuItem.Click += new System.EventHandler(this.directoryToolStripMenuItem_Click);
+            this.toolStripMenuItem1.AutoSize = false;
+            this.toolStripMenuItem1.BackgroundImage = global::PixelEngine_Editor.Properties.Resources.FolderUpIcon;
+            this.toolStripMenuItem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.Window;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Overflow = System.Windows.Forms.ToolStripItemOverflow.AsNeeded;
+            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 60);
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // ResourcesForm
             // 
@@ -163,6 +183,7 @@
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ResourcesForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Resources";
             this.menuStrip1.ResumeLayout(false);
@@ -187,6 +208,6 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem directoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

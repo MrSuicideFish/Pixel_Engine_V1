@@ -69,7 +69,7 @@ namespace PixelEngine_Editor {
                 entityList.Nodes.Add("Placeable Objects");
 
                 //Populate the entity list
-                Program.EngineMessage("Populating entity list", "Warning");
+                Program.EngineMessage("Populating entity list", Program.eEngineMessageType.NONE);
                 PlaceableClasses = Assembly.GetAssembly(typeof(PixelEngineProj.Editor.EditorPlaceable)).GetTypes().
                     Where(t => t.IsSubclassOf(typeof(PixelEngineProj.Editor.EditorPlaceable))).
                     ToList().ConvertAll(x => (PixelEngineProj.Editor.EditorPlaceable)Activator.CreateInstance(x));
@@ -80,12 +80,10 @@ namespace PixelEngine_Editor {
                     newNode.Name = types.ToString();
                     Program.EngineMessage("Register: " + types.name);
                 }
-
-
             } catch (MissingMemberException mem) {
-                Program.EngineMessage(mem.Message, "Exception");
+                Program.EngineMessage(mem.Message, Program.eEngineMessageType.EXCEPTION);
             } finally {
-                Program.EngineMessage("Populating entity list: Done!", "Confirm");
+                Program.EngineMessage("Populating entity list: Done!", Program.eEngineMessageType.CONFIRM);
             }
         }
 
@@ -95,6 +93,16 @@ namespace PixelEngine_Editor {
 
         private void entityList_Dragged(object sender, ItemDragEventArgs e) {
             Console.WriteLine(e.Item.ToString() + " was dragged");
+        }
+
+        private void resourcesToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (Program.resourcesForm == null) {
+                Program.resourcesForm = new ResourcesForm();
+                Program.resourcesForm.Size = new System.Drawing.Size(800, 600);
+                Program.resourcesForm.Location = new System.Drawing.Point(Program.resourcesForm.Location.X + Program.resourcesForm.Width, 
+                    Program.resourcesForm.Location.Y);
+                Program.resourcesForm.Show();
+            }
         }
     }
 }

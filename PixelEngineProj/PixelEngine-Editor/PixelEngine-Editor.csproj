@@ -22,9 +22,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ProductName>Pixel Engine 0.02a</ProductName>
+    <PublisherName>Broken Pixel, Ltd</PublisherName>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsUrl>C:\Users\Malcolm\Documents\SFML.Net-2.1\extlibs</BootstrapperComponentsUrl>
