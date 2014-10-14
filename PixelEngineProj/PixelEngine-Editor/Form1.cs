@@ -65,7 +65,7 @@ namespace PixelEngine_Editor {
 
         private void entityList_Load(object sender, EventArgs e) {
             try {
-                //Create the entity node
+                //Create them main entity node
                 entityList.Nodes.Add("Placeable Objects");
 
                 //Populate the entity list
@@ -102,6 +102,7 @@ namespace PixelEngine_Editor {
                 Program.resourcesForm.Location = new System.Drawing.Point(Program.resourcesForm.Location.X + Program.resourcesForm.Width, 
                     Program.resourcesForm.Location.Y);
                 Program.resourcesForm.Show();
+                Program.resourcesForm.Disposed += new EventHandler(Program.DisposedResourceForm);
             }
         }
     }

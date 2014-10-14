@@ -91,6 +91,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogForms\NewObjectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\NewObjectDialog.Designer.cs">
+      <DependentUpon>NewObjectDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\NewProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     <Compile Include="ResourcesForm.Designer.cs">
       <DependentUpon>ResourcesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DialogForms\NewObjectDialog.resx">
+      <DependentUpon>NewObjectDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\NewProjectForm.resx">
       <DependentUpon>NewProjectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +163,10 @@
     <Content Include="csfml-window-2.dll" />
     <Content Include="libsndfile-1.dll" />
     <Content Include="openal32.dll" />
+    <Content Include="Resources\EntityIcon.png" />
+    <Content Include="Resources\WindowDefaultBack.png" />
+    <None Include="Resources\WindowDefaultBack1.png" />
+    <None Include="Resources\SpriteIcon.png" />
     <None Include="Resources\FolderUpIcon.png" />
     <None Include="Resources\FolderIcon.png" />
     <None Include="Resources\PixelBackground.jpg" />

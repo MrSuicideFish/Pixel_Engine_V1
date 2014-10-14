@@ -28,22 +28,21 @@ namespace PixelEngine_Editor {
         {
             //Get the splash screen graphic
             System.Windows.SplashScreen EngineSplashScreen = new System.Windows.SplashScreen("Resources/SplashScreen.jpg");
-            EngineSplashScreen.Show(true);
+            EngineSplashScreen.Show(true);//Show splash screen
 
             // initialize the main engine form
+            EngineMessage("Intializing Pixel Engine", eEngineMessageType.NONE);
             Form1 form = new Form1();
             form.Show(); // show our form
-            form.WindowStatus = "Initializing Engine";
 
-            //Create a CFG (if needed)
-            LoadCfg();
+            LoadCfg();//Load config files
 
             DrawingSurface rendersurface = new DrawingSurface();
             rendersurface.Size = new System.Drawing.Size(form.Width, form.Height);
             rendersurface.Location = new System.Drawing.Point(0, 0);
-
             form.Controls.Add(rendersurface);
-            form.WindowStatus = "Engine Started!";
+
+            EngineMessage("Pixel Engine Ready!", eEngineMessageType.CONFIRM);
 
             // initialize sfml
             SFML.Graphics.RenderWindow renderwindow = new SFML.Graphics.RenderWindow(rendersurface.Handle);
@@ -176,7 +175,7 @@ namespace PixelEngine_Editor {
             }
         }
 
-        private static void DisposedResourceForm(object sender, EventArgs args) {
+        public static void DisposedResourceForm(object sender, EventArgs args) {
             resourcesForm = null;
         }
     }
