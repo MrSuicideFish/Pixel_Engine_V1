@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine-Editor.exe" size="142336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine-Editor.exe" size="155136">
       <assemblyIdentity name="PixelEngine-Editor" version="0.0.1.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dq7vvcpWn/eD9IT8YjSJzJNHvQp19bm9NPdskjt5IXY=</dsig:DigestValue>
+        <dsig:DigestValue>R6av69doFFB1VLmaX4S/qWFVPMHnlac4wUDiYTNzwj8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngineProj.exe" size="11264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngineProj.exe" size="11776">
       <assemblyIdentity name="PixelEngineProj" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hbigNfmxmlhSw6/wHkJjQqsTBLLEDdSwpxsBdwoe3ps=</dsig:DigestValue>
+        <dsig:DigestValue>IeRCJA/h9Ulo9J90AtcY2t5KbtNNIdxOq1TFYV+L1SY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -171,6 +171,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\EntityIcon.png" size="4971">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FnpjSq0P9xoj4oFICpPd0z6KsiUWXEmxCB6DqQk/F6Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\WindowDefaultBack.png" size="4552">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>41dKoKHZPkYAXLEH4VnjWLdL/Gnx6LAM/eNQZLzaBog=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

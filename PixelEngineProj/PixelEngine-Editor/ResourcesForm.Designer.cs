@@ -28,7 +28,6 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.spriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.IconSizeTrackBar = new System.Windows.Forms.TrackBar();
@@ -48,7 +47,6 @@
             this.openToolStripMenuItem,
             this.toolStripMenuItem1,
             this.entityToolStripMenuItem,
-            this.toolStripMenuItem2,
             this.spriteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Margin = new System.Windows.Forms.Padding(1);
@@ -95,11 +93,6 @@
             this.entityToolStripMenuItem.Name = "entityToolStripMenuItem";
             this.entityToolStripMenuItem.Size = new System.Drawing.Size(50, 60);
             this.entityToolStripMenuItem.Click += new System.EventHandler(this.entityToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(12, 60);
             // 
             // spriteToolStripMenuItem
             // 
@@ -199,7 +192,6 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem entityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem spriteToolStripMenuItem;
     }
 }

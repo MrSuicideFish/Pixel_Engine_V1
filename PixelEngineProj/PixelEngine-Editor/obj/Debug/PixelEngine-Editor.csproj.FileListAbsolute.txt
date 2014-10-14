@@ -79,3 +79,5 @@ C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEn
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Debug\PixelEngine-Editor.csproj.GenerateResource.Cache
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Debug\PixelEngine-Editor.exe.manifest
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Debug\PixelEngine-Editor.application
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Debug\PixelEngine_Editor.DialogForms.NewObjectDialog.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Debug\PixelEngine_Editor.DialogForms.EditObjectDialog.resources

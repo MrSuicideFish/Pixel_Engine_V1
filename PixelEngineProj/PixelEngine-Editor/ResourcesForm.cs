@@ -51,6 +51,7 @@ namespace PixelEngine_Editor {
                 }
             }
         }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             AssignResourceDir();
         }
@@ -76,7 +77,16 @@ namespace PixelEngine_Editor {
         }
 
         private void entityToolStripMenuItem_Click(object sender, EventArgs e) {
+            //Create new resource dialog
+            DialogForms.NewObjectDialog newResourceDialog;
 
+            //Set dialog properties
+            newResourceDialog = new DialogForms.NewObjectDialog();
+            newResourceDialog.StartPosition = FormStartPosition.CenterScreen;
+            newResourceDialog.TopMost = true;
+
+            //Show the dialog window
+            newResourceDialog.ShowDialog();
         }
     }
 }

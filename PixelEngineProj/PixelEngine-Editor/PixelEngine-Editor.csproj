@@ -91,6 +91,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogForms\EditObjectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\EditObjectDialog.Designer.cs">
+      <DependentUpon>EditObjectDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\NewObjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <Compile Include="ResourcesForm.Designer.cs">
       <DependentUpon>ResourcesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DialogForms\EditObjectDialog.resx">
+      <DependentUpon>EditObjectDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\NewObjectDialog.resx">
       <DependentUpon>NewObjectDialog.cs</DependentUpon>
     </EmbeddedResource>
