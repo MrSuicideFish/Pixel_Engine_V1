@@ -54,8 +54,11 @@ namespace PixelEngine_Editor {
             // initialize sfml
             SFML.Graphics.RenderWindow renderwindow = new SFML.Graphics.RenderWindow(rendersurface.Handle);
             _scene = new EditorScene();
+			//Main cam
             SFML.Graphics.View mainRenderView = new SFML.Graphics.View(new FloatRect(0, 0, 1920, 1080));
             renderwindow.SetView(mainRenderView);
+			//UI Cam
+			SFML.Graphics.View uiRenderView = new SFML.Graphics.View(new FloatRect(0,0,1920, 1080));
 
             //Initialize the resources form
             resourcesForm = new ResourcesForm();
@@ -74,7 +77,14 @@ namespace PixelEngine_Editor {
                 System.Windows.Forms.Application.DoEvents();
                 renderwindow.DispatchEvents();
                 renderwindow.Clear(new SFML.Graphics.Color(40, 40, 40));
+
+				renderwindow.SetView(mainRenderView);
                 _scene.Draw(renderwindow);
+				renderwindow.SetView(uiRenderView);
+
+				Text t = new Text("Testing", new Font(""));
+				t.Draw(renderwindow, RenderStates.Default);
+
                 renderwindow.Display();
                 rendersurface.Size = new System.Drawing.Size(form.Width - 300, form.Height);
             }
@@ -195,6 +205,7 @@ namespace PixelEngine_Editor {
             resourcesForm = null;
         }
     }
+
     public class DrawingSurface : System.Windows.Forms.Control
     {
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e){}
