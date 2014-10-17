@@ -1,0 +1,7 @@
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\bin\Release\PixelEngine-Editor.exe.config
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Release\PixelEngine-Editor.g.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Release\PixelEngine_Editor.DialogForms.NewProjectForm.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Release\PixelEngine_Editor.Form1.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Release\PixelEngine_Editor.Properties.Resources.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Release\PixelEngine_Editor.ResourcesForm.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngine-Editor\obj\Release\PixelEngine-Editor.csproj.GenerateResource.Cache
