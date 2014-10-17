@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.IO;
+using SFML;
+using SFML.Window;
+using SFML.Graphics;
+using System.Xml;
+using System.Xml.Serialization;
+
 using PixelEngineProj;
 
 namespace PixelEngine_Editor {
     static class Program {
         //Engine
         private static string EngineVersion = PixelEngineProj.Program.engineName;
+        private static EditorScene _scene;
 
         //Project
         public static bool bProjectLoaded = false;
@@ -46,6 +53,9 @@ namespace PixelEngine_Editor {
 
             // initialize sfml
             SFML.Graphics.RenderWindow renderwindow = new SFML.Graphics.RenderWindow(rendersurface.Handle);
+            _scene = new EditorScene();
+            SFML.Graphics.View mainRenderView = new SFML.Graphics.View(new FloatRect(0, 0, 1920, 1080));
+            renderwindow.SetView(mainRenderView);
 
             //Initialize the resources form
             resourcesForm = new ResourcesForm();
@@ -54,11 +64,17 @@ namespace PixelEngine_Editor {
             resourcesForm.Show();
             resourcesForm.Disposed += new EventHandler(DisposedResourceForm);
 
+            //Debug: create sprite
+            Sprite newSprite = new Sprite(new Texture("Resources/SpriteIcon.png"));
+            newSprite.Position = new Vector2f(0, 0);
+            _scene.AddSpriteToLevel(newSprite);
+
             // drawing loop
             while (form.Visible) {
                 System.Windows.Forms.Application.DoEvents();
                 renderwindow.DispatchEvents();
-                renderwindow.Clear(SFML.Graphics.Color.Black);
+                renderwindow.Clear(new SFML.Graphics.Color(40, 40, 40));
+                _scene.Draw(renderwindow);
                 renderwindow.Display();
                 rendersurface.Size = new System.Drawing.Size(form.Width - 300, form.Height);
             }
@@ -184,5 +200,41 @@ namespace PixelEngine_Editor {
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e){}
         protected override void OnPaintBackground(System.Windows.Forms.PaintEventArgs pevent){}
         void ShowGrid(System.Windows.Forms.PaintEventArgs e) {}
+    }
+
+    public class EditorScene : PixelEngineProj.System.PixelScene{
+        public Sprite[] spriteBatch;
+
+        public EditorScene() {
+            //Debug, add new sprites here
+            spriteBatch = new Sprite[0];
+        }
+
+        public void AddSpriteToLevel(Sprite o){
+            //create new sprite batch
+            Sprite[] batch = new Sprite[spriteBatch.Length + 1];
+            for (int i = 0; i < spriteBatch.Length; i++) {
+                batch[i] = spriteBatch[i];
+            }
+            batch[batch.Length - 1] = o;
+            spriteBatch = batch;
+        }
+
+        public void Draw(RenderWindow _r) {
+            if (_r != null) {
+                foreach (Sprite s in spriteBatch) {
+                    s.Draw(_r, RenderStates.Default);
+                }
+            }
+        }
+
+        public void Update() {
+        }
+
+        public XmlDocument SaveScene() {
+            XmlDocument newDoc = new XmlDocument();
+
+            return newDoc;
+        }
     }
 }

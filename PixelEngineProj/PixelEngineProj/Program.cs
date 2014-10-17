@@ -40,8 +40,6 @@ namespace PixelEngineProj {
             View renderView = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
             View renderViewUI = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
 
-            //Initiate modules
-            PixelScene.Init("");
 
             //Load system resources
             LoadSystemResources();
@@ -75,10 +73,6 @@ namespace PixelEngineProj {
                 /// </summary>
 
                 //Call the update method on all modules
-                if (PixelScene.Update() == 0)
-                    PixelScene.Draw();
-                else
-                    new ApplicationException("Exception: Could not complete Update process on PixelScene.Update()");
 
                 newSprite.Draw(_window, new RenderStates());
 

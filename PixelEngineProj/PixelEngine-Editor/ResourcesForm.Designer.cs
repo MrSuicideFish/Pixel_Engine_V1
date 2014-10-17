@@ -58,7 +58,8 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.AutoSize = false;
-            this.openToolStripMenuItem.BackgroundImage = global::PixelEngine_Editor.Properties.Resources.FolderIcon;
+            this.openToolStripMenuItem.AutoToolTip = true;
+            this.openToolStripMenuItem.BackgroundImage = global::PixelEngine_Editor.Properties.Resources.SpriteIcon;
             this.openToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.openToolStripMenuItem.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
@@ -67,6 +68,7 @@
             this.openToolStripMenuItem.Overflow = System.Windows.Forms.ToolStripItemOverflow.AsNeeded;
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(60, 60);
+            this.openToolStripMenuItem.ToolTipText = "Add a new sprite.";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
