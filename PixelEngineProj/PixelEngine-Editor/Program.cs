@@ -72,6 +72,7 @@ namespace PixelEngine_Editor {
             newSprite.Position = new Vector2f(0, 0);
             _scene.AddSpriteToLevel(newSprite);
 
+			Text t = new Text("Testing", new Font("Resources/pixelmix.ttf"));
             // drawing loop
             while (form.Visible) {
                 System.Windows.Forms.Application.DoEvents();
@@ -82,7 +83,8 @@ namespace PixelEngine_Editor {
                 _scene.Draw(renderwindow);
 				renderwindow.SetView(uiRenderView);
 
-				Text t = new Text("Testing", new Font(""));
+
+				t.Position = new Vector2f(1700, 100);
 				t.Draw(renderwindow, RenderStates.Default);
 
                 renderwindow.Display();
