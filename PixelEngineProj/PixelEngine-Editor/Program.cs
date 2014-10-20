@@ -68,9 +68,8 @@ namespace PixelEngine_Editor {
             resourcesForm.Disposed += new EventHandler(DisposedResourceForm);
 
             //Debug: create sprite
-            Sprite newSprite = new Sprite(new Texture("Resources/SpriteIcon.png"));
+			PixelEngineProj.Gameplay.PixelSprite newSprite = new PixelEngineProj.Gameplay.PixelSprite("Resources/SpriteIcon.png", new IntRect(0, 0, 128, 128), new Vector2f(0, 0));
             newSprite.Position = new Vector2f(0, 0);
-            _scene.AddSpriteToLevel(newSprite);
 
 			Text t = new Text("Testing", new Font("Resources/pixelmix.ttf"));
             // drawing loop
@@ -79,11 +78,12 @@ namespace PixelEngine_Editor {
                 renderwindow.DispatchEvents();
                 renderwindow.Clear(new SFML.Graphics.Color(40, 40, 40));
 
+				//Draw main scene
 				renderwindow.SetView(mainRenderView);
                 _scene.Draw(renderwindow);
+
+				//Draw engine text
 				renderwindow.SetView(uiRenderView);
-
-
 				t.Position = new Vector2f(1700, 100);
 				t.Draw(renderwindow, RenderStates.Default);
 
@@ -216,20 +216,32 @@ namespace PixelEngine_Editor {
     }
 
     public class EditorScene : PixelEngineProj.System.PixelScene{
-        public Sprite[] spriteBatch;
+        private Sprite[] spriteBatch;
+		private PixelEngineProj.System.PixelObject[] sceneObjects;
 
         public EditorScene() {
             //Debug, add new sprites here
             spriteBatch = new Sprite[0];
+			sceneObjects = new PixelEngineProj.System.PixelObject[0];
         }
 
-        public void AddSpriteToLevel(Sprite o){
+		public void AddObjectToLevel(PixelEngineProj.System.PixelObject o) {
+			//create new object
+			PixelEngineProj.System.PixelObject[] obj = new PixelEngineProj.System.PixelObject[sceneObjects.Length + 1];
+			for (int i = 0; i < spriteBatch.Length; i++) {
+				obj[i] = sceneObjects[i];
+			}
+			obj[obj.Length - 1] = o;
+			sceneObjects = obj;
+		}
+
+        public void AddSpriteToLevel(Sprite s){
             //create new sprite batch
             Sprite[] batch = new Sprite[spriteBatch.Length + 1];
             for (int i = 0; i < spriteBatch.Length; i++) {
                 batch[i] = spriteBatch[i];
             }
-            batch[batch.Length - 1] = o;
+			batch[batch.Length - 1] = s;
             spriteBatch = batch;
         }
 
@@ -239,9 +251,11 @@ namespace PixelEngine_Editor {
                     s.Draw(_r, RenderStates.Default);
                 }
             }
+			base.Draw();
         }
 
         public void Update() {
+			base.Update();
         }
 
         public XmlDocument SaveScene() {
