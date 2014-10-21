@@ -9,8 +9,13 @@ using PixelEngineProj.System;
 
 namespace PixelEngineProj {
     public class Program {
+        /// <summary>
+        /// System variables
+        /// </summary>
+        public static double deltaTime = 0;
+        private static bool bDevMode = true;
+        private static SFML.Graphics.Font systemFont;
         public static string engineName = "Pixel Engine 0.02a";
-
         private static RenderWindow _window;
 
         //Timers and clocks
@@ -18,18 +23,14 @@ namespace PixelEngineProj {
         private static Stopwatch deltaClock = new Stopwatch();
 
         /// <summary>
-        /// System variables
-        /// </summary>
-        public static double deltaTime = 0;
-        private static bool bDevMode = true;
-        private static SFML.Graphics.Font systemFont;
-
-        /// <summary>
         /// Global
         /// </summary>
         public static TimeSpan _deltaTime = new TimeSpan();
 
-        static void Main(string[] args) {
+        public static void Main(string[] args) {
+            //Process program arguments
+            ProcessArgs(args);
+
             // Create the main _window
             _window = new RenderWindow(new VideoMode(1280, 720), "Pixel Engine", Styles.Titlebar);
             _window.SetVerticalSyncEnabled(true);
@@ -39,7 +40,6 @@ namespace PixelEngineProj {
             //Create the main camera and hud camera
             View renderView = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
             View renderViewUI = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
-
 
             //Load system resources
             LoadSystemResources();
@@ -153,6 +153,10 @@ namespace PixelEngineProj {
                 Console.WriteLine(fileException.Message);
                 Console.ForegroundColor = ConsoleColor.White;
             }
+        }
+
+        private static void ProcessArgs(string[] arguments) {
+            Console.WriteLine("Processing arguments");
         }
     }
 }

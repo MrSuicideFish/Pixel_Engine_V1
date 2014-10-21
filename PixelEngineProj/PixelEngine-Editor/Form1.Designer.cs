@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -42,12 +43,15 @@
             this.buildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recompileScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entityList = new System.Windows.Forms.TreeView();
-            this.resourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewpoortContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.placeHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.viewpoortContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -115,7 +119,7 @@
             this.newMapToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.newMapToolStripMenuItem.Enabled = false;
             this.newMapToolStripMenuItem.Name = "newMapToolStripMenuItem";
-            this.newMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newMapToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.newMapToolStripMenuItem.Text = "New Project..";
             this.newMapToolStripMenuItem.Click += new System.EventHandler(this.newMapToolStripMenuItem_Click);
             // 
@@ -123,7 +127,7 @@
             // 
             this.exitToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.exitToolStripMenuItem.Text = "New Map..";
             // 
             // saveProjectToolStripMenuItem
@@ -131,28 +135,28 @@
             this.saveProjectToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.saveProjectToolStripMenuItem.Enabled = false;
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
             // 
             // saveMapToolStripMenuItem
             // 
             this.saveMapToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.saveMapToolStripMenuItem.Name = "saveMapToolStripMenuItem";
-            this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.saveMapToolStripMenuItem.Text = "Save Map";
             // 
             // saveAllToolStripMenuItem
             // 
             this.saveAllToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.saveAllToolStripMenuItem.Name = "saveAllToolStripMenuItem";
-            this.saveAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAllToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.saveAllToolStripMenuItem.Text = "Save All..";
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -169,14 +173,14 @@
             // 
             this.gUIToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.gUIToolStripMenuItem.Name = "gUIToolStripMenuItem";
-            this.gUIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gUIToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.gUIToolStripMenuItem.Text = "GUI";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.optionsToolStripMenuItem.Text = "Options..";
             // 
             // runToolStripMenuItem
@@ -195,6 +199,7 @@
             this.runToolStripMenuItem1.Name = "runToolStripMenuItem1";
             this.runToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
             this.runToolStripMenuItem1.Text = "Run..";
+            this.runToolStripMenuItem1.Click += new System.EventHandler(this.runToolStripMenuItem1_Click);
             // 
             // buildToolStripMenuItem
             // 
@@ -217,6 +222,13 @@
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.windowToolStripMenuItem.Text = "Window";
+            // 
+            // resourcesToolStripMenuItem
+            // 
+            this.resourcesToolStripMenuItem.Name = "resourcesToolStripMenuItem";
+            this.resourcesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.resourcesToolStripMenuItem.Text = "Resources";
+            this.resourcesToolStripMenuItem.Click += new System.EventHandler(this.resourcesToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -249,12 +261,19 @@
             this.entityList.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.entityList_DblClick);
             this.entityList.Enter += new System.EventHandler(this.entityList_Load);
             // 
-            // resourcesToolStripMenuItem
+            // viewpoortContextMenu
             // 
-            this.resourcesToolStripMenuItem.Name = "resourcesToolStripMenuItem";
-            this.resourcesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.resourcesToolStripMenuItem.Text = "Resources";
-            this.resourcesToolStripMenuItem.Click += new System.EventHandler(this.resourcesToolStripMenuItem_Click);
+            this.viewpoortContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.placeHereToolStripMenuItem});
+            this.viewpoortContextMenu.Name = "viewpoortContextMenu";
+            this.viewpoortContextMenu.Size = new System.Drawing.Size(131, 26);
+            // 
+            // placeHereToolStripMenuItem
+            // 
+            this.placeHereToolStripMenuItem.Name = "placeHereToolStripMenuItem";
+            this.placeHereToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.placeHereToolStripMenuItem.Text = "Place Here";
+            this.placeHereToolStripMenuItem.Click += new System.EventHandler(this.placeHereToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -274,6 +293,7 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.viewpoortContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +324,7 @@
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.TreeView entityList;
         private System.Windows.Forms.ToolStripMenuItem resourcesToolStripMenuItem;
+        public System.Windows.Forms.ContextMenuStrip viewpoortContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem placeHereToolStripMenuItem;
     }
 }

@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PixelEngine-Editor.exe.manifest" size="9749">
+    <dependentAssembly dependencyType="install" codebase="PixelEngine-Editor.exe.manifest" size="10149">
       <assemblyIdentity name="PixelEngine-Editor.exe" version="0.0.1.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dvzH3U3wrTpg4jrG3dg9XCAmmk57gV3hMa5s/hoMNFo=</dsig:DigestValue>
+        <dsig:DigestValue>WW59tZBevlF/WWuCY0CDj6hCaeSYFthzA1ZsNYD/k0s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

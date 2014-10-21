@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using SFML;
+using SFML.Graphics;
+using SFML.Window;
 using PixelEngineProj.Editor;
 
 namespace PixelEngine_Editor {
@@ -104,6 +107,17 @@ namespace PixelEngine_Editor {
                 Program.resourcesForm.Show();
                 Program.resourcesForm.Disposed += new EventHandler(Program.DisposedResourceForm);
             }
+        }
+
+        private void placeHereToolStripMenuItem_Click(object sender, EventArgs e) {
+            Program._scene.AddSpriteToLevel(new SFML.Graphics.Sprite(new SFML.Graphics.Texture("Resources/SpriteIcon.png")), Program._scene.GetMouseWorldPos());
+        }
+
+        private void runToolStripMenuItem1_Click(object sender, EventArgs e) {
+            //Load a new instance of the engine
+            string[] args = new string[1];
+            args[0] = "Scene: 1";
+            PixelEngineProj.Program.Main(args);
         }
     }
 }

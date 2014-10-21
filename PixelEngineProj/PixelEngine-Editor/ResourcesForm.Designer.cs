@@ -61,6 +61,7 @@
             this.openToolStripMenuItem.AutoToolTip = true;
             this.openToolStripMenuItem.BackgroundImage = global::PixelEngine_Editor.Properties.Resources.SpriteIcon;
             this.openToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.openToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
             this.openToolStripMenuItem.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.openToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -135,6 +136,7 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testingToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -142,6 +144,7 @@
             // 
             // testingToolStripMenuItem
             // 
+            this.testingToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
             this.testingToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.testingToolStripMenuItem.Text = "Create..";

@@ -18,7 +18,7 @@ namespace PixelEngine_Editor {
     static class Program {
         //Engine
         private static string EngineVersion = PixelEngineProj.Program.engineName;
-        private static EditorScene _scene;
+        public static EditorScene _scene;
 
         //Project
         public static bool bProjectLoaded = false;
@@ -28,7 +28,8 @@ namespace PixelEngine_Editor {
         /// <summary>
         /// Editor
         /// </summary>
-        public static ResourcesForm resourcesForm;
+        public static Form1 form { get; set; }
+        public static ResourcesForm resourcesForm { get; set; }
 
         [STAThread]
         static void Main()
@@ -39,7 +40,7 @@ namespace PixelEngine_Editor {
 
             // initialize the main engine form
             EngineMessage("Intializing Pixel Engine", eEngineMessageType.NONE);
-            Form1 form = new Form1();
+            form = new Form1();
             form.Show(); // show our form
 
             LoadCfg();//Load config files
@@ -53,12 +54,13 @@ namespace PixelEngine_Editor {
 
             // initialize sfml
             SFML.Graphics.RenderWindow renderwindow = new SFML.Graphics.RenderWindow(rendersurface.Handle);
-            _scene = new EditorScene();
 			//Main cam
             SFML.Graphics.View mainRenderView = new SFML.Graphics.View(new FloatRect(0, 0, 1920, 1080));
             renderwindow.SetView(mainRenderView);
 			//UI Cam
 			SFML.Graphics.View uiRenderView = new SFML.Graphics.View(new FloatRect(0,0,1920, 1080));
+
+            _scene = new EditorScene(renderwindow, mainRenderView);
 
             //Initialize the resources form
             resourcesForm = new ResourcesForm();
@@ -67,12 +69,6 @@ namespace PixelEngine_Editor {
             resourcesForm.Show();
             resourcesForm.Disposed += new EventHandler(DisposedResourceForm);
 
-            //Debug: create sprite
-            Sprite newSprite = new Sprite(new Texture("Resources/SpriteIcon.png"));
-            newSprite.Position = new Vector2f(0, 0);
-            _scene.AddSpriteToLevel(newSprite);
-
-			Text t = new Text("Testing", new Font("Resources/pixelmix.ttf"));
             // drawing loop
             while (form.Visible) {
                 System.Windows.Forms.Application.DoEvents();
@@ -82,10 +78,6 @@ namespace PixelEngine_Editor {
 				renderwindow.SetView(mainRenderView);
                 _scene.Draw(renderwindow);
 				renderwindow.SetView(uiRenderView);
-
-
-				t.Position = new Vector2f(1700, 100);
-				t.Draw(renderwindow, RenderStates.Default);
 
                 renderwindow.Display();
                 rendersurface.Size = new System.Drawing.Size(form.Width - 300, form.Height);
@@ -140,6 +132,7 @@ namespace PixelEngine_Editor {
             if (cfgNode != null && cfgNode != "" && val != null) {
                 List<string> lines = new List<string>();
                 if (File.Exists(Directory.GetCurrentDirectory() + "/PixelEngine.cfg")) {
+
                     //Add cfg file to temp lines
                     foreach (string line in File.ReadAllLines(Directory.GetCurrentDirectory() + "/PixelEngine.cfg")) {
                         lines.Add(line);
@@ -153,7 +146,6 @@ namespace PixelEngine_Editor {
                     } else {
                         lines.Add(cfgNode + "=" + val);
                     }
-
                     File.WriteAllLines(Directory.GetCurrentDirectory() + "/PixelEngine.cfg", lines.ToArray());
                 } else {
                     LoadCfg();
@@ -210,26 +202,44 @@ namespace PixelEngine_Editor {
 
     public class DrawingSurface : System.Windows.Forms.Control
     {
+        public DrawingSurface() {
+            //Add event handlers
+            this.Click += new EventHandler(OnViewportClick);
+        }
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e){}
         protected override void OnPaintBackground(System.Windows.Forms.PaintEventArgs pevent){}
-        void ShowGrid(System.Windows.Forms.PaintEventArgs e) {}
+
+        private void OnViewportClick(object sender, EventArgs args) {
+            MouseEventArgs a = (MouseEventArgs)args;
+            if (a.Button == MouseButtons.Left) {
+            }
+            if (a.Button == MouseButtons.Right) {
+                Program.form.viewpoortContextMenu.Show(Program.form, MousePosition);
+            }
+        }
     }
 
     public class EditorScene : PixelEngineProj.System.PixelScene{
         public Sprite[] spriteBatch;
+        private SFML.Graphics.View v;
+        private SFML.Graphics.RenderWindow w;
 
-        public EditorScene() {
+        public EditorScene(SFML.Graphics.RenderWindow drawingWindow,SFML.Graphics.View drawingView) {
+            w = drawingWindow;
+            v = drawingView;
+
             //Debug, add new sprites here
             spriteBatch = new Sprite[0];
         }
 
-        public void AddSpriteToLevel(Sprite o){
+        public void AddSpriteToLevel(Sprite o, Vector2f worldPosition){
             //create new sprite batch
             Sprite[] batch = new Sprite[spriteBatch.Length + 1];
             for (int i = 0; i < spriteBatch.Length; i++) {
                 batch[i] = spriteBatch[i];
             }
             batch[batch.Length - 1] = o;
+            batch[batch.Length - 1].Position = worldPosition;
             spriteBatch = batch;
         }
 
@@ -242,6 +252,11 @@ namespace PixelEngine_Editor {
         }
 
         public void Update() {
+        }
+
+
+        public Vector2f GetMouseWorldPos() {
+            return w.MapPixelToCoords(Mouse.GetPosition(w));
         }
 
         public XmlDocument SaveScene() {
