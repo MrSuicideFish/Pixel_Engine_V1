@@ -69,15 +69,32 @@ namespace PixelEngine_Editor {
             resourcesForm.Show();
             resourcesForm.Disposed += new EventHandler(DisposedResourceForm);
 
+<<<<<<< HEAD
+=======
+            //Debug: create sprite
+			PixelEngineProj.Gameplay.PixelSprite newSprite = new PixelEngineProj.Gameplay.PixelSprite("Resources/SpriteIcon.png", new IntRect(0, 0, 128, 128), new Vector2f(0, 0));
+            newSprite.Position = new Vector2f(0, 0);
+
+			Text t = new Text("Testing", new Font("Resources/pixelmix.ttf"));
+>>>>>>> origin/master
             // drawing loop
             while (form.Visible) {
                 System.Windows.Forms.Application.DoEvents();
                 renderwindow.DispatchEvents();
                 renderwindow.Clear(new SFML.Graphics.Color(40, 40, 40));
 
+				//Draw main scene
 				renderwindow.SetView(mainRenderView);
                 _scene.Draw(renderwindow);
+<<<<<<< HEAD
 				renderwindow.SetView(uiRenderView);
+=======
+
+				//Draw engine text
+				renderwindow.SetView(uiRenderView);
+				t.Position = new Vector2f(1700, 100);
+				t.Draw(renderwindow, RenderStates.Default);
+>>>>>>> origin/master
 
                 renderwindow.Display();
                 rendersurface.Size = new System.Drawing.Size(form.Width - 300, form.Height);
@@ -220,6 +237,7 @@ namespace PixelEngine_Editor {
     }
 
     public class EditorScene : PixelEngineProj.System.PixelScene{
+<<<<<<< HEAD
         public Sprite[] spriteBatch;
         private SFML.Graphics.View v;
         private SFML.Graphics.RenderWindow w;
@@ -227,19 +245,42 @@ namespace PixelEngine_Editor {
         public EditorScene(SFML.Graphics.RenderWindow drawingWindow,SFML.Graphics.View drawingView) {
             w = drawingWindow;
             v = drawingView;
+=======
+        private Sprite[] spriteBatch;
+		private PixelEngineProj.System.PixelObject[] sceneObjects;
+>>>>>>> origin/master
 
             //Debug, add new sprites here
             spriteBatch = new Sprite[0];
+			sceneObjects = new PixelEngineProj.System.PixelObject[0];
         }
 
+<<<<<<< HEAD
         public void AddSpriteToLevel(Sprite o, Vector2f worldPosition){
+=======
+		public void AddObjectToLevel(PixelEngineProj.System.PixelObject o) {
+			//create new object
+			PixelEngineProj.System.PixelObject[] obj = new PixelEngineProj.System.PixelObject[sceneObjects.Length + 1];
+			for (int i = 0; i < spriteBatch.Length; i++) {
+				obj[i] = sceneObjects[i];
+			}
+			obj[obj.Length - 1] = o;
+			sceneObjects = obj;
+		}
+
+        public void AddSpriteToLevel(Sprite s){
+>>>>>>> origin/master
             //create new sprite batch
             Sprite[] batch = new Sprite[spriteBatch.Length + 1];
             for (int i = 0; i < spriteBatch.Length; i++) {
                 batch[i] = spriteBatch[i];
             }
+<<<<<<< HEAD
             batch[batch.Length - 1] = o;
             batch[batch.Length - 1].Position = worldPosition;
+=======
+			batch[batch.Length - 1] = s;
+>>>>>>> origin/master
             spriteBatch = batch;
         }
 
@@ -249,9 +290,11 @@ namespace PixelEngine_Editor {
                     s.Draw(_r, RenderStates.Default);
                 }
             }
+			base.Draw();
         }
 
         public void Update() {
+			base.Update();
         }
 
 

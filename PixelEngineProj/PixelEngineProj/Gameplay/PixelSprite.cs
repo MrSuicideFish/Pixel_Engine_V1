@@ -28,6 +28,7 @@ namespace PixelEngineProj.Gameplay {
         }
 
         public void Draw(RenderTarget target, RenderStates states) {
+			Console.WriteLine("Drawing pixel sprite");
             base.Draw(target, new RenderStates(Texture));
         }
     }
