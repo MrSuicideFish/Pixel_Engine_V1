@@ -12,10 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\SFML.Net\SFML.Net-2.1-64bits\SFML.Net-2.1\extlibs\csfml-window-2.dll = ..\..\SFML.Net\SFML.Net-2.1-64bits\SFML.Net-2.1\extlibs\csfml-window-2.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelEngine-Editor", "PixelEngine-Editor\PixelEngine-Editor.csproj", "{5BC282BB-971D-4F2A-B3CE-A17764749D89}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8D072381-E861-4010-88F6-1BF360F675D7} = {8D072381-E861-4010-88F6-1BF360F675D7}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelEngineEditor", "PixelEngineEditor\PixelEngineEditor.csproj", "{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +24,10 @@ Global
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BC282BB-971D-4F2A-B3CE-A17764749D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BC282BB-971D-4F2A-B3CE-A17764749D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BC282BB-971D-4F2A-B3CE-A17764749D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BC282BB-971D-4F2A-B3CE-A17764749D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
