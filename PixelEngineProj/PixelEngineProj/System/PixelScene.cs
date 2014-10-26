@@ -9,22 +9,19 @@ using System.Xml.Serialization;
 using SFML.Graphics;
 
 namespace PixelEngineProj.System {
-    public  class PixelScene{
-
+    public class PixelScene{
+        /// <summary>
+        /// PRIVATE VARIABLES
+        /// </summary>
         private string currentLevel;
-        private Gameplay.PixelSprite[] spriteBatch;
 
-        public int Init(string _scene) {
-            if (_scene != "" && _scene != null) {
-				if (LoadLevel(_scene) == 1) {
-					//Parse the found data
-				}
-            } else {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("No scene passed to PixelScene Init(), loading default front end.");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            return 0;
+        /// <summary>
+        /// SCENE VARIABLES
+        /// </summary>
+        public List<System.PixelActor> SCENE_OBJECTS;
+
+        public PixelScene() {
+            SCENE_OBJECTS = new List<PixelActor>();
         }
 
         public int LoadLevel(string _sceneName) {
@@ -42,9 +39,24 @@ namespace PixelEngineProj.System {
             return 0;
         }
 
-		//Handle the information loaded from the level's XML File
-		private void ParseXML() {}
-        public int Update() {return 0;}
-        public int Draw() {return 0;}
+        public void AddObjectToScene(PixelActor obj) {
+
+        }
+
+        public List<System.PixelActor> GetSceneObjects() {
+            return SCENE_OBJECTS;
+        }
+
+        public System.PixelActor FindObjectWithName() {
+            return SCENE_OBJECTS[0];
+        }
+
+        //Handle the information loaded from the level's XML File
+        private void ParseXML() { }
+
+        public int Update() { return 0; }
+        public int Draw() {
+            return 0;
+        }
     }
 }

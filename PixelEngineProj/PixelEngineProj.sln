@@ -12,22 +12,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\SFML.Net\SFML.Net-2.1-64bits\SFML.Net-2.1\extlibs\csfml-window-2.dll = ..\..\SFML.Net\SFML.Net-2.1-64bits\SFML.Net-2.1\extlibs\csfml-window-2.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelEngineEditor", "PixelEngineEditor\PixelEngineEditor.csproj", "{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelEditor", "PixelEditor\PixelEditor.csproj", "{5730D760-723A-4AA2-B4B1-0D5334C81241}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D072381-E861-4010-88F6-1BF360F675D7} = {8D072381-E861-4010-88F6-1BF360F675D7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D072381-E861-4010-88F6-1BF360F675D7}.Debug|x86.ActiveCfg = Debug|x86
+		{8D072381-E861-4010-88F6-1BF360F675D7}.Debug|x86.Build.0 = Debug|x86
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D072381-E861-4010-88F6-1BF360F675D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60CC235A-AB24-4BD5-BD21-7F76BC59CAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D072381-E861-4010-88F6-1BF360F675D7}.Release|x86.ActiveCfg = Release|x86
+		{8D072381-E861-4010-88F6-1BF360F675D7}.Release|x86.Build.0 = Release|x86
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Debug|x86.ActiveCfg = Debug|x86
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Debug|x86.Build.0 = Debug|x86
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Release|x86.ActiveCfg = Release|x86
+		{5730D760-723A-4AA2-B4B1-0D5334C81241}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

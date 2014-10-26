@@ -1,0 +1,15 @@
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngineProj.exe.config
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngineProj.exe.manifest
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngineProj.application
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngineProj.exe
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngineProj.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\sfmlnet-audio-2.dll
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\sfmlnet-graphics-2.dll
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\sfmlnet-window-2.dll
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.csprojResolveAssemblyReference.cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.Properties.Resources.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.csproj.GenerateResource.Cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.exe.manifest
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.application
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.exe
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.pdb

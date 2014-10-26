@@ -1,0 +1,11 @@
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\Debug\PixelEditor.exe.config
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\Debug\PixelEditor.exe
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\Debug\PixelEditor.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\Debug\PixelEditor.Properties.Resources.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\Debug\PixelEditor.csproj.GenerateResource.Cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\Debug\PixelEditor.exe
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\Debug\PixelEditor.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\Debug\PixelEditor.Form1.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\Debug\sfmlnet-audio-2.dll
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\Debug\sfmlnet-graphics-2.dll
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\Debug\sfmlnet-window-2.dll

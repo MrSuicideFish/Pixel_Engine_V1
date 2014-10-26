@@ -9,16 +9,8 @@ using SFML.Window;
 namespace PixelEngineProj.System {
     public class PixelObject{
         public string id;
-        public PixelObject(string _id = null) {
-            //Assign an id to this object
-            if (_id == null) {
-                Random rand = new Random();
-                id = rand.Next(0, 30000).ToString();
-            } else {
-                id = _id;
-            }
+        public PixelObject() {
+
         }
-        protected void Update(){}
-        protected void Draw() {}
     }
 }
