@@ -40,7 +40,11 @@ namespace PixelEngineProj.System {
         }
 
         public void AddObjectToScene(PixelActor obj) {
-
+            if (obj != null) {
+                SCENE_OBJECTS.Add(obj);
+            } else {
+                Program.EngineMessage("Failed to load object to scene because the object you are trying to add is NULL.", Program.eEngineMessageType.EXCEPTION);
+            }
         }
 
         public List<System.PixelActor> GetSceneObjects() {
@@ -54,9 +58,18 @@ namespace PixelEngineProj.System {
         //Handle the information loaded from the level's XML File
         private void ParseXML() { }
 
-        public int Update() { return 0; }
-        public int Draw() {
-            return 0;
+        public void Update() {
+            //Update the actors
+            foreach (System.PixelActor _actor in SCENE_OBJECTS) {
+                _actor.Update();
+            }
+        }
+
+        public void Draw(RenderTarget target, RenderStates states) {
+            //Draw the Actors
+            foreach(System.PixelActor _actor in SCENE_OBJECTS){
+                target.Draw(_actor);
+            }
         }
     }
 }

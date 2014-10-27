@@ -118,27 +118,6 @@ namespace PixelEngine_Editor {
             Main();
         }
 
-        public enum eEngineMessageType { WARNING, EXCEPTION, CONFIRM, NONE};
-        public static void EngineMessage(string message, eEngineMessageType messageType = eEngineMessageType.NONE) {
-            ConsoleColor newColor = ConsoleColor.White;
-            switch (messageType) {
-                case eEngineMessageType.WARNING:
-                    newColor = ConsoleColor.Yellow;
-                    break;
-                case eEngineMessageType.EXCEPTION:
-                    newColor = ConsoleColor.Red;
-                    break;
-                case eEngineMessageType.CONFIRM:
-                    newColor = ConsoleColor.Green;
-                    break;
-                default:
-                    newColor = ConsoleColor.White;
-                    break;
-            }
-            Console.ForegroundColor = newColor;
-            Console.WriteLine("["+DateTime.Now.ToLocalTime() +"] " + message);
-            Console.ForegroundColor = ConsoleColor.White;
-        }
 
         public static void CfgWriteNode(string cfgNode, object val) {
             if (cfgNode != null && cfgNode != "" && val != null) {

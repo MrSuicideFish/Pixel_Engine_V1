@@ -12,6 +12,7 @@ namespace PixelEngineProj.Gameplay {
     public class PixelSprite : Sprite{
         public PixelSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
             if (texPath != null) {
+
                 //Init a new texture
                 Texture newTex = new Texture(texPath, texRect);
                 newTex.Update(new Image(texPath));
@@ -28,7 +29,6 @@ namespace PixelEngineProj.Gameplay {
         }
 
         public void Draw(RenderTarget target, RenderStates states) {
-			Console.WriteLine("Drawing pixel sprite");
             base.Draw(target, new RenderStates(Texture));
         }
     }

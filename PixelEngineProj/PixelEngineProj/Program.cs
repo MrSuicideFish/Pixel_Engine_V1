@@ -126,6 +126,28 @@ namespace PixelEngineProj {
             }
         }
 
+        public enum eEngineMessageType { WARNING, EXCEPTION, CONFIRM, NONE };
+        public static void EngineMessage(string message, eEngineMessageType messageType = eEngineMessageType.NONE) {
+            ConsoleColor newColor = ConsoleColor.White;
+            switch (messageType) {
+                case eEngineMessageType.WARNING:
+                    newColor = ConsoleColor.Yellow;
+                    break;
+                case eEngineMessageType.EXCEPTION:
+                    newColor = ConsoleColor.Red;
+                    break;
+                case eEngineMessageType.CONFIRM:
+                    newColor = ConsoleColor.Green;
+                    break;
+                default:
+                    newColor = ConsoleColor.White;
+                    break;
+            }
+            Console.ForegroundColor = newColor;
+            Console.WriteLine("[" + DateTime.Now.ToLocalTime() + "] " + message);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         static void OnClose(object sender, EventArgs e) {
             Console.WriteLine("Window Closing!");
             // Close the _window when OnClose event is received

@@ -12,3 +12,8 @@ C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEd
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.csprojResolveAssemblyReference.cache
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEngineProj.exe
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEngineProj.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.EditorModals.OptionsModal.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.exe.manifest
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.application
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.exe.manifest
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.application
