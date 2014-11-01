@@ -16,11 +16,11 @@ namespace PixelEditor {
         /// </summary>
         public static double deltaTime { get; set; }
         public static PixelScene SCENE;
+        public static Form1 EDITOR;
 
         /// <summary>
         /// Private Variables
         /// </summary>
-        private static Form1 EDITOR;
 
         /// <summary>
         /// Main Entry point
@@ -214,13 +214,12 @@ namespace PixelEditor {
         }
 
         /// <summary>
-        /// Parse Color val from config
+        /// Parse Color val in config
         /// </summary>
+        /// <param name="_command"></param>
         /// <returns></returns>
         public static SFML.Graphics.Color GetConfigColor(string _command) {
             string _val = FindValueByCommand(_command), _r = "", _g = "", _b = "", _a = "";
-
-            SFML.Graphics.Color _c = new SFML.Graphics.Color();
 
             //Remove all but numbers and spaces
             _val = new string(_val.Where(x => Char.IsDigit(x) || Char.IsWhiteSpace(x)).ToArray());
@@ -241,8 +240,12 @@ namespace PixelEditor {
                 _val = _val.Substring(_val.IndexOf(' ') + 1, _val.Length - _val.IndexOf(' ') - 1);
             }
 
-            Console.WriteLine(_r + "," + _g + "," + _b);
-            return _c;
+            return new SFML.Graphics.Color(
+                (byte)(Convert.ToInt32(_r) + 0),
+                (byte)(Convert.ToInt32(_g) + 0),
+                (byte)(Convert.ToInt32(_b) + 0),
+                (byte)(Convert.ToInt32(_a) + 0)
+            );
         }
     }
 }

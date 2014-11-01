@@ -33,6 +33,7 @@
             this.EditorToolbarA = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.EditorStatusBar = new System.Windows.Forms.StatusStrip();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.EditorToolbarA.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -82,7 +83,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Info;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Desktop;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(688, 49);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -121,12 +122,24 @@
             this.EditorStatusBar.TabIndex = 3;
             this.EditorStatusBar.Text = "EditorStatusBar";
             // 
+            // treeView1
+            // 
+            this.treeView1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.Indent = 5;
+            this.treeView1.Location = new System.Drawing.Point(0, 49);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(172, 478);
+            this.treeView1.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(888, 549);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.EditorToolbarA);
             this.Controls.Add(this.menuStrip1);
@@ -156,6 +169,7 @@
         private System.Windows.Forms.ToolStrip EditorToolbarA;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.StatusStrip EditorStatusBar;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }
 

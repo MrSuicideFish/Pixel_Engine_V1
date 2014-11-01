@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditorCamera.cs" />
     <Compile Include="EditorModals\OptionsModal.cs">
       <SubType>Form</SubType>
     </Compile>
