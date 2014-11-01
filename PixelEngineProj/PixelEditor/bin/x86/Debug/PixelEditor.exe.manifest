@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="PixelEditor.exe" version="0.0.2.10" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="PixelEditor.exe" version="0.0.2.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="PixelEditor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="49152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="50176">
       <assemblyIdentity name="PixelEditor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yOxQ/ng11cIpyKMhIV7mPRNlEtbm73m9NzggBc5AFpU=</dsig:DigestValue>
+        <dsig:DigestValue>Ad/G+ngzn0igdMaPOy0F3u2wCc+k8hBc7djIRhgvAh4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wvevEdlh7t87QDa+8Dv4suXBmFDpr7S8L2LZHtKJ3WQ=</dsig:DigestValue>
+        <dsig:DigestValue>JvR20XLdFdWoxT5+/s9KotgRL95LKURk8W0V3S4zraU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

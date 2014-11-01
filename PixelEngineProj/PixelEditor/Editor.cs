@@ -9,6 +9,7 @@ using SFML.Graphics;
 using SFML.Window;
 using PixelEngine;
 using PixelEngine.System;
+
 namespace PixelEditor {
     static class Editor {
         /// <summary>
@@ -16,7 +17,7 @@ namespace PixelEditor {
         /// </summary>
         public static double deltaTime { get; set; }
         public static Form1 EDITOR;
-
+        public static EditorScene SCENE;
         /// <summary>
         /// Private Variables
         /// </summary>
@@ -30,7 +31,7 @@ namespace PixelEditor {
             Config.Init();
 
             //Init the scene
-            pScene.Init();
+            SCENE = new EditorScene();
 
             //Init the main editor
             EDITOR = new Form1();

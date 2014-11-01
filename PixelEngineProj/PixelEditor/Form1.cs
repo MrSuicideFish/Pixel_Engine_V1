@@ -51,9 +51,6 @@ namespace PixelEditor {
             RENDER_SURFACE.BringToFront();
             RENDER_SURFACE.Focus();
 
-            //Load resources
-            //DATA_DIRECTORY = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
             //Init sfml
             settings.AntialiasingLevel = 16;
             RENDER_WINDOW = new RenderWindow(RENDER_SURFACE.Handle, settings);
@@ -96,15 +93,14 @@ namespace PixelEditor {
                 /////////////////////
                 /// UPDATE
                 /////////////////////
-                pScene.Update();
-
-                /////////////////////
-                /// DRAW CAMERA VIEW
-                /////////////////////
-                RENDER_WINDOW.SetView(VIEWPORT_CAMERA_VIEW);
 
                 //Update the camera
                 VIEWPORT_CAMERA_VIEW.Update();
+
+                /////////////////////
+                /// DRAW
+                /////////////////////
+                RENDER_WINDOW.SetView(VIEWPORT_CAMERA_VIEW);
 
                 //Get debug info
                 mouseScreenPos = Mouse.GetPosition(RENDER_WINDOW);
@@ -114,7 +110,7 @@ namespace PixelEditor {
                 RENDER_WINDOW.Draw(_grid);
 
                 //Do scene drawing and update
-                pScene.Draw(RENDER_WINDOW, RenderStates.Default);
+                //pScene.Draw(RENDER_WINDOW, RenderStates.Default);
 
                 ///////////////////
                 /// DRAW UI CAMERA

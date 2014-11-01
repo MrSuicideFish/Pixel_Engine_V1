@@ -52,6 +52,10 @@ namespace PixelEngine {
             float frames = 0;
             float fps = 0;
 
+            ///
+            ///Do system service Begin Methods
+            ///
+            
             // Start the game loop
             while (_window.IsOpen()) {
                 // Process events
@@ -71,6 +75,7 @@ namespace PixelEngine {
                 /// <summary>
                 /// UPDATES AND DRAW CALLS HERE
                 /// </summary>
+                //System service update call
 
                 //Call the update method on all modules
 

@@ -10,7 +10,7 @@ namespace PixelEngine.System {
     public class pActor : pObject, Interfaces.IPlaceable{
         public static Vector2f position { get; set; }
         public static float rotation { get; set; }
-        public static string SceneID;
+        public static string SceneID, id;
         private pActor[] children;
         private pActor parent;
 
@@ -22,13 +22,13 @@ namespace PixelEngine.System {
             }
         }
 
-        public void Begin() {}
+        public virtual void Begin() { }
 
-        public void Update() {
+        public virtual void Update() {
             Console.WriteLine("Updating " + SceneID);
         }
 
-        public void Draw(RenderTarget target, RenderStates states) {
+        public virtual void Draw(RenderTarget target, RenderStates states) {
             Console.WriteLine("Drawing " + SceneID);
         }
 

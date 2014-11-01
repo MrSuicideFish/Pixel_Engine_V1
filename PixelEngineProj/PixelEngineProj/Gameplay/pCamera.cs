@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SFML;
 using SFML.Graphics;
 using SFML.Window;
 
-namespace PixelEngine.System {
-    public class pObject{
-        public string id;
-        public pObject() {
-
+namespace PixelEngine.Gameplay {
+    public class pCamera : SFML.Graphics.View {
+        public pCamera(FloatRect viewRect) : base(viewRect) {
         }
-
-        public virtual void Update() { }
     }
 }

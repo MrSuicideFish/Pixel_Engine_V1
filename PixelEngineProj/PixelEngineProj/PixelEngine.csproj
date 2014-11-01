@@ -93,6 +93,7 @@
     <Compile Include="Editor\EditorTesting.cs" />
     <Compile Include="Editor\EditorPlaceable.cs" />
     <Compile Include="Editor\TestObject.cs" />
+    <Compile Include="Gameplay\pCamera.cs" />
     <Compile Include="Gameplay\pSprite.cs" />
     <Compile Include="Interfaces\IPlaceable.cs" />
     <Compile Include="Interfaces\IScene.cs" />

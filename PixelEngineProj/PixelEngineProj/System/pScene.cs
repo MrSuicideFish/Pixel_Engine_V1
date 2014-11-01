@@ -9,6 +9,9 @@ using System.Xml.Serialization;
 using SFML.Graphics;
 
 namespace PixelEngine.System {
+    /// <summary>
+    /// pScene should only handle main engine scenes (not editor)
+    /// </summary>
     public static class pScene{
         /// <summary>
         /// PUBLIC VARIABLES
@@ -34,6 +37,7 @@ namespace PixelEngine.System {
             try {
                 SCENE_OBJECTS = new List<pObject>();
                 SCENE_SERVICES = new List<pSceneService>();
+
             } catch (NullReferenceException _n) {
                 Program.EngineMessage(_n.Message, Program.eEngineMessageType.EXCEPTION);
             }
@@ -69,14 +73,8 @@ namespace PixelEngine.System {
         //    return SCENE_OBJECTS[0];
         //}
 
-        //Handle the information loaded from the level's XML File
-        private static void ParseXML() { }
-
         public static void Update() {
-            //Update the actors
-            foreach (System.pActor _actor in SCENE_OBJECTS) {
-                _actor.Update();
-            }
+            //Update the actors??
         }
 
         public static void Draw(RenderTarget target, RenderStates states) {

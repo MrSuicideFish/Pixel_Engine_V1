@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine.exe" size="13312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine.exe" size="13824">
       <assemblyIdentity name="PixelEngine" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hbxMEdWkMO52R+l5MWmH5Y6CDjmC74DQ0BDS4Qk5qfs=</dsig:DigestValue>
+        <dsig:DigestValue>FwDc3e6dsLjueU2ZKLUN1s+gbnedfoDs7eYyctVvW2A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

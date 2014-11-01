@@ -8,7 +8,12 @@ using SFML.Window;
 using SFML.Graphics;
 
 namespace PixelEditor {
-    public class EditorCamera : SFML.Graphics.View {
+    /// <summary>
+    /// The editor camera is the main go-to point for extending and modifying the editor viewport.
+    /// NOTE: EditorCamera is simply the viewport matrix handler scene, to access the scene manager itself, please
+    /// refer to the pScene class.
+    /// </summary>
+    public class EditorCamera : PixelEngine.Gameplay.pCamera {
         public float cameraSpeed = 200;
         public int turbo = 1;
         public EditorCamera(FloatRect viewRect) : base(viewRect) { }
@@ -22,6 +27,10 @@ namespace PixelEditor {
         Vector2i initMousePos;
         Vector2i curMousePos;
         Vector2f initCenter;
+
+        /// <summary>
+        /// Update Call
+        /// </summary>
         public void Update() {
             turbo = !SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.LShift) ? 1 : 3;
             if (SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)) {
@@ -37,7 +46,6 @@ namespace PixelEditor {
                 //add the difference to the camera world position
                 Vector2f newPos = new Vector2f(curMousePos.X, curMousePos.Y) - new Vector2f(initMousePos.X, initMousePos.Y);
                 Center = initCenter + -newPos;
-
             } else if (!SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)) {
                 bMoving = false;
             }
@@ -61,7 +69,14 @@ namespace PixelEditor {
             }
         }
 
-        //Zoom the camea
+        public bool isMoving() {
+            return bMoving;
+        }
+
+        /// <summary>
+        /// Handle camera zooming
+        /// </summary>
+        /// <param name="factor"></param>
         public void SetZoomState(float factor) {
             if (zoomState == -6 && factor == 0.9f) {
                 zoomState++;
