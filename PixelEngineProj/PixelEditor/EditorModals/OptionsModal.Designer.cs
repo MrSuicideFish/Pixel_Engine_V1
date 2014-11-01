@@ -23,22 +23,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button1 = new System.Windows.Forms.Button();
             this.OptionsCloseBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ViewportGridColorPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ViewportBackgroundPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(380, 283);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // OptionsCloseBtn
             // 
@@ -71,6 +61,29 @@
             this.ViewportGridColorPanel.Name = "ViewportGridColorPanel";
             this.ViewportGridColorPanel.Size = new System.Drawing.Size(193, 21);
             this.ViewportGridColorPanel.TabIndex = 3;
+            this.ViewportGridColorPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ViewportGridColorPanel_Clicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(273, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Viewport Background Color";
+            // 
+            // ViewportBackgroundPanel
+            // 
+            this.ViewportBackgroundPanel.AccessibleName = "ViewportBackgroundPanel";
+            this.ViewportBackgroundPanel.BackColor = System.Drawing.Color.Gray;
+            this.ViewportBackgroundPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ViewportBackgroundPanel.Location = new System.Drawing.Point(17, 115);
+            this.ViewportBackgroundPanel.Name = "ViewportBackgroundPanel";
+            this.ViewportBackgroundPanel.Size = new System.Drawing.Size(193, 21);
+            this.ViewportBackgroundPanel.TabIndex = 4;
+            this.ViewportBackgroundPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ViewportBackgroundPanel_Clicked);
             // 
             // OptionsModal
             // 
@@ -78,13 +91,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(548, 318);
+            this.Controls.Add(this.ViewportBackgroundPanel);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ViewportGridColorPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.OptionsCloseBtn);
-            this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "OptionsModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editor Options";
@@ -96,9 +110,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button OptionsCloseBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel ViewportGridColorPanel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel ViewportBackgroundPanel;
     }
 }

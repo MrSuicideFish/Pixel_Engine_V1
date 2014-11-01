@@ -33,6 +33,7 @@ namespace PixelEditor {
         //public EditorToolEnum EditorToolMode = EditorToolEnum.DRAW;
 
         //World Vars
+        public static SFML.Graphics.Color viewportBackgroundColor { get; set; }
         public static Vector2i mouseScreenPos;
         public static Vector2f mouseWorldPos;
 
@@ -46,6 +47,7 @@ namespace PixelEditor {
             Controls.Add(RENDER_SURFACE);
             RENDER_SURFACE.Location = new System.Drawing.Point(100, 100);
             RENDER_SURFACE.BringToFront();
+            RENDER_SURFACE.Focus();
 
             //Init sfml
             settings.AntialiasingLevel = 16;
@@ -60,6 +62,10 @@ namespace PixelEditor {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            //Intialize config data
+            InitConfigData();
+
+            //Intialize viewport data
             _grid = new EditorGrid();
             EditorDebug _debug = new EditorDebug(new SFML.Graphics.Font("EditorResources/pixelmix.ttf"));
             Stopwatch deltaClock = new Stopwatch();
@@ -73,12 +79,12 @@ namespace PixelEditor {
             while (Visible) {
                 Application.DoEvents();
                 RENDER_WINDOW.DispatchEvents();
-                RENDER_WINDOW.Clear(new SFML.Graphics.Color(143, 242, 255));
+                RENDER_WINDOW.Clear(viewportBackgroundColor);
 
                 //Calculate deltaTime
                 _deltaTime = deltaClock.Elapsed;
                 deltaClock.Restart();
-                Program.deltaTime = _deltaTime.TotalSeconds;
+                Editor.deltaTime = _deltaTime.TotalSeconds;
 
                 /////////////////////
                 /// DRAW CAMERA VIEW
@@ -96,8 +102,8 @@ namespace PixelEditor {
                 RENDER_WINDOW.Draw(_grid);
 
                 //Do scene drawing and update
-                Program.SCENE.Update();
-                Program.SCENE.Draw(RENDER_WINDOW, RenderStates.Default);
+                Editor.SCENE.Update();
+                Editor.SCENE.Draw(RENDER_WINDOW, RenderStates.Default);
 
                 ///////////////////
                 /// DRAW UI CAMERA
@@ -125,6 +131,16 @@ namespace PixelEditor {
             }
         }
 
+        private void InitConfigData() {
+            if (Config.CommandExists("EditorViewportBackgroundColor")) {
+                viewportBackgroundColor = Config.GetConfigColor("EditorViewportBackgroundColor");
+            } else {
+                viewportBackgroundColor = new SFML.Graphics.Color(36, 36, 36);
+                //Save settings to config state
+                Config.SetData("EditorViewportBackgroundColor", viewportBackgroundColor.ToString()); //Save the background color
+            }
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
         }
@@ -134,6 +150,12 @@ namespace PixelEditor {
             optionsDialog.ShowDialog();
         }
 
+        public static DrawingSurface GetRenderSurface() {
+            if (RENDER_SURFACE != null)
+                return RENDER_SURFACE;
+            else
+                return null;
+        }
     }
 
     public class DrawingSurface : Control {
@@ -149,7 +171,7 @@ namespace PixelEditor {
         }
         protected override void OnMouseWheel(MouseEventArgs e) {
             float _z = 1 - (float)(e.Delta / 120) / 10;
-            Form1.VIEWPORT_CAMERA_VIEW.Zoom(_z);
+            Form1.VIEWPORT_CAMERA_VIEW.SetZoomState(_z);
             base.OnMouseWheel(e);
         }
         protected override void OnSizeChanged(EventArgs e) {
@@ -165,10 +187,9 @@ namespace PixelEditor {
     /// </summary>
     public class EditorGrid : Drawable {
         RectangleShape[] _gridlines;
-
         public int gridFactorScale = 24;
         public int gridSize;
-        public SFML.Graphics.Color gridColor;
+        private SFML.Graphics.Color gridColor;
 
         public EditorGrid() {
             gridSize = 100;
@@ -190,7 +211,6 @@ namespace PixelEditor {
                     _gridlines[x] = new RectangleShape(new Vector2f((gridFactorScale * 2) * (_gridlines.Length/2 - 1), 1));
                     _gridlines[x].Position = new Vector2f(25, gridFactorScale * x);
                 }
-
                 //Set the grid color
                 _gridlines[x].FillColor = gridColor;
             }
@@ -199,6 +219,20 @@ namespace PixelEditor {
         public void Draw(RenderTarget target, RenderStates states) {
             for (int x = 0; x < _gridlines.GetLength(0); x++) {
                 target.Draw(_gridlines[x]);
+            }
+        }
+        public void SetGridColor(SFML.Graphics.Color color) {
+            gridColor = color;
+            ApplySettingsCallback();
+        }
+
+        public SFML.Graphics.Color GetGridColor() {
+                return gridColor;
+        }
+
+        private void ApplySettingsCallback() {
+            foreach (RectangleShape line in _gridlines) {
+                line.FillColor = gridColor;
             }
         }
     }
@@ -256,6 +290,8 @@ namespace PixelEditor {
         public int turbo = 1;
         public EditorCamera(FloatRect viewRect) : base(viewRect) { }
 
+        private static int zoomState = 0;
+
         /// <summary>
         /// PRIVATE VARIABLES
         /// </summary>
@@ -265,48 +301,60 @@ namespace PixelEditor {
         Vector2i curMousePos;
         Vector2f initCenter;
         public void Update() {
-            turbo = !SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.LShift) ? 1 : 3;
-            
-            if (SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)) {
-                if (!bMoving) {
-                    //Get the initial mouse world position
-                    initMousePos = Form1.mouseScreenPos;
-                    initCenter = Center;
-                    bMoving = true;
-                } else {
-                    //Get the current mouse world position
-                    curMousePos = Form1.mouseScreenPos;
+            if (Form1.GetRenderSurface().Focused) {
+                turbo = !SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.LShift) ? 1 : 3;
+                if (SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)) {
+                    if (!bMoving) {
+                        //Get the initial mouse world position
+                        initMousePos = Form1.mouseScreenPos;
+                        initCenter = Center;
+                        bMoving = true;
+                    } else {
+                        //Get the current mouse world position
+                        curMousePos = Form1.mouseScreenPos;
+                    }
+                    //add the difference to the camera world position
+                    Vector2f newPos = new Vector2f(curMousePos.X, curMousePos.Y) - new Vector2f(initMousePos.X, initMousePos.Y);
+                    Center = initCenter + -newPos;
+
+                } else if (!SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)) {
+                    bMoving = false;
                 }
-                //add the difference to the camera world position
-                Vector2f newPos = new Vector2f(curMousePos.X, curMousePos.Y) - new Vector2f(initMousePos.X, initMousePos.Y);
-                Center = initCenter + -newPos;
-
-            }else if(!SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)){
-                bMoving = false;
-            }
-
-            if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.W)) {
-                Move(new Vector2f(0, (float)(-cameraSpeed * turbo * Program.deltaTime)));
-            }
-            if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.S)) {
-                Move(new Vector2f(0, (float)(cameraSpeed * turbo * Program.deltaTime)));
-            }
-            if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.A)) {
-                Move(new Vector2f((float)(-cameraSpeed * turbo * Program.deltaTime), 0));
-            }
-            if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.D)) {
-                Move(new Vector2f((float)(cameraSpeed * turbo * Program.deltaTime), 0));
-            }
-            if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.R)) {
-                Rotate(0.05f);
-            }
-            if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.Q)) {
-                Rotate(-0.05f);
+                if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.W)) {
+                    Move(new Vector2f(0, (float)(-cameraSpeed * turbo * Editor.deltaTime)));
+                }
+                if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.S)) {
+                    Move(new Vector2f(0, (float)(cameraSpeed * turbo * Editor.deltaTime)));
+                }
+                if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.A)) {
+                    Move(new Vector2f((float)(-cameraSpeed * turbo * Editor.deltaTime), 0));
+                }
+                if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.D)) {
+                    Move(new Vector2f((float)(cameraSpeed * turbo * Editor.deltaTime), 0));
+                }
+                if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.R)) {
+                    Rotate(0.05f);
+                }
+                if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.Q)) {
+                    Rotate(-0.05f);
+                }
             }
         }
 
+        //Zoom the camea
         public void SetZoomState(float factor){
-            Zoom(1.0f);
+            if (zoomState == -6 && factor == 0.9f) {
+                zoomState++;
+            }
+            if (zoomState == 6 && factor == 1.1f) {
+                zoomState--;
+            }
+
+            if (zoomState >= -5 && zoomState <= 5) {
+                Zoom(factor);
+                zoomState = (factor > 1.0) ? zoomState - 1 : zoomState + 1;
+            }
+            return;
         }
     }
 }
