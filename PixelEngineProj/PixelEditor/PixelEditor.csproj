@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Pixel Engine Editor</ProductName>
     <PublisherName>Broken Pixel, Ltd.</PublisherName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>0.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -125,7 +125,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Resources\pixelmix.ttf" />
+    <Content Include="EditorResources\pixelmix.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\pixelmix.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="PixelEditor_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -146,9 +151,9 @@
     <Content Include="csfml-window-2.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PixelEngineProj\PixelEngineProj.csproj">
+    <ProjectReference Include="..\PixelEngineProj\PixelEngine.csproj">
       <Project>{8d072381-e861-4010-88f6-1bf360f675d7}</Project>
-      <Name>PixelEngineProj</Name>
+      <Name>PixelEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

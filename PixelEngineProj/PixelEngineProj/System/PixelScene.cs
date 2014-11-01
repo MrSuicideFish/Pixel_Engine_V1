@@ -9,22 +9,25 @@ using System.Xml.Serialization;
 using SFML.Graphics;
 
 namespace PixelEngineProj.System {
-    public class PixelScene{
+    public static class PixelScene{
         /// <summary>
         /// PRIVATE VARIABLES
         /// </summary>
-        private string currentLevel;
+        private static string currentLevel;
 
         /// <summary>
         /// SCENE VARIABLES
         /// </summary>
-        public List<System.PixelActor> SCENE_OBJECTS;
+        public static List<System.PixelActor> SCENE_OBJECTS;
 
-        public PixelScene() {
+        public static int Init() {
+            Program.EngineMessage("Initializing scene manager");
             SCENE_OBJECTS = new List<PixelActor>();
+            Program.EngineMessage("Scene manager Initialized", Program.eEngineMessageType.CONFIRM);
+            return 0;
         }
 
-        public int LoadLevel(string _sceneName) {
+        public static int LoadLevel(string _sceneName) {
             Console.WriteLine("Loading level - " + _sceneName);
             try {
                 //Locate the level in the repo
@@ -39,7 +42,7 @@ namespace PixelEngineProj.System {
             return 0;
         }
 
-        public void AddObjectToScene(PixelActor obj) {
+        public static void AddObjectToScene(PixelActor obj) {
             if (obj != null) {
                 SCENE_OBJECTS.Add(obj);
             } else {
@@ -47,25 +50,25 @@ namespace PixelEngineProj.System {
             }
         }
 
-        public List<System.PixelActor> GetSceneObjects() {
+        public static List<System.PixelActor> GetSceneObjects() {
             return SCENE_OBJECTS;
         }
 
-        public System.PixelActor FindObjectWithName() {
+        public static System.PixelActor FindObjectWithName() {
             return SCENE_OBJECTS[0];
         }
 
         //Handle the information loaded from the level's XML File
-        private void ParseXML() { }
+        private static void ParseXML() { }
 
-        public void Update() {
+        public static void Update() {
             //Update the actors
             foreach (System.PixelActor _actor in SCENE_OBJECTS) {
                 _actor.Update();
             }
         }
 
-        public void Draw(RenderTarget target, RenderStates states) {
+        public static void Draw(RenderTarget target, RenderStates states) {
             //Draw the Actors
             foreach(System.PixelActor _actor in SCENE_OBJECTS){
                 target.Draw(_actor);

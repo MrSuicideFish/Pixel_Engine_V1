@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="PixelEditor.exe" version="0.0.2.9" publicKeyToken="93ec2587cc191835" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="PixelEditor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="PixelEditor.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="49664">
+      <assemblyIdentity name="PixelEditor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Ts6klKrTaKnGUMaArGwFaD69qXwSDL6kVvcF1kLGWP8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngineProj.exe" size="13824">
+      <assemblyIdentity name="PixelEngineProj" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>DdMCg7oktIFyqqGFNNgfDlaNmWvLi3RN+TdGN7ZJyxQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="sfmlnet-audio-2.dll" size="21504">
+      <assemblyIdentity name="sfmlnet-audio-2" version="2.1.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rt0HMofS28owzwK0XLP4eYEKXO5tvyOX8P/wNSA8atM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="sfmlnet-graphics-2.dll" size="46592">
+      <assemblyIdentity name="sfmlnet-graphics-2" version="2.1.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JOViodYS5IGFhhOq2kLiUdsbFyH2B3eJrUggPgNBoYE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="sfmlnet-window-2.dll" size="27136">
+      <assemblyIdentity name="sfmlnet-window-2" version="2.1.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>OnFowhZay0/NhDoPlqqJuULoYixURjNil9eNPrO8Bbw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="csfml-audio-2.dll" size="55296">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QftOe4D//On3nuDRetxnRN6YREaXidQiDUvfKoLSKnU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="csfml-graphics-2.dll" size="802304">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yrVVKcNDHKKs9FwkrSMm54OYt/5lBzjb+BKtmbCDbXM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="csfml-window-2.dll" size="66048">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mQb5YeygMxk2/vXZffvaejrQ8xUxcKHzcEy06Yp45SY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="EditorResources\pixelmix.ttf" size="22184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gBbBlzvaW3rf5982HMmneAeiA9mAFls7HeYWLes70Ds=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="PixelEditor.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\pixelmix.ttf" size="22184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gBbBlzvaW3rf5982HMmneAeiA9mAFls7HeYWLes70Ds=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=SUICIDEFISH-PC\Malcolm" issuerKeyHash="7c95090c29f652f3c8f1db086b76b3aa97ecfaf2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>PucM4PFdvexI8vMVnccOCDmOhack4uw1OxxMMuYQWrE=</DigestValue></Reference></SignedInfo><SignatureValue>uQ8axjgUBL+iVprxsqsYY23m0xXD8YZn5qlr3S5tTrPA/koBZ4DUb5BF3XNDclA7lm3R3ZOLHnerGPUs4xd8ra1uSAjWBPK0QIMnTR52cG0Wh5cpy5XZa/Uoc3L3vB/ht04+5Mpb/PxmJ7tXY09I3wkN7KmWLd9xeuJd7L9AGj0=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>u1hkng/LCGCQV0UOkJ/pr0iq3aTUEnzshrTjSq/jxoO4zcDiJsCIOOuGk9Ov1u8DwdpwjqE0QS9L9uXW7e1R7c6kGOBVMNvlnSuiKLyXIFDfAWQLEtPfdoDenEV7OMkYxYJcvs6MPYOHm7Vuov1Qt3Z0eFC9av4DYKEztwab2g8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b15a10e6324c1c3b35ece224a7858e39080ec79d15f3f248ecbd5df1e00ce73e" Description="" Url=""><as:assemblyIdentity name="PixelEditor.exe" version="0.0.2.9" publicKeyToken="93ec2587cc191835" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=SUICIDEFISH-PC\Malcolm</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>l8RVkpL0Zb7zvZ3Qr95FakWoZyYwjkQWumSBEAhN7I0=</DigestValue></Reference></SignedInfo><SignatureValue>X59JRaJtVVmqXywwrCYSiJRjG1w/9jQHKoIOcM05uHjnLAaG6wTjNvPMatvmddSAro2mTEvroSkK8krADULeamDCMdnxxxG3sF/P9nKpcbWoxLsFQ17In7SIO/vux+f1GrW2BHfx4std/KXDuFBKVo/Uq3uqYG/6YuV1h0B+a8Q=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>u1hkng/LCGCQV0UOkJ/pr0iq3aTUEnzshrTjSq/jxoO4zcDiJsCIOOuGk9Ov1u8DwdpwjqE0QS9L9uXW7e1R7c6kGOBVMNvlnSuiKLyXIFDfAWQLEtPfdoDenEV7OMkYxYJcvs6MPYOHm7Vuov1Qt3Z0eFC9av4DYKEztwab2g8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQfkPEP1JrrJFIXptuIsCd3TANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwAUwBVAEkAQwBJAEQARQBGAEkAUwBIAC0AUABDAFwATQBhAGwAYwBvAGwAbTAeFw0xNDEwMjcwMTEyNTRaFw0xNTEwMjcwNzEyNTRaMDcxNTAzBgNVBAMeLABTAFUASQBDAEkARABFAEYASQBTAEgALQBQAEMAXABNAGEAbABjAG8AbABtMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC7WGSeD8sIYJBXRQ6Qn+mvSKrdpNQSfOyGtONKr+PGg7jNwOImwIg464aT06/W7wPB2nCOoTRBL0v25dbt7VHtzqQY4FUw2+WdK6IovJcgUN8BZAsS0992gN6cRXs4yRjFgly+zow9g4ebtW6i/VC3dnR4UL1q/gNgoTO3BpvaDwIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAARKJxl52nRZ3kSI3piMQjfocofDye2DFM4ikgUjDYFK97MgdGAzrEPnIZRaWl3jZadM5ZEsZgxjOqZ2kfOsUCLlC24OUX/v4NnfsoRUS6q9fq/e/UNIBBbHCaTQu9X79mbCU7Aqgdm18STqzyW7pLa30rDCuw/COEEvEf5xIcCF</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -15,7 +15,6 @@ namespace PixelEditor {
         /// Public Variables
         /// </summary>
         public static double deltaTime { get; set; }
-        public static PixelScene SCENE;
         public static Form1 EDITOR;
 
         /// <summary>
@@ -31,7 +30,7 @@ namespace PixelEditor {
             Config.Init();
 
             //Init the scene
-            SCENE = new PixelScene();
+            PixelScene.Init();
 
             //Init the main editor
             EDITOR = new Form1();
@@ -104,12 +103,14 @@ namespace PixelEditor {
         private static List<ConfigNodeData> CONFIG_DATA;
         private static string configDirectory = Directory.GetCurrentDirectory() + "/PixelEngineConfig.cfg";
         public static void Init() {
-            Program.EngineMessage("Initialize editor config state.");
+            Program.EngineMessage("Initialize editor config state");
+            RAW_CONFIG_DATA = new string[0];
+
             if (File.Exists(configDirectory)){
                 RAW_CONFIG_DATA = File.ReadAllLines(configDirectory);
             } else {
                 //Create a new config file
-                Program.EngineMessage("NO CONFIG FOUND, CREATING A NEW ONE.", Program.eEngineMessageType.WARNING);
+                Program.EngineMessage("NO CONFIG FOUND, CREATING A NEW ONE", Program.eEngineMessageType.WARNING);
                 File.Create(configDirectory);
             }
 
@@ -117,8 +118,7 @@ namespace PixelEditor {
             foreach (string line in RAW_CONFIG_DATA) {
                 CONFIG_DATA.Add(new ConfigNodeData(line));
             }
-
-            Program.EngineMessage("Config data initialized.", Program.eEngineMessageType.CONFIRM);
+            Program.EngineMessage("Config data initialized", Program.eEngineMessageType.CONFIRM);
         }
         /// <summary>
         /// Returns the current config state as a string array.
@@ -169,7 +169,6 @@ namespace PixelEditor {
                 int _index = 0;
                 if (CommandExists(command, ref _index)) {
                     CONFIG_DATA[_index].SetNodeData(command, value);
-                    Console.WriteLine(CONFIG_DATA[_index].ToString());
                 } else
                     CONFIG_DATA.Add(new ConfigNodeData(command, value));
 

@@ -7,8 +7,8 @@
     <ProjectGuid>{8D072381-E861-4010-88F6-1BF360F675D7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PixelEngineProj</RootNamespace>
-    <AssemblyName>PixelEngineProj</AssemblyName>
+    <RootNamespace>PixelEngine</RootNamespace>
+    <AssemblyName>PixelEngine</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>

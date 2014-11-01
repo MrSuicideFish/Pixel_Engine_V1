@@ -13,3 +13,4 @@ C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEn
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.application
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.exe
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngineProj.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngine.exe.config

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using SFML.Window;
 using SFML.Graphics;
 using PixelEngineProj;
@@ -22,6 +23,8 @@ namespace PixelEditor {
         private static SFML.Graphics.View VIEWPORT_UI_VIEW;
         private static string[] EditorDebugInfo;
         private ContextSettings settings;
+        //private static string DATA_DIRECTORY;
+        private static SFML.Graphics.Font engineFont;
 
         /// <summary>
         /// Public Variables
@@ -49,6 +52,9 @@ namespace PixelEditor {
             RENDER_SURFACE.BringToFront();
             RENDER_SURFACE.Focus();
 
+            //Load resources
+            //DATA_DIRECTORY = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
             //Init sfml
             settings.AntialiasingLevel = 16;
             RENDER_WINDOW = new RenderWindow(RENDER_SURFACE.Handle, settings);
@@ -59,7 +65,6 @@ namespace PixelEditor {
 
             //Init editor debug info
             EditorDebugInfo = new string[1];
-
             this.FormClosed += new FormClosedEventHandler(OnEditorClose);
         }
 
@@ -69,7 +74,8 @@ namespace PixelEditor {
 
             //Intialize viewport data
             _grid = new EditorGrid();
-            EditorDebug _debug = new EditorDebug(new SFML.Graphics.Font("EditorResources/pixelmix.ttf"));
+            Console.WriteLine();
+            EditorDebug _debug = new EditorDebug(new SFML.Graphics.Font(Directory.GetCurrentDirectory() + "/EditorResources/pixelmix.ttf"));
             Stopwatch deltaClock = new Stopwatch();
             TimeSpan _deltaTime = new TimeSpan();
             Stopwatch clock = new Stopwatch();
@@ -104,8 +110,7 @@ namespace PixelEditor {
                 RENDER_WINDOW.Draw(_grid);
 
                 //Do scene drawing and update
-                Editor.SCENE.Update();
-                Editor.SCENE.Draw(RENDER_WINDOW, RenderStates.Default);
+                //Pix.Draw(RENDER_WINDOW, RenderStates.Default);
 
                 ///////////////////
                 /// DRAW UI CAMERA
@@ -204,7 +209,7 @@ namespace PixelEditor {
 
         public EditorGrid() {
             gridSize = 100;
-            gridColor = new SFML.Graphics.Color(30, 30, 30);
+            gridColor = (Config.CommandExists("EditorViewportGridColor")) ? Config.GetConfigColor("EditorViewportGridColor") : new SFML.Graphics.Color(30, 30, 30);
 
             //Create the grid arrays
             _gridlines = new RectangleShape[gridSize * 2];

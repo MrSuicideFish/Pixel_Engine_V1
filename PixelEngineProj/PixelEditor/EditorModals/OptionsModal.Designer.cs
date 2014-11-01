@@ -107,6 +107,7 @@
             this.Controls.Add(this.OptionsCloseBtn);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "OptionsModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editor Options";
