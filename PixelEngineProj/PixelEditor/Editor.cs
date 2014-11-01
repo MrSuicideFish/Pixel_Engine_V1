@@ -30,7 +30,7 @@ namespace PixelEditor {
             Config.Init();
 
             //Init the scene
-            PixelScene.Init();
+            pScene.Init();
 
             //Init the main editor
             EDITOR = new Form1();
