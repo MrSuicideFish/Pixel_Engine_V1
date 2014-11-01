@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using SFML.Window;
 using SFML.Graphics;
-using PixelEngine;
+using PixelEngine.System;
 
 namespace PixelEditor {
     public partial class Form1 : Form {
@@ -24,7 +24,6 @@ namespace PixelEditor {
         private static string[] EditorDebugInfo;
         private ContextSettings settings;
         //private static string DATA_DIRECTORY;
-        private static SFML.Graphics.Font engineFont;
 
         /// <summary>
         /// Public Variables
@@ -95,6 +94,11 @@ namespace PixelEditor {
                 Editor.deltaTime = _deltaTime.TotalSeconds;
 
                 /////////////////////
+                /// UPDATE
+                /////////////////////
+                pScene.Update();
+
+                /////////////////////
                 /// DRAW CAMERA VIEW
                 /////////////////////
                 RENDER_WINDOW.SetView(VIEWPORT_CAMERA_VIEW);
@@ -110,7 +114,7 @@ namespace PixelEditor {
                 RENDER_WINDOW.Draw(_grid);
 
                 //Do scene drawing and update
-                //Pix.Draw(RENDER_WINDOW, RenderStates.Default);
+                pScene.Draw(RENDER_WINDOW, RenderStates.Default);
 
                 ///////////////////
                 /// DRAW UI CAMERA

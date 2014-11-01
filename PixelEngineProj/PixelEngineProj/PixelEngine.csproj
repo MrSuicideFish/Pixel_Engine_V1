@@ -106,6 +106,7 @@
     <Compile Include="System\pActor.cs" />
     <Compile Include="System\pScene.cs" />
     <Compile Include="System\pObject.cs" />
+    <Compile Include="System\pServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

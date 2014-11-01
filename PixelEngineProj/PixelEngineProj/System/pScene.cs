@@ -22,7 +22,8 @@ namespace PixelEngine.System {
         /// <summary>
         /// SCENE VARIABLES
         /// </summary>
-        public static List<System.pActor> SCENE_OBJECTS;
+        private static List<pObject> SCENE_OBJECTS;
+        private static List<pSceneService> SCENE_SERVICES;
 
         /// <summary>
         /// Initiates the scene
@@ -30,7 +31,12 @@ namespace PixelEngine.System {
         /// <returns></returns>
         public static int Init() {
             Program.EngineMessage("Initializing scene manager");
-            SCENE_OBJECTS = new List<pActor>();
+            try {
+                SCENE_OBJECTS = new List<pObject>();
+                SCENE_SERVICES = new List<pSceneService>();
+            } catch (NullReferenceException _n) {
+                Program.EngineMessage(_n.Message, Program.eEngineMessageType.EXCEPTION);
+            }
             Program.EngineMessage("Scene manager Initialized", Program.eEngineMessageType.CONFIRM);
             return 0;
         }
@@ -40,20 +46,8 @@ namespace PixelEngine.System {
         /// </summary>
         /// <param name="_sceneName"></param>
         /// <returns></returns>
-        public static int LoadLevel(string _sceneName) {
-            Console.WriteLine("Loading level - " + _sceneName);
-            try {
-                //Locate the level in the repo
-                XmlDocument scene = new XmlDocument();
-                scene.LoadXml(Directory.GetCurrentDirectory() + "/scenes/" + _sceneName + ".xml");
-            }catch(XmlException f_exception){
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("PixelScene.LoadLevel() FAILED with exception: " + f_exception.Message);
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            currentLevel = _sceneName;
-            return 0;
-        }
+        //public static int LoadLevel(string _sceneName) {
+        //}
 
         /// <summary>
         /// Adds a new object to the scene
@@ -67,13 +61,13 @@ namespace PixelEngine.System {
             }
         }
 
-        public static List<System.pActor> GetSceneObjects() {
-            return SCENE_OBJECTS;
-        }
+        //public static List<System.pActor> GetSceneObjects() {
+        //    return SCENE_OBJECTS;
+        //}
 
-        public static System.pActor FindObjectWithName() {
-            return SCENE_OBJECTS[0];
-        }
+        //public static System.pActor FindObjectWithName() {
+        //    return SCENE_OBJECTS[0];
+        //}
 
         //Handle the information loaded from the level's XML File
         private static void ParseXML() { }

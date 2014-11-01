@@ -12,7 +12,6 @@ namespace PixelEngine.Gameplay {
     public class pSprite : Sprite{
         public pSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
             if (texPath != null) {
-
                 //Init a new texture
                 Texture newTex = new Texture(texPath, texRect);
                 newTex.Update(new Image(texPath));

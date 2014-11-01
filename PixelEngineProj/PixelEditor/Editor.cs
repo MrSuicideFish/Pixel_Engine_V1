@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define EDITOR
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,6 @@ using SFML.Graphics;
 using SFML.Window;
 using PixelEngine;
 using PixelEngine.System;
-
 namespace PixelEditor {
     static class Editor {
         /// <summary>

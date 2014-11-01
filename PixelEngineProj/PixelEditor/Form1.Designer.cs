@@ -40,8 +40,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.preferencesToolStripMenuItem});
@@ -95,6 +94,7 @@
             // 
             this.EditorToolbarA.AccessibleName = "EditorToolbarA";
             this.EditorToolbarA.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.EditorToolbarA.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.EditorToolbarA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
             this.EditorToolbarA.Location = new System.Drawing.Point(0, 24);
