@@ -7,14 +7,14 @@ using SFML.Graphics;
 using SFML.Window;
 
 namespace PixelEngine.System {
-    public class PixelActor : PixelObject, Interfaces.IPlaceable{
+    public class pActor : pObject, Interfaces.IPlaceable{
         public static Vector2f position { get; set; }
         public static float rotation { get; set; }
         public static string SceneID;
-        private PixelActor[] children;
-        private PixelActor parent;
+        private pActor[] children;
+        private pActor parent;
 
-        public PixelActor(string ID = "Pixel Actor") {
+        public pActor(string ID = "Pixel Actor") {
             if (ID != "") {
                 SceneID = ID;
             } else {
@@ -36,14 +36,14 @@ namespace PixelEngine.System {
  	        return this.GetType().ToString() + ": " + id;
         }
 
-        public PixelActor GetActorParent() {
+        public pActor GetActorParent() {
             if (parent != null)
                 return parent;
             else
                 return null;
         }
 
-        public PixelActor[] GetActorChildren() {
+        public pActor[] GetActorChildren() {
             if (children != null)
                 return children;
             else

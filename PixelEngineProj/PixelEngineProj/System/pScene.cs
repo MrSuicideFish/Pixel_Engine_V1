@@ -9,7 +9,11 @@ using System.Xml.Serialization;
 using SFML.Graphics;
 
 namespace PixelEngine.System {
-    public static class PixelScene{
+    public static class pScene{
+        /// <summary>
+        /// PUBLIC VARIABLES
+        /// </summary>
+
         /// <summary>
         /// PRIVATE VARIABLES
         /// </summary>
@@ -18,15 +22,24 @@ namespace PixelEngine.System {
         /// <summary>
         /// SCENE VARIABLES
         /// </summary>
-        public static List<System.PixelActor> SCENE_OBJECTS;
+        public static List<System.pActor> SCENE_OBJECTS;
 
+        /// <summary>
+        /// Initiates the scene
+        /// </summary>
+        /// <returns></returns>
         public static int Init() {
             Program.EngineMessage("Initializing scene manager");
-            SCENE_OBJECTS = new List<PixelActor>();
+            SCENE_OBJECTS = new List<pActor>();
             Program.EngineMessage("Scene manager Initialized", Program.eEngineMessageType.CONFIRM);
             return 0;
         }
 
+        /// <summary>
+        /// Loads a new level with the given string
+        /// </summary>
+        /// <param name="_sceneName"></param>
+        /// <returns></returns>
         public static int LoadLevel(string _sceneName) {
             Console.WriteLine("Loading level - " + _sceneName);
             try {
@@ -42,7 +55,11 @@ namespace PixelEngine.System {
             return 0;
         }
 
-        public static void AddObjectToScene(PixelActor obj) {
+        /// <summary>
+        /// Adds a new object to the scene
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void AddObjectToScene(pActor obj) {
             if (obj != null) {
                 SCENE_OBJECTS.Add(obj);
             } else {
@@ -50,11 +67,11 @@ namespace PixelEngine.System {
             }
         }
 
-        public static List<System.PixelActor> GetSceneObjects() {
+        public static List<System.pActor> GetSceneObjects() {
             return SCENE_OBJECTS;
         }
 
-        public static System.PixelActor FindObjectWithName() {
+        public static System.pActor FindObjectWithName() {
             return SCENE_OBJECTS[0];
         }
 
@@ -63,14 +80,14 @@ namespace PixelEngine.System {
 
         public static void Update() {
             //Update the actors
-            foreach (System.PixelActor _actor in SCENE_OBJECTS) {
+            foreach (System.pActor _actor in SCENE_OBJECTS) {
                 _actor.Update();
             }
         }
 
         public static void Draw(RenderTarget target, RenderStates states) {
             //Draw the Actors
-            foreach(System.PixelActor _actor in SCENE_OBJECTS){
+            foreach(System.pActor _actor in SCENE_OBJECTS){
                 target.Draw(_actor);
             }
         }

@@ -7,9 +7,9 @@ using SFML.Graphics;
 using SFML.Window;
 
 namespace PixelEngine.System {
-    public class PixelObject{
+    public class pObject{
         public string id;
-        public PixelObject() {
+        public pObject() {
 
         }
     }

@@ -45,7 +45,7 @@ namespace PixelEngine {
             LoadSystemResources();
 
             //Testing DEBUG
-            Gameplay.PixelSprite newSprite = new Gameplay.PixelSprite("Resources/deleteMe.png", new IntRect(0,0,300,300), new Vector2f(200, 200));
+            Gameplay.pSprite newSprite = new Gameplay.pSprite("Resources/deleteMe.png", new IntRect(0,0,300,300), new Vector2f(200, 200));
 
             //Fps stuff
             clock.Start();

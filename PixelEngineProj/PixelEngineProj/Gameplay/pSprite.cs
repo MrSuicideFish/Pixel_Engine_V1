@@ -9,8 +9,8 @@ using SFML.Window;
 using PixelEngine.System;
 
 namespace PixelEngine.Gameplay {
-    public class PixelSprite : Sprite{
-        public PixelSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
+    public class pSprite : Sprite{
+        public pSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
             if (texPath != null) {
 
                 //Init a new texture

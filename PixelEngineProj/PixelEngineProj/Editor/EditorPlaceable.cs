@@ -7,7 +7,7 @@ using SFML;
 using SFML.Window;
 
 namespace PixelEngine.Editor {
-    public class EditorPlaceable : PixelEngine.System.PixelObject {
+    public class EditorPlaceable : PixelEngine.System.pObject {
         public string name { get; set; }
         public Vector2f position { get; set; }
         public float rotation;

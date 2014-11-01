@@ -93,7 +93,7 @@
     <Compile Include="Editor\EditorTesting.cs" />
     <Compile Include="Editor\EditorPlaceable.cs" />
     <Compile Include="Editor\TestObject.cs" />
-    <Compile Include="Gameplay\PixelSprite.cs" />
+    <Compile Include="Gameplay\pSprite.cs" />
     <Compile Include="Interfaces\IPlaceable.cs" />
     <Compile Include="Interfaces\IScene.cs" />
     <Compile Include="Program.cs" />
@@ -103,9 +103,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="System\PixelActor.cs" />
-    <Compile Include="System\PixelScene.cs" />
-    <Compile Include="System\PixelObject.cs" />
+    <Compile Include="System\pActor.cs" />
+    <Compile Include="System\pScene.cs" />
+    <Compile Include="System\pObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
