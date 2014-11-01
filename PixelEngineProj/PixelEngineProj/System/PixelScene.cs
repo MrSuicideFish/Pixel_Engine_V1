@@ -8,7 +8,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using SFML.Graphics;
 
-namespace PixelEngineProj.System {
+namespace PixelEngine.System {
     public static class PixelScene{
         /// <summary>
         /// PRIVATE VARIABLES

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using SFML;
 using SFML.Graphics;
 using SFML.Window;
-using PixelEngineProj.System;
+using PixelEngine.System;
 
-namespace PixelEngineProj.Gameplay {
+namespace PixelEngine.Gameplay {
     public class PixelSprite : Sprite{
         public PixelSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
             if (texPath != null) {

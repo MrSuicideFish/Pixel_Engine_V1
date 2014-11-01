@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.Window;
 
-namespace PixelEngineProj.System {
+namespace PixelEngine.System {
     public class PixelObject{
         public string id;
         public PixelObject() {

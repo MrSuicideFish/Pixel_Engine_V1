@@ -8,7 +8,7 @@ using SFML.Graphics;
 using SFML.Window;
 
 
-namespace PixelEngineProj.Editor {
+namespace PixelEngine.Editor {
     class EditorTesting : EditorPlaceable{
         public EditorTesting() {
             name = "Test Object";

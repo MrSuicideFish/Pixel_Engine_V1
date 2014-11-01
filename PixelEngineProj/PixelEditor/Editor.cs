@@ -6,8 +6,8 @@ using System.Windows.Forms;
 using System.IO;
 using SFML.Graphics;
 using SFML.Window;
-using PixelEngineProj;
-using PixelEngineProj.System;
+using PixelEngine;
+using PixelEngine.System;
 
 namespace PixelEditor {
     static class Editor {

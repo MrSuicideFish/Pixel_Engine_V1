@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using SFML.Window;
 using SFML.Graphics;
-using PixelEngineProj;
+using PixelEngine;
 
 namespace PixelEditor {
     public partial class Form1 : Form {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SFML.Graphics;
 using SFML.Window;
-using PixelEngineProj;
+using PixelEngine;
 
 namespace PixelEditor.EditorModals {
     public partial class OptionsModal : Form {

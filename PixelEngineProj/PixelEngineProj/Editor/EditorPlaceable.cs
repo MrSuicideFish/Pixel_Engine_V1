@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using SFML;
 using SFML.Window;
 
-namespace PixelEngineProj.Editor {
-    public class EditorPlaceable : PixelEngineProj.System.PixelObject{
+namespace PixelEngine.Editor {
+    public class EditorPlaceable : PixelEngine.System.PixelObject {
         public string name { get; set; }
         public Vector2f position { get; set; }
         public float rotation;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.Window;
 
-namespace PixelEngineProj.System {
+namespace PixelEngine.System {
     public class PixelActor : PixelObject, Interfaces.IPlaceable{
         public static Vector2f position { get; set; }
         public static float rotation { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.Window;
 
-namespace PixelEngineProj.Interfaces {
+namespace PixelEngine.Interfaces {
     public interface IPlaceable : Drawable{
         void Begin();
         void Draw(RenderTarget target, RenderStates states);

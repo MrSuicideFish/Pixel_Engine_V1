@@ -4,10 +4,10 @@ using System.IO;
 using SFML.Audio;
 using SFML.Window;
 using SFML.Graphics;
-using PixelEngineProj.System;
+using PixelEngine.System;
 
 
-namespace PixelEngineProj {
+namespace PixelEngine {
     public class Program {
         /// <summary>
         /// System variables
