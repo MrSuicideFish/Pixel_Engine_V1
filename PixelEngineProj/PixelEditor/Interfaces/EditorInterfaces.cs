@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace PixelEditor.Interfaces {
     interface IPlacable {
-
+        void Create();
+        void Destroy();
+        void Update();
     }
 }

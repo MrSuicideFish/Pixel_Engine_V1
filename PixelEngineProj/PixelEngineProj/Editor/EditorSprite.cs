@@ -10,7 +10,7 @@ using SFML.Window;
 namespace PixelEngine.Editor {
     public class EditorSprite : EditorPlaceable{
         public EditorSprite() {
-            name = "New Stupid Sprite";
+            name = "";
         }
     }
 }

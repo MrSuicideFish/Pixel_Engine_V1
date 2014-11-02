@@ -18,28 +18,31 @@ namespace PixelEditor {
         public static double deltaTime { get; set; }
         public static Form1 EDITOR;
         public static EditorScene SCENE;
+
         /// <summary>
         /// Private Variables
         /// </summary>
+        private static List<pSystemService> SYSTEM_SERVICES;
 
         /// <summary>
         /// Main Entry point
         /// </summary>
         [STAThread]
         static void Main() {
-            //Init the config
+            //Initiate engine modules
             Config.Init();
+            SYSTEM_SERVICES = new List<pSystemService>(); //TODO: Get system services from config (or xml)
 
-            //Init the scene
             SCENE = new EditorScene();
-
-            //Init the main editor
             EDITOR = new Form1();
             EDITOR.Show();
             EDITOR.Focus();
 
             while (EDITOR.Visible) {
                 Application.DoEvents();
+
+                //Update the scene
+                SCENE.Update();
             }
         }
 

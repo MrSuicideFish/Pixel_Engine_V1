@@ -25,6 +25,7 @@ namespace PixelEditor {
         /// SCENE VARIABLES
         /// </summary>
         private static List<pObject> SCENE_OBJECTS;
+        private static List<EditorActor> SCENE_ACTORS;
         private static List<pSceneService> SCENE_SERVICES;
 
         /// <summary>
@@ -35,20 +36,31 @@ namespace PixelEditor {
             Program.EngineMessage("Initializing editor scene manager");
             try {
                 SCENE_OBJECTS = new List<pObject>();
+                SCENE_ACTORS = new List<EditorActor>();
                 SCENE_SERVICES = new List<pSceneService>();
-
                 sceneName = _sceneName;
-
-                //Debug, create an editor actor to test
-
             } catch (NullReferenceException _n) {
                 Program.EngineMessage(_n.Message, Program.eEngineMessageType.EXCEPTION);
             }
             Program.EngineMessage("Editor scene manager Initialized", Program.eEngineMessageType.CONFIRM);
+            DoDebugStuff();
         }
 
-        public void Update() {
+        void DoDebugStuff() {
+            //Actor testing
+            TestEditorActor _a = new TestEditorActor("Test editor actor");
+            AddActorToScene(_a);
+        }
 
+        public virtual void Update() {
+            //Update Scene Services
+            //foreach (pSceneService _sceneService in SCENE_SERVICES) {
+            //    _sceneService.Update();
+            //}
+            //Call update on scene actors
+            foreach (EditorActor _a in SCENE_ACTORS) {
+                _a.Update();
+            }
         }
 
         public string getSceneName() {
@@ -59,6 +71,38 @@ namespace PixelEditor {
             if (_newSceneName != "") {
                 sceneName = _newSceneName;
             }
+        }
+
+        /// <summary>
+        /// Actor Collection Methods
+        /// </summary>
+        public void AddActorToScene(EditorActor newActor) {
+            if (newActor != null) {
+                //Generate new unique id for this actor
+                newActor.GenerateUniqueId();
+                try {
+                    SCENE_ACTORS.Add(newActor);
+                    newActor.Create();
+                    Console.WriteLine("Added " + newActor.id + " to scene");
+                } catch (NullReferenceException _n) {
+                    Editor.EngineMessage(_n.Message, Editor.eEngineMessageType.EXCEPTION);
+                }
+            } else {
+                Editor.EngineMessage("ERROR: FAILED TO ADD ACTOR TO SCENE BECAUSE THE OBJECT YOU ARE TRYING TO ADD IS NULL");
+            }
+        }
+
+        public EditorActor FindActorById(string _id) {
+            foreach (EditorActor _a in SCENE_ACTORS) {
+                if (_a != null && _a.id == _id) {
+                    return _a;
+                }
+            }
+            return null;
+        }
+
+        public EditorActor FindActorByUid(string _uid) {
+            return null;
         }
     }
 }

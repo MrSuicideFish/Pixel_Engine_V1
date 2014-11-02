@@ -17,10 +17,10 @@ namespace PixelEngine.System {
     /// Define Services
     /// </summary>
     public class pSceneService : pObject{
-        public void Update() {}
+        public virtual void Update() {}
     }
 
     public class pSystemService : pObject {
-        public void Update() {}
+        public virtual void Update() { }
     }
 }
