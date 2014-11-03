@@ -78,9 +78,11 @@ namespace PixelEngine.System {
         }
 
         public static void Draw(RenderTarget target, RenderStates states) {
-            //Draw the Actors
-            foreach(System.pActor _actor in SCENE_OBJECTS){
-                target.Draw(_actor);
+            if (SCENE_OBJECTS != null) {
+                //Draw the Actors
+                foreach (System.pActor _actor in SCENE_OBJECTS) {
+                    target.Draw(_actor);
+                }
             }
         }
     }

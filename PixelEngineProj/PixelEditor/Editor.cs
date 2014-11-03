@@ -29,20 +29,20 @@ namespace PixelEditor {
         /// </summary>
         [STAThread]
         static void Main() {
-            //Initiate engine modules
-            Config.Init();
-            SYSTEM_SERVICES = new List<pSystemService>(); //TODO: Get system services from config (or xml)
-
-            SCENE = new EditorScene();
-            EDITOR = new Form1();
-            EDITOR.Show();
-            EDITOR.Focus();
+            try {
+                //Initiate engine modules
+                Config.Init();
+                SYSTEM_SERVICES = new List<pSystemService>(); //TODO: Get system services from config (or xml)
+                SCENE = new EditorScene();
+                EDITOR = new Form1();
+                EDITOR.Show();
+                EDITOR.Focus();
+            }catch (NullReferenceException _n){
+                EngineMessage(_n.Message, eEngineMessageType.EXCEPTION);
+            }
 
             while (EDITOR.Visible) {
                 Application.DoEvents();
-
-                //Update the scene
-                SCENE.Update();
             }
         }
 

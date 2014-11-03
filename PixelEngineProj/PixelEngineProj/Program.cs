@@ -183,7 +183,9 @@ namespace PixelEngine {
         }
 
         private static void ProcessArgs(string[] arguments) {
-            Console.WriteLine("Processing arguments");
+            foreach (string _s in arguments) {
+                Console.WriteLine(_s);
+            }
         }
     }
 }

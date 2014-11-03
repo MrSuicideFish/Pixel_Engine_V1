@@ -240,7 +240,6 @@ namespace PixelEngine_Editor {
 		}
 
         public void AddSpriteToLevel(Sprite s){
-
             //create new sprite batch
             Sprite[] batch = new Sprite[spriteBatch.Length + 1];
             for (int i = 0; i < spriteBatch.Length; i++) {

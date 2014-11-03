@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SFML;
 using SFML.Window;
 using SFML.Graphics;
+using PixelEngine;
 
 namespace PixelEditor {
     /// <summary>
@@ -16,17 +17,28 @@ namespace PixelEditor {
     public class EditorCamera : PixelEngine.Gameplay.pCamera {
         public float cameraSpeed = 200;
         public int turbo = 1;
-        public EditorCamera(FloatRect viewRect) : base(viewRect) { }
         private static int zoomState = 0;
 
         /// <summary>
         /// PRIVATE VARIABLES
         /// </summary>
         private bool bMoving = false;
-
+        private List<EditorActor> SelectedActors;
+        RectangleShape selectionBox = new RectangleShape(new Vector2f(0, 0));
+        RectangleShape[] selectionRects;
         Vector2i initMousePos;
         Vector2i curMousePos;
         Vector2f initCenter;
+
+        public EditorCamera(FloatRect viewRect) : base(viewRect) {
+            SelectedActors = new List<EditorActor>();
+            selectionRects = new RectangleShape[0];
+
+            //Selection box
+            selectionBox.FillColor = new Color(220, 220, 220, 40);
+            selectionBox.OutlineThickness = 2;
+            selectionBox.OutlineColor = Color.White;
+        }
 
         /// <summary>
         /// Update Call
@@ -49,6 +61,8 @@ namespace PixelEditor {
             } else if (!SFML.Window.Mouse.IsButtonPressed(Mouse.Button.Middle)) {
                 bMoving = false;
             }
+
+            //For now, camera handles input
             if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.W)) {
                 Move(new Vector2f(0, (float)(-cameraSpeed * turbo * Editor.deltaTime)));
             }
@@ -62,11 +76,81 @@ namespace PixelEditor {
                 Move(new Vector2f((float)(cameraSpeed * turbo * Editor.deltaTime), 0));
             }
             if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.R)) {
-                Rotate(0.05f);
+                Rotate((float)(0.05f * turbo));
             }
             if (SFML.Window.Keyboard.IsKeyPressed(Keyboard.Key.Q)) {
-                Rotate(-0.05f);
+                Rotate((float)(-0.05f * turbo));
             }
+
+            if (EditorInput.Ctrl == 1 && Mouse.IsButtonPressed(Mouse.Button.Left)) {
+                //Begin drag start
+                DragSelectionboxStartCallback();
+                DragSelectionboxCallback();
+            }
+            if (EditorInput.Ctrl == 0 || !Mouse.IsButtonPressed(Mouse.Button.Left)) {
+                if (bDragging) {
+                    DragSelectionboxEndCallback();
+                    bDragging = false;
+                }
+            }
+        }
+
+        public void Draw(RenderTarget target, RenderStates states) {
+            if (bDragging) {
+                Vector2f _sizeOffset = curMouseRectPos - initMouseRectPos;
+                selectionBox.Size = _sizeOffset;
+                selectionBox.Draw(target, states);
+            }
+            foreach (RectangleShape _r in selectionRects) {
+                if (_r != null) {
+                    _r.Draw(target, states);
+                }
+            }
+        }
+
+        bool bDragging = false;
+        FloatRect selectionRect = new FloatRect(0, 0, 0, 0);
+        SFML.Window.Vector2f initMouseRectPos, curMouseRectPos;
+        void DragSelectionboxStartCallback() {
+            if (!bDragging) {
+                bDragging = true;
+                //Define the start rect
+                selectionRect = new FloatRect(0, 0, 0, 0);
+
+                //Set the start location
+                initMouseRectPos = Form1.mouseWorldPos;
+                selectionBox.Position = initMouseRectPos;
+            }
+        }
+
+        void DragSelectionboxCallback() {
+            curMouseRectPos = Form1.mouseWorldPos;
+        }
+
+        void DragSelectionboxEndCallback() {
+            //Clear the selected actors
+            SelectedActors.Clear();
+            foreach (EditorActor _a in EditorScene.SCENE_ACTORS) {
+                //Check the object's position
+                if(_a.position.X > selectionBox.Position.X && _a.position.X < selectionBox.Position.X + selectionBox.Size.X &&
+                    _a.position.X > selectionBox.Position.Y && _a.position.Y < selectionBox.Position.Y + selectionBox.Size.Y){
+                    SelectedActors.Add(_a);
+                }
+            }
+            //Highlight the selected actors
+            selectionRects = new RectangleShape[SelectedActors.Count];
+            for (Int16 i = 0; i < selectionRects.Length; i++) {
+                //Add the actor to the selectionRects
+                selectionRects[i] = new RectangleShape(new Vector2f(
+                    SelectedActors[i].GetRenderRectangle().Width,
+                    SelectedActors[i].GetRenderRectangle().Height
+                    ));
+                selectionRects[i].Position = SelectedActors[i].position;
+                selectionRects[i].FillColor = new Color(0, 0, 0, 0);
+                selectionRects[i].OutlineColor = Color.Green;
+                selectionRects[i].OutlineThickness = 2;
+            }
+            bDragging = false;
         }
 
         public bool isMoving() {
@@ -89,6 +173,23 @@ namespace PixelEditor {
                 zoomState = (factor > 1.0) ? zoomState - 1 : zoomState + 1;
             }
             return;
+        }
+
+        public void OnMouseClick(object sender, System.Windows.Forms.MouseEventArgs e) {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && EditorInput.Alt == 1 && EditorInput.Ctrl == 0) {
+                EditorActor _newActor = new EditorActor("Test Actor", Form1.mouseWorldPos);
+                Editor.SCENE.AddActorToScene(ref _newActor);
+            }
+        }
+
+        public void ClearSelectedActors() {
+            if (SelectedActors != null) {
+                SelectedActors.Clear();
+                for(int i = 0; i < selectionRects.Length; i++){
+                    selectionRects[i] = null;
+                    GC.Collect();
+                }
+            }
         }
     }
 }

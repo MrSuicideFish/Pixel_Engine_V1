@@ -1,11 +1,7 @@
-C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.EditorModals.OptionsModal.resources
-C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.Form1.resources
-C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.Properties.Resources.resources
-C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.csproj.GenerateResource.Cache
-C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.csprojResolveAssemblyReference.cache
-C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.exe.config
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\EditorResources\EditorActorIcon.png
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\EditorResources\pixelmix.ttf
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\Resources\pixelmix.ttf
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.exe.config
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.exe.manifest
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.application
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEditor.exe
@@ -15,6 +11,11 @@ C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEd
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\sfmlnet-graphics-2.dll
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\sfmlnet-window-2.dll
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\bin\x86\Debug\PixelEngine.pdb
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.csprojResolveAssemblyReference.cache
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.EditorModals.OptionsModal.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.Form1.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.Properties.Resources.resources
+C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.csproj.GenerateResource.Cache
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.exe.manifest
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.application
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEditor\obj\x86\Debug\PixelEditor.exe

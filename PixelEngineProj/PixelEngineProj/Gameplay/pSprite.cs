@@ -10,12 +10,19 @@ using PixelEngine.System;
 
 namespace PixelEngine.Gameplay {
     public class pSprite : Sprite{
+        /// <summary>
+        /// TODO: Compress this constructor, too many required params.
+        /// </summary>
+        /// <param name="texPath"></param>
+        /// <param name="texRect"></param>
+        /// <param name="position"></param>
+        /// <param name="spriteRotation"></param>
+        /// <param name="texRepeat"></param>
         public pSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
             if (texPath != null) {
                 //Init a new texture
                 Texture newTex = new Texture(texPath, texRect);
                 newTex.Update(new Image(texPath));
-
                 //Init texture params
                 Texture = newTex;
                 Texture.Smooth = false;

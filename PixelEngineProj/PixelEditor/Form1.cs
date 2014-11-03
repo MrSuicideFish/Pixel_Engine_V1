@@ -36,8 +36,8 @@ namespace PixelEditor {
 
         //World Vars
         public static SFML.Graphics.Color viewportBackgroundColor { get; set; }
-        public static Vector2i mouseScreenPos;
-        public static Vector2f mouseWorldPos;
+        public static Vector2i mouseScreenPos { get; set; }
+        public static SFML.Window.Vector2f mouseWorldPos { get; set; }
 
         public Form1() {
             InitializeComponent();
@@ -58,6 +58,10 @@ namespace PixelEditor {
             //Create the main viewport view
             VIEWPORT_CAMERA_VIEW = new EditorCamera(new FloatRect(0, 0, RENDER_SURFACE.Width, RENDER_SURFACE.Height));
             VIEWPORT_UI_VIEW = new SFML.Graphics.View(new FloatRect(0, 0, RENDER_SURFACE.Width, RENDER_SURFACE.Height));
+
+
+            //Render surface events
+            RENDER_SURFACE.MouseClick += new MouseEventHandler(VIEWPORT_CAMERA_VIEW.OnMouseClick);
 
             //Init editor debug info
             EditorDebugInfo = new string[1];
@@ -91,8 +95,14 @@ namespace PixelEditor {
                 Editor.deltaTime = _deltaTime.TotalSeconds;
 
                 /////////////////////
+                /// PROCESS INPUT
+                /////////////////////
+                EditorInput.Update();
+
+                /////////////////////
                 /// UPDATE
                 /////////////////////
+                Editor.SCENE.Update();
 
                 //Update the camera
                 VIEWPORT_CAMERA_VIEW.Update();
@@ -110,7 +120,8 @@ namespace PixelEditor {
                 RENDER_WINDOW.Draw(_grid);
 
                 //Do scene drawing and update
-                //pScene.Draw(RENDER_WINDOW, RenderStates.Default);
+                Editor.SCENE.Draw(RENDER_WINDOW, RenderStates.Default);
+                VIEWPORT_CAMERA_VIEW.Draw(RENDER_WINDOW, RenderStates.Default);
 
                 ///////////////////
                 /// DRAW UI CAMERA
@@ -125,6 +136,7 @@ namespace PixelEditor {
                 _debug.SetDebugInfo(0, "FPS: " + fps.ToString());
                 _debug.SetDebugInfo(1, "Mouse Screen Position: " + mouseScreenPos);
                 _debug.SetDebugInfo(2, "Mouse World Position: " + mouseWorldPos);
+                _debug.SetDebugInfo(3, "Scene Entity Count: " + EditorScene.SCENE_ACTORS.Count);
                 RENDER_WINDOW.Draw(_debug);
                 RENDER_WINDOW.Display();
                 frames++;
@@ -136,6 +148,13 @@ namespace PixelEditor {
                     clock.Restart();
                 }
             }
+        }
+
+        public RenderWindow GetRenderWindow() {
+            if (RENDER_WINDOW != null)
+                return RENDER_WINDOW;
+            else
+                return null;
         }
 
         private void InitConfigData() {
@@ -183,7 +202,10 @@ namespace PixelEditor {
             //base.OnPaintBackground(e);
         }
         protected override void OnMouseDown(MouseEventArgs e) {
-            Application.OpenForms[0].Focus();
+            if (e.Button == System.Windows.Forms.MouseButtons.Left) {
+                //Clear the selection list
+                Form1.VIEWPORT_CAMERA_VIEW.ClearSelectedActors();
+            }
         }
         protected override void OnMouseWheel(MouseEventArgs e) {
             float _z = 1 - (float)(e.Delta / 120) / 10;

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="52224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="61440">
       <assemblyIdentity name="PixelEditor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>N+eWGsI1x2ZkG4TzwEz73+EWs1RmQRR14oZJmKZxrLY=</dsig:DigestValue>
+        <dsig:DigestValue>lRf88V3CUsIuxYSzVad7aqOS2q5Q/dFSDKRVbEHjcdk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gYpFOpoNwC2EFxEh+tVKYC+5i8/ZBsuVihRX8hg/ygo=</dsig:DigestValue>
+        <dsig:DigestValue>WK19LVwAHcOg7WGZl9oCFYQxIux5SE/JH2pWMvNajHQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -126,6 +126,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>mQb5YeygMxk2/vXZffvaejrQ8xUxcKHzcEy06Yp45SY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="EditorResources\EditorActorIcon.png" size="3521">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3LXjnzE3BXZi0DIpYQoir+WDnjfKz63ks8wTFFHErQo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="EditorResources\pixelmix.ttf" size="22184">
