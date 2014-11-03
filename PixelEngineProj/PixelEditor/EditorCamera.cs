@@ -132,25 +132,32 @@ namespace PixelEditor {
             SelectedActors.Clear();
             foreach (EditorActor _a in EditorScene.SCENE_ACTORS) {
                 //Check the object's position
-                if(_a.position.X > selectionBox.Position.X && _a.position.X < selectionBox.Position.X + selectionBox.Size.X &&
-                    _a.position.X > selectionBox.Position.Y && _a.position.Y < selectionBox.Position.Y + selectionBox.Size.Y){
+                if (selectionBox.GetGlobalBounds().Contains(
+                    _a.actorSprite.GetGlobalBounds().Left + (_a.actorSprite.GetGlobalBounds().Width/2),
+                    _a.actorSprite.GetGlobalBounds().Top + (_a.actorSprite.GetGlobalBounds().Height / 2)
+                    )) {
+
                     SelectedActors.Add(_a);
                 }
             }
+            bDragging = false;
+            HighlightSelectedActors();
+        }
+
+        void HighlightSelectedActors() {
             //Highlight the selected actors
             selectionRects = new RectangleShape[SelectedActors.Count];
-            for (Int16 i = 0; i < selectionRects.Length; i++) {
+            for (int i = 0; i < selectionRects.Length; i++) {
                 //Add the actor to the selectionRects
                 selectionRects[i] = new RectangleShape(new Vector2f(
-                    SelectedActors[i].GetRenderRectangle().Width,
-                    SelectedActors[i].GetRenderRectangle().Height
+                    SelectedActors[i].GetBoundingBox().Width,
+                    SelectedActors[i].GetBoundingBox().Height
                     ));
                 selectionRects[i].Position = SelectedActors[i].position;
                 selectionRects[i].FillColor = new Color(0, 0, 0, 0);
-                selectionRects[i].OutlineColor = Color.Green;
-                selectionRects[i].OutlineThickness = 2;
+                selectionRects[i].OutlineColor = Color.Cyan;
+                selectionRects[i].OutlineThickness = 1.5f;
             }
-            bDragging = false;
         }
 
         public bool isMoving() {
@@ -176,10 +183,25 @@ namespace PixelEditor {
         }
 
         public void OnMouseClick(object sender, System.Windows.Forms.MouseEventArgs e) {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && EditorInput.bModifier == 0) {
+                foreach (EditorActor _a in EditorScene.SCENE_ACTORS) {
+                    if (_a.actorSprite.GetGlobalBounds().Contains(Form1.mouseWorldPos.X, Form1.mouseWorldPos.Y)) {
+                        ClearSelectedActors();
+                        SelectedActors.Add(_a);
+                        HighlightSelectedActors();
+                    }
+                }
+            }
             if (e.Button == System.Windows.Forms.MouseButtons.Left && EditorInput.Alt == 1 && EditorInput.Ctrl == 0) {
                 EditorActor _newActor = new EditorActor("Test Actor", Form1.mouseWorldPos);
                 Editor.SCENE.AddActorToScene(ref _newActor);
             }
+        }
+
+        public void OnMouseScroll(object sender, System.Windows.Forms.MouseEventArgs e) {
+            float _z = 1 - (float)(e.Delta / 120) / 10;
+            SetZoomState(_z);
+            Console.WriteLine("scrol");
         }
 
         public void ClearSelectedActors() {

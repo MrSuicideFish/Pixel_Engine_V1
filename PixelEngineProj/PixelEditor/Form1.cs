@@ -49,7 +49,6 @@ namespace PixelEditor {
             Controls.Add(RENDER_SURFACE);
             RENDER_SURFACE.Location = new System.Drawing.Point(100, 100);
             RENDER_SURFACE.BringToFront();
-            RENDER_SURFACE.Focus();
 
             //Init sfml
             settings.AntialiasingLevel = 16;
@@ -62,6 +61,7 @@ namespace PixelEditor {
 
             //Render surface events
             RENDER_SURFACE.MouseClick += new MouseEventHandler(VIEWPORT_CAMERA_VIEW.OnMouseClick);
+            RENDER_SURFACE.MouseWheel += new MouseEventHandler(VIEWPORT_CAMERA_VIEW.OnMouseScroll);
 
             //Init editor debug info
             EditorDebugInfo = new string[1];
@@ -191,6 +191,11 @@ namespace PixelEditor {
                 Config.SaveConfig();
             }
         }
+
+        protected override void OnScroll(ScrollEventArgs se) {
+            Console.WriteLine("Mouse wheel");
+            base.OnScroll(se);
+        }
     }
 
     public class DrawingSurface : Control {
@@ -206,11 +211,6 @@ namespace PixelEditor {
                 //Clear the selection list
                 Form1.VIEWPORT_CAMERA_VIEW.ClearSelectedActors();
             }
-        }
-        protected override void OnMouseWheel(MouseEventArgs e) {
-            float _z = 1 - (float)(e.Delta / 120) / 10;
-            Form1.VIEWPORT_CAMERA_VIEW.SetZoomState(_z);
-            base.OnMouseWheel(e);
         }
         protected override void OnSizeChanged(EventArgs e) {
             if (Form1.VIEWPORT_CAMERA_VIEW != null) {

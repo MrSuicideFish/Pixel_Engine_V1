@@ -25,7 +25,7 @@ namespace PixelEditor {
         /// PRIVATE VARIABLES
         /// </summary>
         private Int16 uid;
-        private static FloatRect renderRect;
+        private static FloatRect boundingBox;
 
         /// <summary>
         /// Actor constructor.
@@ -45,7 +45,7 @@ namespace PixelEditor {
                 actorSprite = new PixelEngine.Gameplay.pSprite("EditorResources/EditorActorIcon.png", new SFML.Graphics.IntRect(0, 0, 64, 64), _position); //Default actor sprite
                 position = Form1.mouseWorldPos;
             }
-            renderRect = new FloatRect(_position.X, _position.Y, actorSprite.Texture.Size.X, actorSprite.Texture.Size.Y);
+            boundingBox = new FloatRect(actorSprite.GetGlobalBounds().Left, actorSprite.GetGlobalBounds().Top, actorSprite.GetGlobalBounds().Width, actorSprite.GetGlobalBounds().Height);
         }
 
         public virtual void Create(){
@@ -59,8 +59,8 @@ namespace PixelEditor {
             //Update the actor's sprite
             actorSprite.Position = position;
             actorSprite.Rotation = rotation;
-            renderRect.Width = actorSprite.Texture.Size.X;
-            renderRect.Height = actorSprite.Texture.Size.Y;
+            boundingBox.Width = actorSprite.Texture.Size.X;
+            boundingBox.Height = actorSprite.Texture.Size.Y;
         }
 
         public virtual void Draw(RenderTarget target, RenderStates states) {
@@ -71,8 +71,8 @@ namespace PixelEditor {
             return uid;
         }
 
-        public FloatRect GetRenderRectangle() {
-            return renderRect;
+        public FloatRect GetBoundingBox() {
+            return boundingBox;
         }
 
         /// <summary>

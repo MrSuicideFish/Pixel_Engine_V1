@@ -18,7 +18,7 @@ namespace PixelEngine.Gameplay {
         /// <param name="position"></param>
         /// <param name="spriteRotation"></param>
         /// <param name="texRepeat"></param>
-        public pSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false) {
+        public pSprite(String texPath, IntRect texRect, Vector2f position,float spriteRotation = 0, bool texRepeat = false){
             if (texPath != null) {
                 //Init a new texture
                 Texture newTex = new Texture(texPath, texRect);

@@ -15,11 +15,7 @@ namespace PixelEngine.System {
         private pActor parent;
 
         public pActor(string ID = "Pixel Actor") {
-            if (ID != "") {
-                SceneID = ID;
-            } else {
-                SceneID = "Pixel Actor";
-            }
+            SceneID = ID;
         }
 
         public virtual void Begin() { }

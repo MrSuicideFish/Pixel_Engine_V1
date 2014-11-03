@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="61440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEditor.exe" size="61952">
       <assemblyIdentity name="PixelEditor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lRf88V3CUsIuxYSzVad7aqOS2q5Q/dFSDKRVbEHjcdk=</dsig:DigestValue>
+        <dsig:DigestValue>v9OGDgZA9RluddxegpMQxyWqR6BMFnNZboqRhYkCLbU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WK19LVwAHcOg7WGZl9oCFYQxIux5SE/JH2pWMvNajHQ=</dsig:DigestValue>
+        <dsig:DigestValue>LEJbcIrvnNWBJvfJ42vfuNM5aXKSjJbZk/x0Yn70Tgk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

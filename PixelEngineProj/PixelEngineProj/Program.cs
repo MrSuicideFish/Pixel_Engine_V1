@@ -46,6 +46,9 @@ namespace PixelEngine {
 
             //Testing DEBUG
             Gameplay.pSprite newSprite = new Gameplay.pSprite("Resources/deleteMe.png", new IntRect(0,0,300,300), new Vector2f(200, 200));
+            RectangleShape background = new RectangleShape(new Vector2f(1000, 1000));
+            background.FillColor = Color.Magenta;
+            background.Position = new Vector2f(0, 0);
 
             //Fps stuff
             clock.Start();
@@ -77,9 +80,9 @@ namespace PixelEngine {
                 /// </summary>
                 //System service update call
 
-                //Call the update method on all modules
-
-                newSprite.Draw(_window, new RenderStates());
+                //Debug, draw a sprite
+                background.Draw(_window, RenderStates.Default);
+                newSprite.Draw(_window, RenderStates.Default);
 
                 /// <summary>
                 /// DEBUG DEV MODE DRAWING
