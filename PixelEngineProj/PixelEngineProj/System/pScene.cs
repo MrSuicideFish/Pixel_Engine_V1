@@ -20,12 +20,12 @@ namespace PixelEngine.System {
         /// <summary>
         /// PRIVATE VARIABLES
         /// </summary>
-        private static string currentLevel;
+        //private static string currentLevel;
 
         /// <summary>
         /// SCENE VARIABLES
         /// </summary>
-        private static List<pObject> SCENE_OBJECTS;
+        private static List<pActor> SCENE_OBJECTS;
         private static List<pSceneService> SCENE_SERVICES;
 
         /// <summary>
@@ -35,12 +35,14 @@ namespace PixelEngine.System {
         public static int Init() {
             Program.EngineMessage("Initializing scene manager");
             try {
-                SCENE_OBJECTS = new List<pObject>();
+                SCENE_OBJECTS = new List<pActor>();
                 SCENE_SERVICES = new List<pSceneService>();
 
             } catch (NullReferenceException _n) {
                 Program.EngineMessage(_n.Message, Program.eEngineMessageType.EXCEPTION);
+                return 1;
             }
+
             Program.EngineMessage("Scene manager Initialized", Program.eEngineMessageType.CONFIRM);
             return 0;
         }
@@ -50,8 +52,9 @@ namespace PixelEngine.System {
         /// </summary>
         /// <param name="_sceneName"></param>
         /// <returns></returns>
-        //public static int LoadLevel(string _sceneName) {
-        //}
+        public static int LoadLevel(string _sceneName) {
+            return 0;
+        }
 
         /// <summary>
         /// Adds a new object to the scene
@@ -69,14 +72,25 @@ namespace PixelEngine.System {
         //    return SCENE_OBJECTS;
         //}
 
-        //public static System.pActor FindObjectWithName() {
-        //    return SCENE_OBJECTS[0];
-        //}
-
-        public static void Update() {
-            //Update the actors??
+        public static System.pActor FindObjectWithName() {
+            return SCENE_OBJECTS[0];
         }
 
+        public static void Begin() {
+            //Call begin on scene services
+            foreach (pSceneService _scService in SCENE_SERVICES) {
+                _scService.Begin();
+            }
+        }
+
+        public static void Update() {
+        }
+
+        /// <summary>
+        /// TODO: Draw by algorithm
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="states"></param>
         public static void Draw(RenderTarget target, RenderStates states) {
             if (SCENE_OBJECTS != null) {
                 //Draw the Actors

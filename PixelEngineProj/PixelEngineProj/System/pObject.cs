@@ -9,7 +9,16 @@ using SFML.Window;
 namespace PixelEngine.System {
     public class pObject{
         public string id;
+        public bool bEnabled { get; set; }
+
+        /// <summary>
+        /// Allow pObject to call it's constructor methods while disabled
+        /// </summary>
         public pObject() {
+
+        }
+
+        public virtual void Begin() {
 
         }
 

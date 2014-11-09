@@ -43,7 +43,7 @@ namespace PixelEditor {
                 Program.EngineMessage(_n.Message, Program.eEngineMessageType.EXCEPTION);
             }
             Program.EngineMessage("Editor scene manager Initialized", Program.eEngineMessageType.CONFIRM);
-            DoDebugStuff();
+            //DoDebugStuff();
         }
 
         void DoDebugStuff() {

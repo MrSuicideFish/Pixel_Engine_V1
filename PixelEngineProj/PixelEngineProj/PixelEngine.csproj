@@ -105,6 +105,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="System\pActor.cs" />
+    <Compile Include="System\pCollisionSystem.cs" />
     <Compile Include="System\pScene.cs" />
     <Compile Include="System\pObject.cs" />
     <Compile Include="System\pServices.cs" />

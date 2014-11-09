@@ -17,10 +17,20 @@ namespace PixelEngine.System {
     /// Define Services
     /// </summary>
     public class pSceneService : pObject{
-        public virtual void Update() {}
+        public override void Begin() {
+            base.Begin();
+        }
+        public override void Update() {
+            base.Update();
+        }
     }
 
     public class pSystemService : pObject {
-        public virtual void Update() { }
+        public override void Begin() {
+            base.Begin();
+        }
+        public override void Update() {
+            base.Update();
+        }
     }
 }

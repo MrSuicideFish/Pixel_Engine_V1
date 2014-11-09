@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
 using SFML.Audio;
 using SFML.Window;
@@ -26,6 +27,7 @@ namespace PixelEngine {
         /// Global
         /// </summary>
         public static TimeSpan _deltaTime = new TimeSpan();
+        public static List<pSystemService> SYSTEM_SERVICES;
 
         public static void Main(string[] args) {
             //Process program arguments
@@ -37,12 +39,17 @@ namespace PixelEngine {
             _window.Resized += new EventHandler<SizeEventArgs>(onResize);
             _window.Closed += new EventHandler(OnClose);
 
+            if (pScene.Init() == 0) {
+                //Do other init stuff
+            }
+
             //Create the main camera and hud camera
             View renderView = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
             View renderViewUI = new View(new FloatRect(0, 0, _window.Size.X, _window.Size.Y));
 
             //Load system resources
             LoadSystemResources();
+
 
             //Testing DEBUG
             Gameplay.pSprite newSprite = new Gameplay.pSprite("Resources/deleteMe.png", new IntRect(0,0,300,300), new Vector2f(200, 200));
@@ -55,11 +62,23 @@ namespace PixelEngine {
             float frames = 0;
             float fps = 0;
 
-            ///
-            ///Do system service Begin Methods
-            ///
-            
-            // Start the game loop
+            /// <Summary>
+            /// INITIATE DEFAULT ENGINE SYSTEM SERVICES
+            /// </summary>
+            SYSTEM_SERVICES = new List<pSystemService>();
+            SYSTEM_SERVICES.Add(new pCollisionSystem());
+
+
+            /*
+             * Begin calls
+             */
+            foreach (pSystemService _sysService in SYSTEM_SERVICES) {
+                _sysService.Begin();
+            }
+
+            /// <Summary>
+            /// ENGINE LOOP
+            /// </summary>
             while (_window.IsOpen()) {
                 // Process events
                 _window.DispatchEvents();
@@ -76,13 +95,21 @@ namespace PixelEngine {
                 _window.SetView(renderView);
 
                 /// <summary>
-                /// UPDATES AND DRAW CALLS HERE
+                /// UPDATE CALL
                 /// </summary>
-                //System service update call
+                foreach (pSystemService _sService in SYSTEM_SERVICES) {
+                    if (_sService.bEnabled) {
+                        _sService.Update(); //Update system services if enabled
+                    }
+                }
 
-                //Debug, draw a sprite
-                background.Draw(_window, RenderStates.Default);
-                newSprite.Draw(_window, RenderStates.Default);
+                //Debug draw collision
+
+
+                /// <summary>
+                /// DRAW CALLS
+                /// </summary>
+
 
                 /// <summary>
                 /// DEBUG DEV MODE DRAWING
@@ -110,7 +137,7 @@ namespace PixelEngine {
                     Text mouseWorldPos = new Text("Mouse World Position: " + _window.MapPixelToCoords(Mouse.GetPosition(_window)), systemFont, 16);
                     mouseWorldPos.Position = new Vector2f(0, 32);
 
-                    //Do hud drawing
+                    //Do hud drawingngs 
                     _window.SetView(renderViewUI);
                     _window.Draw(fpsText);
                     _window.Draw(mouseScreenPos);
