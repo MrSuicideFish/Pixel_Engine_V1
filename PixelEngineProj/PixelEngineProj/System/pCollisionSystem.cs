@@ -8,11 +8,13 @@ using SFML;
 using SFML.Window; //remove?
 using SFML.Graphics;
 
-namespace PixelEngine.System {
+namespace PixelEngine.System
+{
     /// <summary>
     /// This class handles all quadtree initiation and updating.
     /// </summary>
-    class pCollisionSystem : pSystemService{
+    class pCollisionSystem : pSystemService
+    {
         /// <summary>
         /// PUBLIC
         /// </summary>
@@ -22,33 +24,38 @@ namespace PixelEngine.System {
         /// </summary>
         QuadTreeSystem QUAD_TREE;
 
-        public pCollisionSystem() {
+        public pCollisionSystem( )
+        {
             //Get all "collideable" actors in the scene
-            QUAD_TREE.visualizeTree = (byte)0; //don't visualize tree
+            QUAD_TREE.visualizeTree = ( byte )0; //don't visualize tree
         }
 
-        public override void Update() {
+        public override void Update( )
+        {
             //Update the quad tree elements
-            base.Update();
+            base.Update( );
         }
 
-        public override void Begin() {
+        public override void Begin( )
+        {
             //Init the quad tree system
-            QUAD_TREE = new QuadTreeSystem();
-            base.Begin();
+            QUAD_TREE = new QuadTreeSystem( );
+            base.Begin( );
         }
     }
 
-    class QuadTreeSystem {
+    class QuadTreeSystem
+    {
         readonly Int16 treeSize;
         readonly byte[] branches;
         public byte visualizeTree { get; set; }
 
-        Dictionary<int, int> treeLookupTable = new Dictionary<int, int>();
+        Dictionary<int, int> treeLookupTable = new Dictionary<int, int>( );
 
-        public QuadTreeSystem() {
+        public QuadTreeSystem( )
+        {
             treeSize = 0;
-            branches = new byte[1]{
+            branches = new byte[ 1 ]{
                 branches[0] = (byte)1
             };
         }
@@ -58,23 +65,28 @@ namespace PixelEngine.System {
         /// </summary>
         /// <param name="_obj"></param>
         /// <returns></returns>
-        public int AddObjectToTree(QuadTreeObject _obj) {
-            if (_obj != null) {
+        public int AddObjectToTree( QuadTreeObject _obj )
+        {
+            if ( _obj != null )
+            {
                 return 0;
             }
             return 1;
         }
 
-        private void ReconstructBranch() {
+        private void ReconstructBranch( )
+        {
 
         }
 
-        private void ReconstructTree() {
+        private void ReconstructTree( )
+        {
 
         }
     }
 
-    class QuadTreeObject {
+    class QuadTreeObject
+    {
         double width, height;
         Vector2f position;
     }

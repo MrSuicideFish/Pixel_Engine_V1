@@ -13,3 +13,14 @@ C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEn
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.exe
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.pdb
 C:\Users\Malcolm\Documents\GitHub\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.csprojResolveAssemblyReference.cache
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngine.exe.config
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.exe
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.pdb
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.Properties.Resources.resources
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.csproj.GenerateResource.Cache
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngine.exe.manifest
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngine.application
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngine.exe
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\bin\x86\Debug\PixelEngine.pdb
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.exe.manifest
+C:\depot_pixel_engine_0.1\PixelEngineProj\PixelEngineProj\obj\x86\Debug\PixelEngine.application
