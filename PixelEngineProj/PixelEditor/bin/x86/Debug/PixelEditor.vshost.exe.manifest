@@ -49,19 +49,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>m2eZk924MEPkV9De6tQbPg5ad5bl7miAMPxnVTI+V20=</dsig:DigestValue>
+        <dsig:DigestValue>x91/RL9aKLHxXd3Qg90yrNgHgsphkftXQkFa4eWO8LU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine.exe" size="14848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PixelEngine.exe" size="15360">
       <assemblyIdentity name="PixelEngine" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>djESjtZ2gxA/GWTunaVaWRqSl0OxljDD60X7Tj6aMAc=</dsig:DigestValue>
+        <dsig:DigestValue>E6jMqk7N0q3Lh9eTOU+sQLrkub5S058xnY7w99+09/o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

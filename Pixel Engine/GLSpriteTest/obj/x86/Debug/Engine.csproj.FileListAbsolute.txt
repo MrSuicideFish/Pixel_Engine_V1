@@ -1,0 +1,28 @@
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\Content\PikaSprite.png
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe.config
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.pdb
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\MonoGame.Framework.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\OpenTK.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.exe
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.pdb
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\Engine.csprojResolveAssemblyReference.cache
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\DebugView MonoGame.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\DebugView MonoGame.pdb
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\Content\Font.xnb
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe.config
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.exe
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.pdb
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\Engine.csprojResolveAssemblyReference.cache
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\Content\PikaSprite.png
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\Content\Font.xnb
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.pdb
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\System.Json.dll
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\DebugView MonoGame.pdb
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
+C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\System.Json.xml

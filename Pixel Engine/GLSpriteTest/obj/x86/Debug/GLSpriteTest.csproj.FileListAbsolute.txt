@@ -1,0 +1,11 @@
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.csprojResolveAssemblyReference.cache
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe.config
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.pdb
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\MonoGame.Framework.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\OpenTK.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.exe
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\obj\x86\Debug\GLSpriteTest.pdb
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\Content\PikaSprite.png
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.dll
+E:\OpenGL\MyPrograms\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
