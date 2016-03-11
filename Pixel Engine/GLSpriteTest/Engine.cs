@@ -9,6 +9,8 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Common;
 using FarseerPhysics.DebugView;
 
+using WorldManager = GLSpriteTest.Engine.World.WorldManager;
+
 namespace GLSpriteTest
 {
     public class Game1 : Game
@@ -57,6 +59,9 @@ namespace GLSpriteTest
         {
             base.Initialize( );
 
+            //Init world manager
+            WorldManager.Initialize( );
+
             m_ROOT_GAMEOBJECT = new GameObject( "ROOT" );
         }
 
@@ -98,6 +103,8 @@ namespace GLSpriteTest
             //_colliderB = new Graphics.RectCollider( _objB ); // Collider
             //_objB.AddComponent( _rendererB );
             //_objB.AddComponent( _colliderB );
+
+            WorldManager.SaveWorld( );
         }
 
         protected override void UnloadContent( )
