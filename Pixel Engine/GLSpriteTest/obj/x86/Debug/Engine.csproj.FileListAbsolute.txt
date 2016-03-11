@@ -26,3 +26,6 @@ C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\W
 C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\DebugView MonoGame.pdb
 C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
 C:\Users\BONEDER\Downloads\GLSprite (1)\GLSprite\GLSpriteTest\GLSpriteTest\bin\WindowsGL\Debug\System.Json.xml
+C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe.config
+C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\obj\x86\Debug\GLSpriteTest.exe
+C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\obj\x86\Debug\GLSpriteTest.pdb
