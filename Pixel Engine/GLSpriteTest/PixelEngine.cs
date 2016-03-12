@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -52,13 +53,12 @@ namespace GLSpriteTest
 
             //Initialize Physics
             Debug.Print( "Initializing Physics Engine" );
+
+            //Open new thread to physics pipeline
             PHYSICS_WORLD = new World( new Vector2( 0f, 0f ) );
 
             Debug.Print( "Initializing World" );
-            while(WorldManager.Initialize( ) != 0 )
-            {
-               
-            }
+            while(WorldManager.Initialize( ) != 0 ) { }
         }
 
         protected override void Initialize( )
@@ -67,6 +67,10 @@ namespace GLSpriteTest
 
             //add sprite texture
             SpriteSheets.Add( 0, Content.Load<Texture2D>( "PikaSprite" ) );
+
+            //debug: loadlevel
+            WorldManager.SaveWorld( "MyNewWorld" );
+            //WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "/Untitled.world" );
 
             //Create main camera
             GameObject _camObj = new GameObject( "SCENE_CAMERA" );
