@@ -13,18 +13,15 @@ using WorldManager = GLSpriteTest.Engine.World.WorldManager;
 
 namespace GLSpriteTest
 {
-    public class Game1 : Game
+    public class PixelEngine : Game
     {
-        /// <summary>
-        /// DEBUG
-        /// </summary>
         private DebugViewXNA DebugView;
 
         public GraphicsDeviceManager m_Graphics { get; private set; }
-        public SpriteBatch m_SpriteBatch { get; private set; }
 
-        public static GameObject m_ROOT_GAMEOBJECT { get; private set; }
-        public static Camera GAME_CAMERA { get; private set; }
+        public SpriteBatch m_SpriteBatch        { get; private set; }
+
+        public static Camera GAME_CAMERA        { get; private set; }
 
         /// <summary>
         /// PHYSICS
@@ -38,9 +35,9 @@ namespace GLSpriteTest
         public SortedList<int, Texture2D> SpriteSheets { get; private set; }
         public SortedList<int, GameObject> SceneObjects = new SortedList<int, GameObject>( );
 
-        public static Game1 Game { get; private set; }
+        public static PixelEngine Game { get; private set; }
 
-        public Game1( )
+        public PixelEngine( )
         {
             m_Graphics = new GraphicsDeviceManager( this );
             m_Graphics.PreferredBackBufferWidth = 1440;
@@ -61,8 +58,6 @@ namespace GLSpriteTest
 
             //Init world manager
             WorldManager.Initialize( );
-
-            m_ROOT_GAMEOBJECT = new GameObject( "ROOT" );
         }
 
         Graphics.RectCollider _colliderA;

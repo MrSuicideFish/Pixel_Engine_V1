@@ -22,9 +22,6 @@ namespace GLSpriteTest.Engine
 
         public Component( GameObject _parent = null )
         {
-            if ( _parent == null )
-                _parent = Game1.m_ROOT_GAMEOBJECT;
-
             Name = this.GetType( ).ToString( );
             gameObject = _parent;
         }

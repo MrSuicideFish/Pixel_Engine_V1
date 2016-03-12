@@ -55,9 +55,9 @@ namespace GLSpriteTest.Graphics
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch )
         {
             spriteBatch.Draw(
-                Game1.Game.SpriteSheets[SpriteIndex],
+                PixelEngine.Game.SpriteSheets[SpriteIndex],
                 RenderRect,
-                new Rectangle( 0, 0, Game1.Game.SpriteSheets[SpriteIndex].Width, Game1.Game.SpriteSheets[SpriteIndex].Height ),
+                new Rectangle( 0, 0, PixelEngine.Game.SpriteSheets[SpriteIndex].Width, PixelEngine.Game.SpriteSheets[SpriteIndex].Height ),
                 Color );
         }
 

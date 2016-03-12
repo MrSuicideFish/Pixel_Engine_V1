@@ -23,11 +23,11 @@ namespace GLSpriteTest.Graphics
         public CollisionComponent( GameObject _parent = null ) : base( _parent )
         {
             //Create Rigidbody
-            RigidBody = BodyFactory.CreateRectangle( Game1.PHYSICS_WORLD, 1, 1, 1.0f );
+            RigidBody = BodyFactory.CreateRectangle( PixelEngine.PHYSICS_WORLD, 1, 1, 1.0f );
             RigidBody.BodyType = BodyType.Dynamic;
             RigidBody.GetTransform( out RB_Transform );
 
-            Game1.OnPhysicsUpdate += OnPhyicsUpdate;
+            PixelEngine.OnPhysicsUpdate += OnPhyicsUpdate;
         }
 
         protected virtual void OnPhyicsUpdate( World _phyWorld )

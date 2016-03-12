@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="Engine\Component.cs" />
     <Compile Include="Engine\GameObject.cs" />
-    <Compile Include="Engine.cs" />
+    <Compile Include="PixelEngine.cs" />
     <Compile Include="Engine\Object.cs" />
     <Compile Include="Engine\World\WorldManager.cs" />
     <Compile Include="Graphics\Camera.cs" />

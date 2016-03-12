@@ -37,8 +37,6 @@ C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\MonoGame
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\Newtonsoft.Json.dll
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\OpenTK.dll
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\System.Json.dll
-C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\DebugView MonoGame.pdb
-C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\Newtonsoft.Json.xml
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\System.Json.xml
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\obj\x86\Debug\Engine.csprojResolveAssemblyReference.cache

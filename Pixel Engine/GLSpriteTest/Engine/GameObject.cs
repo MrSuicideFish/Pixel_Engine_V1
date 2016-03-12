@@ -29,7 +29,7 @@ namespace GLSpriteTest.Engine
         public GameObject( )
         {
             Name = "New Gameobject";
-            Game1.AddGameObjectToWorld( this );
+            PixelEngine.AddGameObjectToWorld( this );
         }
 
         public GameObject( string _name )
@@ -46,7 +46,7 @@ namespace GLSpriteTest.Engine
 
             Enabled = true;
 
-            Game1.AddGameObjectToWorld( this );
+            PixelEngine.AddGameObjectToWorld( this );
         }
 
         #endregion
