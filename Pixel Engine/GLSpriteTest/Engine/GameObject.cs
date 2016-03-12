@@ -11,10 +11,27 @@ using IDrawable = GLSpriteTest.Interfaces.IDrawable;
 
 namespace GLSpriteTest.Engine
 {
+    [Serializable]
     public class GameObject : Object, IUpdateable
     {
-        public string Name { get; private set; }
-        public Component[] Components { get; private set; }
+        public string Name { get; set; }
+
+        private Component[] components;
+        public Component[] Components
+        {
+            get
+            {
+                if ( components == null )
+                {
+                    components = new Component[0];
+                }
+
+                return components;
+            }
+
+            set { components = value; }
+        }
+
         public Transform transform { get; private set; }
 
         //Event dispatches
@@ -128,7 +145,7 @@ namespace GLSpriteTest.Engine
                 else
                     _newCompList[i] = Components[i];
 
-            Components = _newCompList;
+            components = _newCompList;
             
             _component.Start( );
             return _component;
@@ -146,7 +163,7 @@ namespace GLSpriteTest.Engine
                     _newCompList[i] = Components[i];
             }
 
-            Components = _newCompList;
+            components = _newCompList;
         }
 
         public void RemoveComponent( Type _type )
@@ -161,7 +178,7 @@ namespace GLSpriteTest.Engine
                     _newCompList[i] = Components[i];
             }
 
-            Components = _newCompList;
+            components = _newCompList;
         }
 
         public T GetComponent<T>( ) where T : Component

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Json;
+using Newtonsoft.Json.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.CSharp;
@@ -19,20 +19,26 @@ namespace GLSpriteTest.Engine.World
 
     public class World
     {
-        public string LocalPath = "";
+        public string LocalPath { get; set; }
+        public WorldSettings Settings { get; set; }
+        public List<GameObject> Objects { get; set; }
+    }
 
-        public WorldSettings Settings;
+    public class WorldInfo
+    {
+        public World WORLD { get; set; }
+    }
 
-        public List<GameObject> Objects;
+    public class Test
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public long revisionDate { get; set; }
+    }
 
-        [JsonExtensionData]
-        public Dictionary<string, object> fields { get; set; }
-
-        public World( string _worldName = "Untitled" )
-        {
-            Settings = new WorldSettings( );
-            Objects = new List<GameObject>( );
-        }
+    public class Foo
+    {
+        public Test Name { get; set; }
     }
 
     public static class WorldManager
@@ -60,11 +66,13 @@ namespace GLSpriteTest.Engine.World
         public static int Initialize( )
         {
             //Create empty world
-            LOADED_WORLD = new World( );
-            LOADED_WORLD.LocalPath = "localhost";
+            LOADED_WORLD            = new World( );
+            LOADED_WORLD.LocalPath  = "localhost";
+            LOADED_WORLD.Settings   = new WorldSettings( );
+            LOADED_WORLD.Objects    = new List<GameObject>( );
 
-            WORLD_SETTINGS = LOADED_WORLD.Settings;
-            WORLD_OBJECTS = LOADED_WORLD.Objects;
+            WORLD_SETTINGS  = LOADED_WORLD.Settings;
+            WORLD_OBJECTS   = LOADED_WORLD.Objects;
 
             IsInitialized = true;
 
@@ -113,15 +121,13 @@ namespace GLSpriteTest.Engine.World
 #if PIXEL_ENGINE
                                 string _worldData = File.ReadAllText( _path );
 
-                                var _newWorld = JsonObject.Parse( _worldData );
+                                WorldInfo _worldInfo = JsonConvert.DeserializeObject<WorldInfo>( _worldData );
+                                LOADED_WORLD = _worldInfo.WORLD;
 
-                                //Debug.Print( _newWorld.Objects[0].Name );
-
-                                //LOADED_WORLD = _newWorld;
-
-                                //WORLD_SETTINGS = LOADED_WORLD.Settings;
-                                //WORLD_OBJECTS = LOADED_WORLD.Objects;
+                                WORLD_SETTINGS = LOADED_WORLD.Settings;
+                                WORLD_OBJECTS = LOADED_WORLD.Objects;
 #endif
+
 #if PIXEL_EDITOR
                                 //do editor load
 #endif
@@ -167,16 +173,23 @@ namespace GLSpriteTest.Engine.World
 
                 Debug.Print( "Saving World to '" + _path + "'" );
 
-                World _worldToSave = LOADED_WORLD;
+                WorldInfo _worldToSave = new WorldInfo( );
+                _worldToSave.WORLD = LOADED_WORLD;
+                _worldToSave.WORLD.LocalPath = _path + "\\" + _worldName + ".world";
 
-                _worldToSave.LocalPath = _path + "\\" + _worldName + ".world";
-                string _worldData = JsonConvert.SerializeObject( _worldToSave, Formatting.Indented );
+                string _worldData = JsonConvert.SerializeObject
+                    ( 
+                        _worldToSave, typeof( WorldInfo ),
+                        Formatting.Indented,
+                        new JsonSerializerSettings( )
+                        {
+                            MaxDepth = 10
+                        }
+                    );
 
                 File.WriteAllText( _path + "\\" + _worldName + ".world", _worldData );
 
                 Debug.Print( "World Saved!" );
-
-                Debug.Print( _worldToSave.Objects[0].Name );
             }
         }
 
@@ -186,7 +199,7 @@ namespace GLSpriteTest.Engine.World
             {
                 if(LOADED_WORLD != null )
                 {
-                    for(int i = 0; i < LOADED_WORLD.Objects.Count - 1; i++ )
+                    for(int i = 0; i < LOADED_WORLD.Objects.Count; i++ )
                     {
 
                     }
@@ -219,6 +232,7 @@ namespace GLSpriteTest.Engine.World
                 Debug.Print( Error_Object_Add + "The world did not initialize properly", DEBUG_LOG_TYPE.ERROR );
             }
 
+            //Add new item to world
             WORLD_OBJECTS.Add( _newObj );
             _newObj.Start( );
         }

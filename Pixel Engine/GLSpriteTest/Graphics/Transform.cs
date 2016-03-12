@@ -8,10 +8,17 @@ using GLSpriteTest.Engine;
 
 namespace GLSpriteTest.Graphics
 {
+    [Serializable]
     public class Transform : Component
     {
-        public Vector2 Position;
-        public Vector2 Scale;
-        public Quaternion Rotation;
+        public Vector2 Position { get; set; }
+        public Vector2 Scale { get; set; }
+        public Quaternion Rotation { get; set; }
+
+        public Transform(GameObject _parent = null ) 
+            : base( _parent )
+        {
+
+        }
     }
 }

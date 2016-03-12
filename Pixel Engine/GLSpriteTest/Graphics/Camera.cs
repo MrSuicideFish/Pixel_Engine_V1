@@ -11,6 +11,7 @@ using GLSpriteTest.Graphics;
 
 namespace GLSpriteTest.Graphics
 {
+    [Serializable]
     public class Camera : Component
     {
         private readonly Viewport _Viewport;
@@ -53,6 +54,7 @@ namespace GLSpriteTest.Graphics
                 IsViewMatrixDirty = true;
             }
         }
+
         public float Rotation
         {
             get { return _Rotation; }
@@ -62,6 +64,7 @@ namespace GLSpriteTest.Graphics
                 IsViewMatrixDirty = true;
             }
         }
+
         public Vector2 Position
         {
             get { return _Position; }

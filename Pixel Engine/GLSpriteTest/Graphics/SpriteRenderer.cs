@@ -10,11 +10,12 @@ using IDrawable = GLSpriteTest.Interfaces.IDrawable;
 
 namespace GLSpriteTest.Graphics
 {
+    [Serializable]
     public sealed class SpriteRenderer : Component, IDrawable, IUpdateable
     {
         //Public
-        public int SpriteIndex { get; private set; }
-        public Color Color = Color.White;
+        public int SpriteIndex { get; set; }
+        public Color Color { get; set; }
 
         //Private
         private Rectangle RenderRect;

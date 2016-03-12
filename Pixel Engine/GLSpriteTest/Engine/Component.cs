@@ -10,9 +10,10 @@ using Microsoft.Xna.Framework;
 
 namespace GLSpriteTest.Engine
 {
-    public abstract class Component : Object, IUpdateable
+    [Serializable]
+    public class Component : Object, IUpdateable
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonIgnore]
         public GameObject gameObject { get; private set; }

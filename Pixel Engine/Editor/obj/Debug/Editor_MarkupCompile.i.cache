@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\depot_pixel_engine_0.1\Pixel Engine\Editor\obj\Debug\
+E:\PixelEngine\Pixel Engine\Editor\obj\Debug\
 Editor
 none
 false
 TRACE;DEBUG;PIXEL_EDITOR
-C:\depot_pixel_engine_0.1\Pixel Engine\Editor\App.xaml
+E:\PixelEngine\Pixel Engine\Editor\App.xaml
 11151548125
 
-9-630548105
-14-1296570131
+9-1467743355
+142089958920
 MainWindow.xaml;
 
-False
+True
 
