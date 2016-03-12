@@ -6,10 +6,23 @@
         xmlns:local="clr-namespace:Editor"
         mc:Ignorable="d"
         Title="Pixel World Editor" Height="900" Width="1440" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}">
-        <StatusBar Height="31" Margin="0,0,0,-4" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom"/>
-        <ToolBarPanel Height="22" Margin="0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-        <DockPanel LastChildFill="False" Margin="0,22,0,27" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
-
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            
+            <MenuItem Header="_File" Height="auto">
+                <MenuItem Header="_New World"/>
+                <MenuItem Header="_Open World"/>
+                <MenuItem Header="_Save World"/>
+                <MenuItem Header="_Exit"/>
+            </MenuItem>
+        </Menu>
+        <TabControl x:Name="tabControl" HorizontalContentAlignment="Center" DockPanel.Dock="Bottom" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="0">
+            <TabItem Header="World Editor">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Sheets">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

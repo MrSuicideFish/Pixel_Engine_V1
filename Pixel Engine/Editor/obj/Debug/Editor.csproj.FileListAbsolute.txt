@@ -12,3 +12,6 @@ E:\PixelEngine\Pixel Engine\Editor\obj\Debug\Editor.Properties.Resources.resourc
 E:\PixelEngine\Pixel Engine\Editor\obj\Debug\Editor.csproj.GenerateResource.Cache
 E:\PixelEngine\Pixel Engine\Editor\obj\Debug\Editor.exe
 E:\PixelEngine\Pixel Engine\Editor\obj\Debug\Editor.pdb
+E:\PixelEngine\Pixel Engine\Editor\bin\Debug\Dragablz.dll
+E:\PixelEngine\Pixel Engine\Editor\bin\Debug\Dragablz.pdb
+E:\PixelEngine\Pixel Engine\Editor\bin\Debug\Dragablz.xml

@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Dragablz;
+using Dragablz.Core;
+using Dragablz.Dockablz;
+using Dragablz.Themes;
+using Dragablz.Converters;
 
 namespace Editor
 {
@@ -23,6 +28,11 @@ namespace Editor
         public MainWindow( )
         {
             InitializeComponent( );
+        }
+
+        private void MenuItem_Click( object sender, RoutedEventArgs e )
+        {
+
         }
     }
 }
