@@ -69,13 +69,14 @@ namespace GLSpriteTest
             SpriteSheets.Add( 0, Content.Load<Texture2D>( "PikaSprite" ) );
 
             //debug: loadlevel
-            WorldManager.SaveWorld( "MyNewWorld" );
-            //WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "/Untitled.world" );
+            //WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "/MyNewWorld.world" );
 
             //Create main camera
             GameObject _camObj = new GameObject( "SCENE_CAMERA" );
             GAME_CAMERA = new Camera( GraphicsDevice.Viewport, _camObj );
             _camObj.AddComponent( GAME_CAMERA );
+
+            WorldManager.SaveWorld( "MyNewWorld" );
         }
 
         protected override void LoadContent( )

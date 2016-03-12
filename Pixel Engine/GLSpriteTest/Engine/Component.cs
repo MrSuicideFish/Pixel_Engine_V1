@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using GLSpriteTest.Interfaces;
 using Microsoft.Xna.Framework;
 
@@ -11,14 +13,31 @@ namespace GLSpriteTest.Engine
     public abstract class Component : Object, IUpdateable
     {
         public string Name { get; private set; }
+
+        [JsonIgnore]
         public GameObject gameObject { get; private set; }
 
         //Event dispatches
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
-        public bool Enabled { get; private set; }
-        public int UpdateOrder { get; private set; }
+        [JsonIgnore]
+        private bool enabled = false;
+
+        public bool Enabled
+        {
+            get { return enabled; }
+            private set { enabled = value; }
+        }
+
+        [JsonIgnore]
+        private int updateOrder = 0;
+
+        public int UpdateOrder
+        {
+            get { return updateOrder; }
+            set { updateOrder = value; }
+        }
 
         public Component( GameObject _parent = null )
         {

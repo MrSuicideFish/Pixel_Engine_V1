@@ -55,3 +55,4 @@ E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics Mono
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\Newtonsoft.Json.xml
 E:\PixelEngine\Pixel Engine\GLSpriteTest\obj\x86\Debug\GLSpriteTest.exe
 E:\PixelEngine\Pixel Engine\GLSpriteTest\obj\x86\Debug\GLSpriteTest.pdb
+E:\PixelEngine\Pixel Engine\GLSpriteTest\obj\x86\Debug\Engine.csprojResolveAssemblyReference.cache

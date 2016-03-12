@@ -17,10 +17,11 @@ namespace GLSpriteTest.Engine.World
 
     public class World
     {
-        public WorldSettings Settings;
-        public HashSet<GameObject> Objects;
-
         public string LocalPath = "";
+
+        public WorldSettings Settings;
+
+        public HashSet<GameObject> Objects;
 
         public World( string _worldName = "Untitled" )
         {
@@ -112,6 +113,8 @@ namespace GLSpriteTest.Engine.World
                                 WORLD_SETTINGS = LOADED_WORLD.Settings;
                                 WORLD_OBJECTS = LOADED_WORLD.Objects;
 
+                                Debug.Print( WORLD_OBJECTS.Count.ToString( ) );
+
                             }
                             catch(JsonException _jsonEx )
                             {
@@ -155,12 +158,37 @@ namespace GLSpriteTest.Engine.World
 
                 Debug.Print( "Saving World to '" + _path + "'" );
 
-                LOADED_WORLD.LocalPath = _path + "\\" + _worldName + ".world";
-                string _worldData = JsonConvert.SerializeObject( LOADED_WORLD );
+                World _worldToSave = LOADED_WORLD;
+
+                _worldToSave.LocalPath = _path + "\\" + _worldName + ".world";
+                string _worldData = JsonConvert.SerializeObject( _worldToSave, Formatting.Indented );
 
                 File.WriteAllText( _path + "\\" + _worldName + ".world", _worldData );
 
                 Debug.Print( "World Saved! " );
+            }
+        }
+
+        private static void InstantiateWorldObjects( )
+        {
+            try
+            {
+                if(LOADED_WORLD != null )
+                {
+                    for(int i = 0; i < LOADED_WORLD.Objects.Count - 1; i++ )
+                    {
+
+                    }
+                }
+                else
+                {
+                    throw new NullReferenceException( "Internal: LOADED_WORLD is NULL" );
+                }
+            }
+            catch ( NullReferenceException _n )
+            {
+                Debug.Print( _n.Message, DEBUG_LOG_TYPE.ERROR );
+                throw _n;
             }
         }
         #endregion
