@@ -123,9 +123,8 @@ namespace GLSpriteTest.Engine.World
                         }
                         else
                         {
-                            throw new FileNotFoundException( "Failed to load world" );
+                            throw new FileNotFoundException( "Failed to load world." );
                         }
-
                     }
                     else
                     {

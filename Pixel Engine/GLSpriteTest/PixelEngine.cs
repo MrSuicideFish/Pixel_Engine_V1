@@ -20,9 +20,9 @@ namespace GLSpriteTest
 
         public GraphicsDeviceManager m_Graphics { get; private set; }
 
-        public SpriteBatch m_SpriteBatch        { get; private set; }
+        public SpriteBatch m_SpriteBatch { get; private set; }
 
-        public static Camera GAME_CAMERA        { get; private set; }
+        public static Camera GAME_CAMERA { get; private set; }
 
         /// <summary>
         /// PHYSICS
@@ -58,7 +58,7 @@ namespace GLSpriteTest
             PHYSICS_WORLD = new World( new Vector2( 0f, 0f ) );
 
             Debug.Print( "Initializing World" );
-            while(WorldManager.Initialize( ) != 0 ) { }
+            while ( WorldManager.Initialize( ) != 0 ) { }
         }
 
         protected override void Initialize( )
@@ -68,15 +68,10 @@ namespace GLSpriteTest
             //add sprite texture
             SpriteSheets.Add( 0, Content.Load<Texture2D>( "PikaSprite" ) );
 
-            //debug: loadlevel
-            //WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "/MyNewWorld.world" );
-
             //Create main camera
             GameObject _camObj = new GameObject( "SCENE_CAMERA" );
             GAME_CAMERA = new Camera( GraphicsDevice.Viewport, _camObj );
             _camObj.AddComponent( GAME_CAMERA );
-
-            WorldManager.SaveWorld( "MyNewWorld" );
         }
 
         protected override void LoadContent( )
@@ -86,7 +81,7 @@ namespace GLSpriteTest
             Debug.Print( "Loading Content..." );
             PHYSICS_WORLD.Clear( );
 
-            if(DebugView == null )
+            if ( DebugView == null )
             {
                 DebugView = new DebugViewXNA( PHYSICS_WORLD );
                 DebugView.DefaultShapeColor = Color.White;
@@ -117,7 +112,7 @@ namespace GLSpriteTest
             PHYSICS_WORLD.Step( Math.Min( ( float )gameTime.ElapsedGameTime.TotalSeconds, ( 1f / 30f ) ) );
 
             //Dispatch Physics Events
-            if (OnPhysicsUpdate != null )
+            if ( OnPhysicsUpdate != null )
             {
                 OnPhysicsUpdate( PHYSICS_WORLD );
             }
@@ -154,11 +149,6 @@ namespace GLSpriteTest
         /*#################################
         * VIEWPORT MANAGEMENT
         *#################################*/
-        
-
-        /*#################################
-         * SCENE MANAGEMENT
-         *#################################*/
         private static int ObjectCount;
 
         GameObject GetObjectById( int _id )
@@ -181,5 +171,9 @@ namespace GLSpriteTest
         {
             return Game.SpriteSheets[sheetIdx];
         }
+
+        /*#################################
+         * ENGINE MACROS
+         *#################################*/
     }
 }

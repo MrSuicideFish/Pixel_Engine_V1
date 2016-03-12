@@ -103,6 +103,18 @@ namespace GLSpriteTest.Engine
         /// </summary>
         public virtual void OnDestroy( ) { }
 
+        #region Query
+        public static GameObject FindByName( string _name )
+        {
+            return null;
+        }
+
+        public static GameObject FindById(int id )
+        {
+            return null;
+        }
+        #endregion
+
         #region Component Management
         public Component AddComponent( Component _component )
         {
