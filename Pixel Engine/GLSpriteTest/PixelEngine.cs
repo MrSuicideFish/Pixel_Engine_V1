@@ -39,6 +39,8 @@ namespace GLSpriteTest
 
         public PixelEngine( )
         {
+            Debug.Print( "Initializing Engine..." );
+
             m_Graphics = new GraphicsDeviceManager( this );
             m_Graphics.PreferredBackBufferWidth = 1440;
             m_Graphics.PreferredBackBufferHeight = 900;
@@ -49,21 +51,34 @@ namespace GLSpriteTest
             SpriteSheets = new SortedList<int, Texture2D>( );
 
             //Initialize Physics
+            Debug.Print( "Initializing Physics Engine" );
             PHYSICS_WORLD = new World( new Vector2( 0f, 0f ) );
+
+            Debug.Print( "Initializing World" );
+            while(WorldManager.Initialize( ) != 0 )
+            {
+               
+            }
         }
 
         protected override void Initialize( )
         {
             base.Initialize( );
 
-            //Init world manager
-            WorldManager.Initialize( );
+            //add sprite texture
+            SpriteSheets.Add( 0, Content.Load<Texture2D>( "PikaSprite" ) );
+
+            //Create main camera
+            GameObject _camObj = new GameObject( "SCENE_CAMERA" );
+            GAME_CAMERA = new Camera( GraphicsDevice.Viewport, _camObj );
+            _camObj.AddComponent( GAME_CAMERA );
         }
 
-        Graphics.RectCollider _colliderA;
-        Graphics.RectCollider _colliderB;
         protected override void LoadContent( )
         {
+            Debug.Print( "Engine Initialized!" );
+
+            Debug.Print( "Loading Content..." );
             PHYSICS_WORLD.Clear( );
 
             if(DebugView == null )
@@ -78,33 +93,12 @@ namespace GLSpriteTest
             //create sprite batch
             m_SpriteBatch = new SpriteBatch( GraphicsDevice );
 
-            //add sprite texture
-            SpriteSheets.Add( 0, Content.Load<Texture2D>( "PikaSprite" ) );
-
-            //Create camera
-            GameObject _camObj = new GameObject( "SCENE_CAMERA" );
-            GAME_CAMERA = new Camera( GraphicsDevice.Viewport, _camObj );
-            _camObj.AddComponent( GAME_CAMERA );
-
-            ////create scene object and add test components
-            //GameObject _objA = new GameObject( "ColliderA" );
-            //Graphics.SpriteRenderer _rendererA = new Graphics.SpriteRenderer( _objA, 0 ); // Renderer
-            //_colliderA = new Graphics.RectCollider( _objA ); // Collider
-            //_objA.AddComponent( _rendererA );
-            //_objA.AddComponent( _colliderA );
-
-            //GameObject _objB = new GameObject( "ColliderB" );
-            //Graphics.SpriteRenderer _rendererB = new Graphics.SpriteRenderer( _objB, 0 ); // Renderer
-            //_colliderB = new Graphics.RectCollider( _objB ); // Collider
-            //_objB.AddComponent( _rendererB );
-            //_objB.AddComponent( _colliderB );
-
-            WorldManager.SaveWorld( );
+            Debug.Print( "Engine Ready!" );
         }
 
         protected override void UnloadContent( )
         {
-
+            Debug.Print( "Unloading Content..." );
         }
 
         protected override void Update( GameTime gameTime )
@@ -123,13 +117,8 @@ namespace GLSpriteTest
                 OnPhysicsUpdate( PHYSICS_WORLD );
             }
 
-            //Dispatch update events
-            foreach ( KeyValuePair<int, GameObject> _obj in SceneObjects )
-            {
-                if ( _obj.Value.Name == "ROOT" ) continue;
-
-                _obj.Value.Update( gameTime );
-            }
+            //Update loaded scene
+            WorldManager.Update( gameTime );
 
             base.Update( gameTime );
         }
@@ -143,11 +132,12 @@ namespace GLSpriteTest
             var viewMatrix = GAME_CAMERA.GetViewTransformMatrix( );
             m_SpriteBatch.Begin( SpriteSortMode.BackToFront, transformMatrix: viewMatrix );
 
-            //Dispatch draw events
-            foreach ( KeyValuePair<int, GameObject> _obj in SceneObjects )
-            {
-                _obj.Value.DrawComponents( m_SpriteBatch, gameTime );
-            }
+            //Draw loaded scene
+            WorldManager.Draw
+                (
+                    m_SpriteBatch,
+                    gameTime
+                );
 
             //End batch
             m_SpriteBatch.End( );
@@ -165,13 +155,6 @@ namespace GLSpriteTest
          * SCENE MANAGEMENT
          *#################################*/
         private static int ObjectCount;
-        public static void AddGameObjectToWorld( GameObject _newObj )
-        {
-            if ( _newObj == null ) return;
-
-            Game.SceneObjects.Add( ObjectCount++, _newObj );
-            _newObj.Start( );
-        }
 
         GameObject GetObjectById( int _id )
         {

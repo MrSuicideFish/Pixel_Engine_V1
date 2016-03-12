@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GLSpriteTest.Engine.World
 {
@@ -16,23 +18,27 @@ namespace GLSpriteTest.Engine.World
     public class World
     {
         public WorldSettings Settings;
-        public GameObject[] Objects;
+        public HashSet<GameObject> Objects;
 
         public string LocalPath = "";
 
         public World( string _worldName = "Untitled" )
         {
             Settings = new WorldSettings( );
-            Objects = new GameObject[0];
+            Objects = new HashSet<GameObject>( );
         }
     }
 
     public static class WorldManager
     {
+        #region Error Strings
+        private static readonly string Error_Object_Add = "ERROR - Failed to create object: ";
+        #endregion
+
         #region Loaded Objects
         private static World            LOADED_WORLD;
         private static WorldSettings    WORLD_SETTINGS;
-        private static GameObject[]     WORLD_OBJECTS;
+        private static HashSet<GameObject> WORLD_OBJECTS;
         #endregion
 
         #region World Events
@@ -59,6 +65,30 @@ namespace GLSpriteTest.Engine.World
             return 0;
         }
 
+        public static void Update( GameTime gameTime )
+        {
+            foreach ( GameObject _obj in WORLD_OBJECTS )
+            {
+                _obj.Update( gameTime );
+            }
+        }
+
+        public static void FixedUpdate( GameTime gameTime )
+        {
+            foreach ( GameObject _obj in WORLD_OBJECTS )
+            {
+                //_obj.FixedUpdate( gameTime );
+            }
+        }
+
+        public static void Draw(SpriteBatch _spriteBatch, GameTime gameTime )
+        {
+            foreach ( GameObject _obj in WORLD_OBJECTS )
+            {
+                _obj.DrawComponents( _spriteBatch, gameTime );
+            }
+        }
+
         #region World Load/Save
         public static void LoadWorld( string _path )
         {
@@ -74,7 +104,21 @@ namespace GLSpriteTest.Engine.World
         #endregion
 
         #region Object Management
+        public static void AddGameObjectToWorld( GameObject _newObj )
+        {
+            if ( _newObj == null )
+            {
+                Debug.Print( Error_Object_Add + "The Object is null", DEBUG_LOG_TYPE.ERROR );
+            }
 
+            if ( !IsInitialized || LOADED_WORLD == null )
+            {
+                Debug.Print( Error_Object_Add + "The world did not initialize properly", DEBUG_LOG_TYPE.ERROR );
+            }
+
+            WORLD_OBJECTS.Add( _newObj );
+            _newObj.Start( );
+        }
         #endregion
 
         #region Settings Management

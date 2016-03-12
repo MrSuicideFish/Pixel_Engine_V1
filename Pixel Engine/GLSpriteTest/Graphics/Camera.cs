@@ -33,6 +33,14 @@ namespace GLSpriteTest.Graphics
         private Matrix RotMatrix    = Matrix.Identity;
         private Matrix ScaleMatrix  = Matrix.Identity;
 
+        public static Camera main
+        {
+            get
+            {
+                return PixelEngine.GAME_CAMERA;
+            }
+        }
+
         public float Zoom
         {
             get { return _Zoom; }

@@ -29,7 +29,7 @@ namespace GLSpriteTest.Engine
         public GameObject( )
         {
             Name = "New Gameobject";
-            PixelEngine.AddGameObjectToWorld( this );
+            World.WorldManager.AddGameObjectToWorld( this );
         }
 
         public GameObject( string _name )
@@ -46,17 +46,22 @@ namespace GLSpriteTest.Engine
 
             Enabled = true;
 
-            PixelEngine.AddGameObjectToWorld( this );
+            World.WorldManager.AddGameObjectToWorld( this );
         }
 
         #endregion
 
-        //Virtual methods
+        /// <summary>
+        /// Initializes the GameObject upon ready
+        /// </summary>
         public virtual void Start( )
         {
-
         }
 
+        /// <summary>
+        /// Updates this GameObject and each of it's components.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public virtual void Update( GameTime gameTime )
         {
             //Update components
@@ -68,6 +73,12 @@ namespace GLSpriteTest.Engine
             }
         }
 
+        /// <summary>
+        /// Draws each child component of this GameObject.
+        /// NOTE: GameObjects do not directly need a draw call.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="gameTime"></param>
         public virtual void DrawComponents( SpriteBatch spriteBatch, GameTime gameTime )
         {
             for ( int i = 0; i < Components.Length; i++ )
@@ -82,7 +93,14 @@ namespace GLSpriteTest.Engine
             }
         }
 
+        /// <summary>
+        /// Called multiple times after physics processing
+        /// </summary>
         public virtual void FixedUpdate( ) { }
+
+        /// <summary>
+        /// Called when this GameObject is destroyed.
+        /// </summary>
         public virtual void OnDestroy( ) { }
 
         #region Component Management
