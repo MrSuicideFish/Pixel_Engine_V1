@@ -72,6 +72,10 @@ namespace GLSpriteTest
             GameObject _camObj = new GameObject( "SCENE_CAMERA" );
             GAME_CAMERA = new Camera( GraphicsDevice.Viewport, _camObj );
             _camObj.AddComponent( GAME_CAMERA );
+
+            WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "\\TestWorldB.world" );
+
+            //WorldManager.SaveWorld( "TestWorldB" );
         }
 
         protected override void LoadContent( )

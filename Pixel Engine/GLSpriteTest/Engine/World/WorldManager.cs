@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Json;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.CSharp;
 
 namespace GLSpriteTest.Engine.World
 {
@@ -21,12 +23,15 @@ namespace GLSpriteTest.Engine.World
 
         public WorldSettings Settings;
 
-        public HashSet<GameObject> Objects;
+        public List<GameObject> Objects;
+
+        [JsonExtensionData]
+        public Dictionary<string, object> fields { get; set; }
 
         public World( string _worldName = "Untitled" )
         {
             Settings = new WorldSettings( );
-            Objects = new HashSet<GameObject>( );
+            Objects = new List<GameObject>( );
         }
     }
 
@@ -39,7 +44,7 @@ namespace GLSpriteTest.Engine.World
         #region Loaded Objects
         private static World LOADED_WORLD;
         private static WorldSettings WORLD_SETTINGS;
-        private static HashSet<GameObject> WORLD_OBJECTS;
+        private static List<GameObject> WORLD_OBJECTS;
         #endregion
 
         #region World Events
@@ -105,16 +110,21 @@ namespace GLSpriteTest.Engine.World
                         {
                             try
                             {
+#if PIXEL_ENGINE
                                 string _worldData = File.ReadAllText( _path );
-                                World _newWorld = JsonConvert.DeserializeObject<World>( _worldData );
 
-                                LOADED_WORLD = _newWorld;
+                                var _newWorld = JsonObject.Parse( _worldData );
 
-                                WORLD_SETTINGS = LOADED_WORLD.Settings;
-                                WORLD_OBJECTS = LOADED_WORLD.Objects;
+                                //Debug.Print( _newWorld.Objects[0].Name );
 
-                                Debug.Print( WORLD_OBJECTS.Count.ToString( ) );
+                                //LOADED_WORLD = _newWorld;
 
+                                //WORLD_SETTINGS = LOADED_WORLD.Settings;
+                                //WORLD_OBJECTS = LOADED_WORLD.Objects;
+#endif
+#if PIXEL_EDITOR
+                                //do editor load
+#endif
                             }
                             catch(JsonException _jsonEx )
                             {
@@ -164,7 +174,9 @@ namespace GLSpriteTest.Engine.World
 
                 File.WriteAllText( _path + "\\" + _worldName + ".world", _worldData );
 
-                Debug.Print( "World Saved! " );
+                Debug.Print( "World Saved!" );
+
+                Debug.Print( _worldToSave.Objects[0].Name );
             }
         }
 
@@ -190,11 +202,13 @@ namespace GLSpriteTest.Engine.World
                 throw _n;
             }
         }
-        #endregion
+#endregion
 
-        #region Object Management
+#region Object Management
         public static void AddGameObjectToWorld( GameObject _newObj )
         {
+            Debug.Print( "adding object to world " + _newObj.Name);
+
             if ( _newObj == null )
             {
                 Debug.Print( Error_Object_Add + "The Object is null", DEBUG_LOG_TYPE.ERROR );
@@ -208,10 +222,10 @@ namespace GLSpriteTest.Engine.World
             WORLD_OBJECTS.Add( _newObj );
             _newObj.Start( );
         }
-        #endregion
+#endregion
 
-        #region Settings Management
+#region Settings Management
 
-        #endregion
+#endregion
     }
 }

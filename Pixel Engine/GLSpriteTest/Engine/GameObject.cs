@@ -29,6 +29,8 @@ namespace GLSpriteTest.Engine
         public GameObject( )
         {
             Name = "New Gameobject";
+            Components = new Component[0];
+
             World.WorldManager.AddGameObjectToWorld( this );
         }
 
