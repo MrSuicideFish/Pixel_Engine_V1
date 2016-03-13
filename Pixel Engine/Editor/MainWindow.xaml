@@ -7,21 +7,41 @@
         xmlns:tabablz="http://dragablz.net/winfx/xaml/dockablz"
         xmlns:local="clr-namespace:Editor"
         mc:Ignorable="d"
-        Title="Pixel World Editor" Height="900" Width="1440" WindowStartupLocation="CenterScreen" WindowState="Maximized" Foreground="Black">
+        Title="Pixel World Editor" Height="900" Width="1440" WindowStartupLocation="CenterScreen" Foreground="Black" WindowStyle="ThreeDBorderWindow">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <DockPanel Background="#FF7A7A7A">
+
+        <!-- STATUS BAR -->
+        <StatusBar Background="White" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="24">
+            <StatusBar.Effect>
+                <DropShadowEffect BlurRadius="30"/>
+            </StatusBar.Effect>
+        </StatusBar>
+
         <Menu DockPanel.Dock="Top" Background="#FF5B5B5B" Margin="0" Height="30" Foreground="#FFA0A0A0">
 
             <!--FILE MENU-->
-            <MenuItem Header="_File" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center">
-                <MenuItem Header="_New World"/>
-                <MenuItem Header="_Open World"/>
-                <MenuItem Header="_Save World"/>
-                <MenuItem Header="_Exit" Click="ExitApplication"/>
+            <MenuItem Header="_File" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center" Background="{x:Null}">
+                <MenuItem Header="_Preferences..." BorderBrush="#FF5B5B5B" Background="#FF5B5B5B"/>
+                <MenuItem Header="_Exit" BorderBrush="#FF5B5B5B" Background="#FF5B5B5B" Click="ExitApplication"/>
             </MenuItem>
 
             <!--ENGINE MENU-->
             <MenuItem Header="_Engine" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center">
-                
+
+            </MenuItem>
+
+            <!--WINDOW MENU-->
+            <MenuItem Header="_Window" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center">
+
             </MenuItem>
 
             <!--HELP MENU-->
@@ -29,13 +49,19 @@
 
             </MenuItem>
         </Menu>
-        <dragablz:TabablzControl Margin="0" Background="#FF616161">
+        
+<!--PROCEDURAL TABS-->
+        <dragablz:TabablzControl Margin="8,0,6,5" Background="#FF616161" Padding="2" ShowDefaultCloseButton="True" ShowDefaultAddButton="True" SnapsToDevicePixels="True"
+                             ItemContainerStyle="{StaticResource TrapezoidDragableTabItemStyle}"
+                             AdjacentHeaderItemOffset="-10">
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController/>
             </dragablz:TabablzControl.InterTabController>
-            
+
             <TabItem Header="World Editor" IsSelected="True">
                 <DockPanel LastChildFill="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto">
+
+
                     <Border Height="48" Width="auto" Background="DarkGray" BorderBrush="#FFBFBFBF" BorderThickness="1" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                         <Grid FlowDirection="LeftToRight">
                             <Grid.ColumnDefinitions>
@@ -65,12 +91,12 @@
                             <Button Grid.Row="0" Grid.Column="0" Width="40" Height="40" Margin="3">NEW</Button>
                             <Button Grid.Row="0" Grid.Column="1" Width="40" Height="40" Margin="3">OPEN</Button>
                             <Button Grid.Row="0" Grid.Column="2" Width="40" Height="40" Margin="3">SAVE</Button>
-                            
+
                             <!--OBJECT TRANSFORM-->
                             <Button Grid.Row="0" Grid.Column="4" Width="40" Height="40" Margin="3">MOVE</Button>
                             <Button Grid.Row="0" Grid.Column="5" Width="40" Height="40" Margin="3">ROT</Button>
                             <Button Grid.Row="0" Grid.Column="6" Width="40" Height="40" Margin="3">SCALE</Button>
-                            
+
                             <!--SNAP-->
                             <Button Grid.Row="0" Grid.Column="8" Width="40" Height="40" Margin="3">SM</Button>
                             <Button Grid.Row="0" Grid.Column="9" Width="40" Height="40" Margin="3">SR</Button>
@@ -78,14 +104,51 @@
 
                         </Grid>
                     </Border>
+                    
+                    <!--Heirarchy Window-->
+                    <dragablz:TabablzControl Margin="8,0,6,5" Background="White" Padding="2" Width="200" ScrollViewer.CanContentScroll="True" FixedHeaderCount="0">
+                        <dragablz:TabablzControl.InterTabController>
+                            <dragablz:InterTabController  tabablz:Layout.FloatingItemState="Maximized" />
+                        </dragablz:TabablzControl.InterTabController>
+
+                        <TabItem Header="Heirarchy">
+                            <DockPanel LastChildFill="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto">
+                            </DockPanel>
+                        </TabItem>
+
+                        <TabItem Header="Heirarchy" AllowDrop="True">
+                            <DockPanel LastChildFill="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto">
+                            </DockPanel>
+                        </TabItem>
+                    </dragablz:TabablzControl>
+
+                    <!--Inspector Window-->
+                    <Border BorderThickness="1" DockPanel.Dock="Right" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="200">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFD46A00" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF2B2B2B" Offset="0.559"/>
+                                <GradientStop Color="#FF4F4F4F"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+
+                    <!--EDITOR VIEWPORT-->
+                    <local:Pixel_Engine_Viewport Background="Black" DockPanel.Dock="Left" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></local:Pixel_Engine_Viewport>
+
+
+
                 </DockPanel>
             </TabItem>
-            
-            <TabItem Header="Sheet Editor">
-                
+
+            <TabItem Header="Sheet Editor" Background="#FF6C5C5C">
+
             </TabItem>
-
-
         </dragablz:TabablzControl>
     </DockPanel>
 </Window>
