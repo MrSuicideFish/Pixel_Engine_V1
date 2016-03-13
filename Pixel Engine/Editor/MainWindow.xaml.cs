@@ -1,6 +1,4 @@
-﻿#define PIXEL_EDITOR
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,9 +30,26 @@ namespace Editor
             InitializeComponent( );
         }
 
+        #region Click Events
         private void MenuItem_Click( object sender, RoutedEventArgs e )
         {
 
         }
+
+        private void ExitApplication( object sender, RoutedEventArgs e )
+        {
+            //Exit
+            Shutdown( );
+        }
+        #endregion
+
+        #region Application Methods
+
+        private void Shutdown( )
+        {
+            Application.Current.Shutdown( );
+        }
+
+        #endregion
     }
 }

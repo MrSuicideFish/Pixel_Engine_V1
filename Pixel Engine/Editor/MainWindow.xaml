@@ -3,26 +3,89 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        xmlns:tabablz="http://dragablz.net/winfx/xaml/dockablz"
         xmlns:local="clr-namespace:Editor"
         mc:Ignorable="d"
-        Title="Pixel World Editor" Height="900" Width="1440" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            
-            <MenuItem Header="_File" Height="auto">
+        Title="Pixel World Editor" Height="900" Width="1440" WindowStartupLocation="CenterScreen" WindowState="Maximized" Foreground="Black">
+    <DockPanel Background="#FF7A7A7A">
+        <Menu DockPanel.Dock="Top" Background="#FF5B5B5B" Margin="0" Height="30" Foreground="#FFA0A0A0">
+
+            <!--FILE MENU-->
+            <MenuItem Header="_File" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center">
                 <MenuItem Header="_New World"/>
                 <MenuItem Header="_Open World"/>
                 <MenuItem Header="_Save World"/>
-                <MenuItem Header="_Exit"/>
+                <MenuItem Header="_Exit" Click="ExitApplication"/>
+            </MenuItem>
+
+            <!--ENGINE MENU-->
+            <MenuItem Header="_Engine" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center">
+                
+            </MenuItem>
+
+            <!--HELP MENU-->
+            <MenuItem Header="_Help" FontSize="16" FontWeight="Bold" TextBlock.TextAlignment="Center" VerticalAlignment="Center" Margin="0" Height="30" HorizontalContentAlignment="Center">
+
             </MenuItem>
         </Menu>
-        <TabControl x:Name="tabControl" HorizontalContentAlignment="Center" DockPanel.Dock="Bottom" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="0">
-            <TabItem Header="World Editor">
-                <Grid Background="#FFE5E5E5"/>
+        <dragablz:TabablzControl Margin="0" Background="#FF616161">
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController/>
+            </dragablz:TabablzControl.InterTabController>
+            
+            <TabItem Header="World Editor" IsSelected="True">
+                <DockPanel LastChildFill="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto">
+                    <Border Height="48" Width="auto" Background="DarkGray" BorderBrush="#FFBFBFBF" BorderThickness="1" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                        <Grid FlowDirection="LeftToRight">
+                            <Grid.ColumnDefinitions>
+                                <!--Define IO columns-->
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+
+                                <!--Space-->
+                                <ColumnDefinition Width="20" />
+
+                                <!--Define Transform Columns-->
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+
+                                <!--Space-->
+                                <ColumnDefinition Width="20" />
+
+                                <!--Define Snapping Columns-->
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--FILE / SAVE-->
+                            <Button Grid.Row="0" Grid.Column="0" Width="40" Height="40" Margin="3">NEW</Button>
+                            <Button Grid.Row="0" Grid.Column="1" Width="40" Height="40" Margin="3">OPEN</Button>
+                            <Button Grid.Row="0" Grid.Column="2" Width="40" Height="40" Margin="3">SAVE</Button>
+                            
+                            <!--OBJECT TRANSFORM-->
+                            <Button Grid.Row="0" Grid.Column="4" Width="40" Height="40" Margin="3">MOVE</Button>
+                            <Button Grid.Row="0" Grid.Column="5" Width="40" Height="40" Margin="3">ROT</Button>
+                            <Button Grid.Row="0" Grid.Column="6" Width="40" Height="40" Margin="3">SCALE</Button>
+                            
+                            <!--SNAP-->
+                            <Button Grid.Row="0" Grid.Column="8" Width="40" Height="40" Margin="3">SM</Button>
+                            <Button Grid.Row="0" Grid.Column="9" Width="40" Height="40" Margin="3">SR</Button>
+                            <Button Grid.Row="0" Grid.Column="10" Width="40" Height="40" Margin="3">SS</Button>
+
+                        </Grid>
+                    </Border>
+                </DockPanel>
             </TabItem>
-            <TabItem Header="Sheets">
-                <Grid Background="#FFE5E5E5"/>
+            
+            <TabItem Header="Sheet Editor">
+                
             </TabItem>
-        </TabControl>
+
+
+        </dragablz:TabablzControl>
     </DockPanel>
 </Window>
