@@ -20,11 +20,21 @@ using Dragablz.Converters;
 
 namespace Editor
 {
+
+    public enum OBJECT_TRANSFORM_MODE
+    {
+        MOVE,
+        ROTATE,
+        SCALE
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private OBJECT_TRANSFORM_MODE TRANSFORM_MODE = OBJECT_TRANSFORM_MODE.MOVE;
+
         public MainWindow( )
         {
             InitializeComponent( );
@@ -49,6 +59,28 @@ namespace Editor
         {
             Application.Current.Shutdown( );
         }
+
+        #region GAMEOBJECT TRANSFORM
+        public void Toggle_Transform_Mode( object sender, RoutedEventArgs e )
+        {
+
+        }
+
+        public void Toggle_GameObject_Snap_Move( object sender, RoutedEventArgs e )
+        {
+
+        }
+
+        public void Toggle_GameObject_Snap_Rotate( object sender, RoutedEventArgs e )
+        {
+
+        }
+
+        public void Toggle_GameObject_Snap_Scale( object sender, RoutedEventArgs e )
+        {
+
+        }
+        #endregion
 
         #endregion
     }

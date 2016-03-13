@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GLSpriteTest;
-using GLSpriteTest.Engine;
-using GLSpriteTest.Graphics;
+using PixelEngine;
+using PixelEngine.Engine;
+using PixelEngine.Graphics;
 
-namespace GLSpriteTest.Graphics
+namespace PixelEngine.Graphics
 {
     [Serializable]
     public class Camera : Component

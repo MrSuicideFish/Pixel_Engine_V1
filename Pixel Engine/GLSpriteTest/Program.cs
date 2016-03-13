@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GLSpriteTest
+namespace PixelEngine
 {
 #if WINDOWS || LINUX
     /// <summary>

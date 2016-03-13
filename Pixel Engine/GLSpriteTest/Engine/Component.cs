@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using GLSpriteTest.Interfaces;
+using PixelEngine.Interfaces;
 using Microsoft.Xna.Framework;
 
-namespace GLSpriteTest.Engine
+namespace PixelEngine.Engine
 {
     [Serializable]
     public class Component : Object, IUpdateable

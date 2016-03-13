@@ -42,9 +42,9 @@ C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\DebugVie
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\System.Json.dll
 C:\depot_pixel_engine_0.1\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\System.Json.xml
+E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe.config
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\Content\PikaSprite.png
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\Content\Font.xnb
-E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe.config
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.exe
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\GLSpriteTest.pdb
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\DebugView MonoGame.dll
@@ -57,4 +57,3 @@ E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\FarseerPhysics Mono
 E:\PixelEngine\Pixel Engine\GLSpriteTest\bin\WindowsGL\Debug\Newtonsoft.Json.xml
 E:\PixelEngine\Pixel Engine\GLSpriteTest\obj\x86\Debug\GLSpriteTest.exe
 E:\PixelEngine\Pixel Engine\GLSpriteTest\obj\x86\Debug\GLSpriteTest.pdb
-E:\PixelEngine\Pixel Engine\GLSpriteTest\obj\x86\Debug\Engine.csprojResolveAssemblyReference.cache

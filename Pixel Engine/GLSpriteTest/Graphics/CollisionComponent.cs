@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using GLSpriteTest;
-using GLSpriteTest.Engine;
+using PixelEngine;
+using PixelEngine.Engine;
 using FarseerPhysics.Common;
 using FarseerPhysics.Factories;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Collision.Shapes;
 
-namespace GLSpriteTest.Graphics
+namespace PixelEngine.Graphics
 {
     public abstract class CollisionComponent : Component
     {

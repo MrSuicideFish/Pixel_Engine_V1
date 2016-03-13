@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.CSharp;
 
-namespace GLSpriteTest.Engine.World
+namespace PixelEngine.Engine.World
 {
     public struct WorldSettings
     {
@@ -92,142 +92,142 @@ namespace GLSpriteTest.Engine.World
         }
 
         #region World Load/Save
-        public static void LoadWorld( string _path )
-        {
-            Debug.Print( "Loading World..." );
-            try
-            {
-                if ( !string.IsNullOrEmpty( _path ) )
+                public static void LoadWorld( string _path )
                 {
-                    FileInfo _info = new FileInfo( _path );
-                    if ( _info.Exists )
+                    Debug.Print( "Loading World..." );
+                    try
                     {
-                        if ( !string.IsNullOrEmpty( _info.Extension ) && _info.Extension.ToLower( ) == ".world" )
+                        if ( !string.IsNullOrEmpty( _path ) )
                         {
-                            try
+                            FileInfo _info = new FileInfo( _path );
+                            if ( _info.Exists )
                             {
-#if PIXEL_ENGINE
-                                string _worldData = File.ReadAllText( _path );
+                                if ( !string.IsNullOrEmpty( _info.Extension ) && _info.Extension.ToLower( ) == ".world" )
+                                {
+                                    try
+                                    {
+        #if PIXEL_ENGINE
+                                        string _worldData = File.ReadAllText( _path );
 
-                                WorldInfo _worldInfo = JsonConvert.DeserializeObject<WorldInfo>( _worldData );
-                                LOADED_WORLD = _worldInfo.WORLD;
+                                        WorldInfo _worldInfo = JsonConvert.DeserializeObject<WorldInfo>( _worldData );
+                                        LOADED_WORLD = _worldInfo.WORLD;
 
-                                WORLD_SETTINGS = LOADED_WORLD.Settings;
-                                WORLD_OBJECTS = LOADED_WORLD.Objects;
-#endif
+                                        WORLD_SETTINGS = LOADED_WORLD.Settings;
+                                        WORLD_OBJECTS = LOADED_WORLD.Objects;
+        #endif
 
-#if PIXEL_EDITOR
-                                //do editor load
-#endif
+        #if PIXEL_EDITOR
+                                        //do editor load
+        #endif
+                                    }
+                                    catch(JsonException _jsonEx )
+                                    {
+                                        throw _jsonEx;
+                                    }
+                                }
+                                else
+                                {
+                                    throw new FileNotFoundException( "Failed to load world." );
+                                }
                             }
-                            catch(JsonException _jsonEx )
+                            else
                             {
-                                throw _jsonEx;
+                                throw new FileNotFoundException( "File '" + _path + "does not exist." );
+                            }
+
+                        }
+                        else
+                        {
+                            throw new ArgumentNullException( "World path is NULL or EMPTY" );
+                        }
+                    }
+                    catch ( Exception _nf )
+                    {
+                        Debug.Print( _nf.Message + ":" + _nf.StackTrace, DEBUG_LOG_TYPE.ERROR );
+                        throw _nf;
+                    }
+                    finally
+                    {
+                        Debug.Print( "World Loaded - " + LOADED_WORLD.LocalPath );
+                    }
+                }
+
+                public static void SaveWorld( string _worldName = "Untitled", string _path = "" )
+                {
+                    if ( LOADED_WORLD != null )
+                    {
+                        if ( string.IsNullOrEmpty( _path ) )
+                            _path = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments );
+
+                        Debug.Print( "Saving World to '" + _path + "'" );
+
+                        WorldInfo _worldToSave = new WorldInfo( );
+                        _worldToSave.WORLD = LOADED_WORLD;
+                        _worldToSave.WORLD.LocalPath = _path + "\\" + _worldName + ".world";
+
+                        string _worldData = JsonConvert.SerializeObject
+                            ( 
+                                _worldToSave, typeof( WorldInfo ),
+                                Formatting.Indented,
+                                new JsonSerializerSettings( )
+                                {
+                                    MaxDepth = 10
+                                }
+                            );
+
+                        File.WriteAllText( _path + "\\" + _worldName + ".world", _worldData );
+
+                        Debug.Print( "World Saved!" );
+                    }
+                }
+
+                private static void InstantiateWorldObjects( )
+                {
+                    try
+                    {
+                        if(LOADED_WORLD != null )
+                        {
+                            for(int i = 0; i < LOADED_WORLD.Objects.Count; i++ )
+                            {
+
                             }
                         }
                         else
                         {
-                            throw new FileNotFoundException( "Failed to load world." );
+                            throw new NullReferenceException( "Internal: LOADED_WORLD is NULL" );
                         }
                     }
-                    else
+                    catch ( NullReferenceException _n )
                     {
-                        throw new FileNotFoundException( "File '" + _path + "does not exist." );
-                    }
-
-                }
-                else
-                {
-                    throw new ArgumentNullException( "World path is NULL or EMPTY" );
-                }
-            }
-            catch ( Exception _nf )
-            {
-                Debug.Print( _nf.Message + ":" + _nf.StackTrace, DEBUG_LOG_TYPE.ERROR );
-                throw _nf;
-            }
-            finally
-            {
-                Debug.Print( "World Loaded - " + LOADED_WORLD.LocalPath );
-            }
-        }
-
-        public static void SaveWorld( string _worldName = "Untitled", string _path = "" )
-        {
-            if ( LOADED_WORLD != null )
-            {
-                if ( string.IsNullOrEmpty( _path ) )
-                    _path = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments );
-
-                Debug.Print( "Saving World to '" + _path + "'" );
-
-                WorldInfo _worldToSave = new WorldInfo( );
-                _worldToSave.WORLD = LOADED_WORLD;
-                _worldToSave.WORLD.LocalPath = _path + "\\" + _worldName + ".world";
-
-                string _worldData = JsonConvert.SerializeObject
-                    ( 
-                        _worldToSave, typeof( WorldInfo ),
-                        Formatting.Indented,
-                        new JsonSerializerSettings( )
-                        {
-                            MaxDepth = 10
-                        }
-                    );
-
-                File.WriteAllText( _path + "\\" + _worldName + ".world", _worldData );
-
-                Debug.Print( "World Saved!" );
-            }
-        }
-
-        private static void InstantiateWorldObjects( )
-        {
-            try
-            {
-                if(LOADED_WORLD != null )
-                {
-                    for(int i = 0; i < LOADED_WORLD.Objects.Count; i++ )
-                    {
-
+                        Debug.Print( _n.Message, DEBUG_LOG_TYPE.ERROR );
+                        throw _n;
                     }
                 }
-                else
+        #endregion
+
+        #region Object Management
+                public static void AddGameObjectToWorld( GameObject _newObj )
                 {
-                    throw new NullReferenceException( "Internal: LOADED_WORLD is NULL" );
+                    Debug.Print( "adding object to world " + _newObj.Name);
+
+                    if ( _newObj == null )
+                    {
+                        Debug.Print( Error_Object_Add + "The Object is null", DEBUG_LOG_TYPE.ERROR );
+                    }
+
+                    if ( !IsInitialized || LOADED_WORLD == null )
+                    {
+                        Debug.Print( Error_Object_Add + "The world did not initialize properly", DEBUG_LOG_TYPE.ERROR );
+                    }
+
+                    //Add new item to world
+                    WORLD_OBJECTS.Add( _newObj );
+                    _newObj.Start( );
                 }
-            }
-            catch ( NullReferenceException _n )
-            {
-                Debug.Print( _n.Message, DEBUG_LOG_TYPE.ERROR );
-                throw _n;
-            }
-        }
-#endregion
+        #endregion
 
-#region Object Management
-        public static void AddGameObjectToWorld( GameObject _newObj )
-        {
-            Debug.Print( "adding object to world " + _newObj.Name);
+        #region Settings Management
 
-            if ( _newObj == null )
-            {
-                Debug.Print( Error_Object_Add + "The Object is null", DEBUG_LOG_TYPE.ERROR );
-            }
-
-            if ( !IsInitialized || LOADED_WORLD == null )
-            {
-                Debug.Print( Error_Object_Add + "The world did not initialize properly", DEBUG_LOG_TYPE.ERROR );
-            }
-
-            //Add new item to world
-            WORLD_OBJECTS.Add( _newObj );
-            _newObj.Start( );
-        }
-#endregion
-
-#region Settings Management
-
-#endregion
+        #endregion
     }
 }

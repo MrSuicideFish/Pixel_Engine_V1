@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GLSpriteTest.Interfaces;
-using GLSpriteTest.Graphics;
+using PixelEngine.Interfaces;
+using PixelEngine.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using IDrawable = GLSpriteTest.Interfaces.IDrawable;
+using IDrawable = PixelEngine.Interfaces.IDrawable;
 
-namespace GLSpriteTest.Engine
+namespace PixelEngine.Engine
 {
     [Serializable]
     public class GameObject : Object, IUpdateable
@@ -45,17 +45,12 @@ namespace GLSpriteTest.Engine
 
         public GameObject( )
         {
-            Name = "New Gameobject";
-            Components = new Component[0];
-
             World.WorldManager.AddGameObjectToWorld( this );
         }
 
         public GameObject( string _name )
         {
             Name = _name;
-
-            Components = new Component[0];
 
             Graphics.Transform _transComponent = new Graphics.Transform( );
             _transComponent.Position = new Vector2( 0, 0 );
@@ -242,12 +237,10 @@ namespace GLSpriteTest.Engine
             catch ( NullReferenceException _NullEx )
             {
                 throw _NullEx;
-                return null;
             }
             catch ( IndexOutOfRangeException _rangeEx )
             {
                 throw _rangeEx;
-                return null;
             }
 
             return _newComponent;

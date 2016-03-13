@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GLSpriteTest.Engine;
-using IDrawable = GLSpriteTest.Interfaces.IDrawable;
+using PixelEngine.Engine;
+using IDrawable = PixelEngine.Interfaces.IDrawable;
 
-namespace GLSpriteTest.Graphics
+namespace PixelEngine.Graphics
 {
     [Serializable]
     public sealed class SpriteRenderer : Component, IDrawable, IUpdateable

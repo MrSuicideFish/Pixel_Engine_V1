@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using GLSpriteTest.Engine;
-using GLSpriteTest.Graphics;
+using PixelEngine.Engine;
+using PixelEngine.Graphics;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Common;
 using FarseerPhysics.DebugView;
 
-using WorldManager = GLSpriteTest.Engine.World.WorldManager;
+using PixelEngine.Engine.UI;
+using WorldManager = PixelEngine.Engine.World.WorldManager;
 
-namespace GLSpriteTest
+namespace PixelEngine
 {
     public class PixelEngine : Game
     {
@@ -59,6 +60,9 @@ namespace GLSpriteTest
 
             Debug.Print( "Initializing World" );
             while ( WorldManager.Initialize( ) != 0 ) { }
+
+            //Initialize UI
+            Engine.UI.UI.Initialize( );
         }
 
         protected override void Initialize( )
