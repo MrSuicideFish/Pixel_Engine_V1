@@ -1,16 +1,18 @@
-﻿<Window TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+﻿<Window x:Class="Editor.MainWindow"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        x:Name="Pixel_Editor" x:Class="Editor.MainWindow"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        xmlns:tabablz="http://dragablz.net/winfx/xaml/dockablz"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
-        xmlns:tabablz="http://dragablz.net/winfx/xaml/dockablz"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:Editor"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:integrate="clr-namespace:XNAControl;assembly=XNAControl"
         mc:Ignorable="d"
-        Title="Pixel World Editor" Height="900" Width="1440" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow">
+        Title="MainWindow" Height="900" Width="1440" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -22,7 +24,7 @@
 
     <DockPanel Background="#FF7A7A7A">
 
-        <!-- STATUS BAR -->
+         <!--STATUS BAR--> 
         <StatusBar Background="White" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="24">
             <StatusBar.Effect>
                 <DropShadowEffect BlurRadius="30"/>
@@ -143,21 +145,18 @@
 
                     <!--Heirarchy Window-->
                     <dragablz:TabablzControl Margin="8,0,6,5" Background="White" Padding="2" Width="200" ScrollViewer.CanContentScroll="True" FixedHeaderCount="0"
-                                             ItemContainerStyle="{StaticResource TrapezoidDragableTabItemStyle}" ShowDefaultCloseButton="True" CustomHeaderItemStyle="{DynamicResource MaterialDesignPaper}"
-                                             >
-                        <dragablz:TabablzControl.InterTabController>
-                            <dragablz:InterTabController  tabablz:Layout.FloatingItemState="Maximized" />
-                        </dragablz:TabablzControl.InterTabController>
+                                             ItemContainerStyle="{StaticResource TrapezoidDragableTabItemStyle}" ShowDefaultCloseButton="True">
 
-                        <TabItem Header="Heirarchy" AllowDrop="True" IsSelected="True" Background="#FFA0A0A0">
-                            <DockPanel LastChildFill="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto">
-                            </DockPanel>
-                        </TabItem>
+                    <TabItem Header="Heirarchy" AllowDrop="True" IsSelected="True" Background="#FFA0A0A0">
+                        <DockPanel LastChildFill="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto">
+                        </DockPanel>
+                    </TabItem>
+                         
                     </dragablz:TabablzControl>
 
                     <!--Inspector Window-->
                     <dragablz:TabablzControl Margin="8,0,6,5" Background="White" Padding="2" Width="200" ScrollViewer.CanContentScroll="True" FixedHeaderCount="0" DockPanel.Dock="Right"
-                                             ItemContainerStyle="{StaticResource TrapezoidDragableTabItemStyle}" ShowDefaultCloseButton="True" CustomHeaderItemStyle="{DynamicResource MaterialDesignPaper}"
+                                             ItemContainerStyle="{StaticResource TrapezoidDragableTabItemStyle}" ShowDefaultCloseButton="True"
                                              >
                         <dragablz:TabablzControl.InterTabController>
                             <dragablz:InterTabController  tabablz:Layout.FloatingItemState="Maximized" />
@@ -168,11 +167,9 @@
                             </DockPanel>
                         </TabItem>
                     </dragablz:TabablzControl>
-
-                    <!--EDITOR VIEWPORT-->
-                    <local:Pixel_Engine_Viewport Background="Black" DockPanel.Dock="Left" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></local:Pixel_Engine_Viewport>
-
-
+                    
+                    <!--Viewport-->
+                    <integrate:UserControl1 x:Name="WorldViewport" Background="CornflowerBlue" Width="auto" Height="auto"/>
 
                 </DockPanel>
             </TabItem>

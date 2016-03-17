@@ -14,8 +14,8 @@ namespace PixelEngine
         [STAThread]
         static void Main()
         {
-            using (var game = new PixelEngine( ))
-                game.Run();
+            //using (var game = new PixelEngine( hand ))
+            //    game.Run();
         }
     }
 #endif

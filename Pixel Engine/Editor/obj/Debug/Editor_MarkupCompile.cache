@@ -1,7 +1,7 @@
 ﻿Editor
 
 
-winexe
+exe
 C#
 .cs
 E:\PixelEngine\Pixel Engine\Editor\obj\Debug\
@@ -12,8 +12,8 @@ TRACE;DEBUG;PIXEL_EDITOR
 E:\PixelEngine\Pixel Engine\Editor\App.xaml
 2419903590
 
-6-519310825
-17-1055641137
+6895708497
+232015273935
 MainWindow.xaml;Themes\Generic.xaml;
 
 False

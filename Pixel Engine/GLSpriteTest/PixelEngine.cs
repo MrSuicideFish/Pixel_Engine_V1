@@ -1,27 +1,39 @@
-﻿using System;
+﻿//INTERNAL
+using System;
 using System.Threading;
 using System.Collections.Generic;
+
+//XNA
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
+//ENGINE
 using PixelEngine.Engine;
+using PixelEngine.Engine.UI;
 using PixelEngine.Graphics;
+using WorldManager = PixelEngine.Engine.World.WorldManager;
+
+//PHYSICS
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Common;
 using FarseerPhysics.DebugView;
 
-using PixelEngine.Engine.UI;
-using WorldManager = PixelEngine.Engine.World.WorldManager;
+//EXTERNAL
+using System.Windows.Forms;
+
+//Input overrides
+using ButtonState   = Microsoft.Xna.Framework.Input.ButtonState;
+using Keys          = Microsoft.Xna.Framework.Input.Keys;
 
 namespace PixelEngine
 {
     public class PixelEngine : Game
     {
-        private DebugViewXNA DebugView;
+        //private DebugViewXNA DebugView;
 
-        public GraphicsDeviceManager m_Graphics { get; private set; }
-
-        public SpriteBatch m_SpriteBatch { get; private set; }
+        public GraphicsDeviceManager m_Graphics = null;
+        public SpriteBatch m_SpriteBatch        = null;
 
         public static Camera GAME_CAMERA { get; private set; }
 
@@ -37,18 +49,23 @@ namespace PixelEngine
         public SortedList<int, Texture2D> SpriteSheets { get; private set; }
         public SortedList<int, GameObject> SceneObjects = new SortedList<int, GameObject>( );
 
-        public static PixelEngine Game { get; private set; }
+        public static PixelEngine ENGINE { get; private set; }
 
-        public PixelEngine( )
+        public PixelEngine( ) : 
+            base( )
         {
             Debug.Print( "Initializing Engine..." );
 
-            m_Graphics = new GraphicsDeviceManager( this );
-            m_Graphics.PreferredBackBufferWidth = 1440;
-            m_Graphics.PreferredBackBufferHeight = 900;
+            //m_Graphics = new GraphicsDeviceManager( this as Game );
 
-            Content.RootDirectory = "Content";
-            Game = this;
+            //CommonContentLoaded = false;
+
+            //m_Graphics.PreparingDeviceSettings += OnPreparingDeviceSettings;
+
+            //this.IsMouseVisible = true;
+
+            //Content.RootDirectory = "Content";
+            //Game = this;
 
             SpriteSheets = new SortedList<int, Texture2D>( );
 
@@ -77,7 +94,7 @@ namespace PixelEngine
             GAME_CAMERA = new Camera( GraphicsDevice.Viewport, _camObj );
             _camObj.AddComponent( GAME_CAMERA );
 
-            WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "\\TestWorldB.world" );
+            //WorldManager.LoadWorld( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ) + "\\TestWorldB.world" );
 
             //WorldManager.SaveWorld( "TestWorldB" );
         }
@@ -88,15 +105,6 @@ namespace PixelEngine
 
             Debug.Print( "Loading Content..." );
             PHYSICS_WORLD.Clear( );
-
-            if ( DebugView == null )
-            {
-                DebugView = new DebugViewXNA( PHYSICS_WORLD );
-                DebugView.DefaultShapeColor = Color.White;
-                DebugView.SleepingShapeColor = Color.LightGray;
-                DebugView.LoadContent( GraphicsDevice, Content );
-                DebugView.AppendFlags( FarseerPhysics.DebugViewFlags.Shape );
-            }
 
             //create sprite batch
             m_SpriteBatch = new SpriteBatch( GraphicsDevice );
@@ -177,7 +185,7 @@ namespace PixelEngine
          *#################################*/
         public static Texture2D GetSpriteTexture2D( int sheetIdx )
         {
-            return Game.SpriteSheets[sheetIdx];
+            return ENGINE.SpriteSheets[sheetIdx];
         }
 
         /*#################################

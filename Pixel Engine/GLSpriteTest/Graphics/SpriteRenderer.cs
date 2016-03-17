@@ -56,9 +56,9 @@ namespace PixelEngine.Graphics
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch )
         {
             spriteBatch.Draw(
-                PixelEngine.Game.SpriteSheets[SpriteIndex],
+                PixelEngine.ENGINE.SpriteSheets[SpriteIndex],
                 RenderRect,
-                new Rectangle( 0, 0, PixelEngine.Game.SpriteSheets[SpriteIndex].Width, PixelEngine.Game.SpriteSheets[SpriteIndex].Height ),
+                new Rectangle( 0, 0, PixelEngine.ENGINE.SpriteSheets[SpriteIndex].Width, PixelEngine.ENGINE.SpriteSheets[SpriteIndex].Height ),
                 Color );
         }
 
