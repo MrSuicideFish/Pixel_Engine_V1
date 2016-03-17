@@ -167,9 +167,8 @@
                             </DockPanel>
                         </TabItem>
                     </dragablz:TabablzControl>
-                    
-                    <!--Viewport-->
-                    <integrate:UserControl1 x:Name="WorldViewport" Background="CornflowerBlue" Width="auto" Height="auto"/>
+
+                    <integrate:UserControl1 x:Name="EditorViewport" Background="White" Width="auto" Height="auto" Loaded="EditorViewport_Loaded"/>
 
                 </DockPanel>
             </TabItem>

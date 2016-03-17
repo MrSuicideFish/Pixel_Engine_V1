@@ -51,20 +51,14 @@ namespace PixelEngine
 
         public static PixelEngine ENGINE { get; private set; }
 
-        public PixelEngine( ) : 
-            base( )
+        public PixelEngine( )
         {
             Debug.Print( "Initializing Engine..." );
 
-            //m_Graphics = new GraphicsDeviceManager( this as Game );
+            m_Graphics = new GraphicsDeviceManager( this );
+            Window.Title = "Pixel Engine 0.4a"; 
 
-            //CommonContentLoaded = false;
-
-            //m_Graphics.PreparingDeviceSettings += OnPreparingDeviceSettings;
-
-            //this.IsMouseVisible = true;
-
-            //Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content";
             //Game = this;
 
             SpriteSheets = new SortedList<int, Texture2D>( );

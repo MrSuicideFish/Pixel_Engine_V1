@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Diagnostics;
-using Microsoft.Xna.Framework;
 using PixelEngine;
 using PixelEngine.Engine;
 using XNAControl;
@@ -27,13 +26,13 @@ namespace Editor
 
         // We use a Stopwatch to track our total time for cube animation
         private Stopwatch watch = new Stopwatch( );
-
-        private EditorGame NewGame;
+        private WorldEdGame WORLDED_GAME;
 
         public MainWindow( )
         {
             InitializeComponent( );
-            NewGame = new EditorGame( WorldViewport.Handle, "Shared" );
+            WORLDED_GAME = new WorldEdGame( EditorViewport.Handle, "Shared" );
+            //WORLDED_GAME.Run( );
         }
 
         #region Click Events
@@ -85,5 +84,9 @@ namespace Editor
 
         #endregion
 
+        private void EditorViewport_Loaded( object sender, RoutedEventArgs e )
+        {
+
+        }
     }
 }
